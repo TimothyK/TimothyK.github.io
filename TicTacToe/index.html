@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="tictactoe.css">
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>    
+    <table id="board">
+        <tr>
+            <td id="cell7" class="col1 row3">X</td>
+            <td id="cell8" class="col2 row3">O</td>
+            <td id="cell9" class="col3 row3">X</td>
+        </tr>
+        <tr>
+            <td id="cell4" class="col1 row2">O</td>
+            <td id="cell5" class="col2 row2">X</td>
+            <td id="cell6" class="col3 row2">O</td>
+        </tr>
+        <tr>
+            <td id="cell1" class="col1 row1">X</td>
+            <td id="cell2" class="col2 row1">O</td>
+            <td id="cell3" class="col3 row1">X</td>
+        </tr>
+    </table>
+    
+    <p id="quickHelp">It's your turn</p>
+    <p><input id="btnPlayAgain" type="button" value="Play Again?" style="display: none"></input></p>
+    
+    <table id="score" style="margin-left: auto; margin-right: auto;">
+        <thead>
+            <tr>
+                <th>X</th>
+                <th>O</th>
+                <th>Draw</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="score-x">0</td>
+                <td id="score-o">0</td>
+                <td id="score-draw">0</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="tictactoe.js"></script>
+</body>
+</html>
