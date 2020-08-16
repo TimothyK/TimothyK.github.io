@@ -1,39 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Timothy Klenke</title>
-</head>
-<body>
-    <h1>Timothy Klenke</h1>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="#">
+            <img
+              src="TimothyK-avatar.jpg"
+              alt=""
+              class="rounded-circle"
+              width="80"
+              height="90"
+            />
+          </a>
+          <h3 class="d-inline align-middle">
+            Timothy Klenke
+          </h3>
+        </div>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="https://twitter.com/TimothyKlenke" class="nav-link">
+                <i class="fab fa-twitter fa-3x"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://www.linkedin.com/in/timothy-klenke"
+                class="nav-link"
+              >
+                <i class="fab fa-linkedin fa-3x"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="https://github.com/TimothyK" class="nav-link">
+                <i class="fab fa-github fa-3x"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-    <img src="TimothyK-avatar.jpg" alt="avatar" style="width: 120px; height: 160px;" />
+    <img
+      src="TimothyK-avatar.jpg"
+      alt="avatar"
+      style="width: 120px; height: 160px;"
+    />
 
-    <p>Welcome!  I'm Timothy Klenke.  This is my home page.  I am a software developer in Edmonton, Canada.</p>
+    <p>
+      Welcome! I'm Timothy Klenke. This is my home page. I am a software
+      developer in Edmonton, Canada.
+    </p>
 
-
-    <a href="http://geekswithblogs.net/TimothyK/archive/2019/02/18/values-statement.aspx">My Values Statement:</a>
+    <a
+      href="http://geekswithblogs.net/TimothyK/archive/2019/02/18/values-statement.aspx"
+      >My Values Statement:</a
+    >
     <ul>
-        <li> will <a href="http://geekswithblogs.net/TimothyK/archive/2019/01/07/empowerment.aspx">empower</a> all those whom I work with, which will foster trust and respect.</li>
-        <li> will provide value to my customers and employer.</li>  
-        <li> will deliver software with the utmost quality.</li>   
-        <li> will continue to improve and learn.</li>
-        <li> will do all of the above in a sustainable way.</li>
+      <li>
+        will
+        <a
+          href="http://geekswithblogs.net/TimothyK/archive/2019/01/07/empowerment.aspx"
+          >empower</a
+        >
+        all those whom I work with, which will foster trust and respect.
+      </li>
+      <li>will provide value to my customers and employer.</li>
+      <li>will deliver software with the utmost quality.</li>
+      <li>will continue to improve and learn.</li>
+      <li>will do all of the above in a sustainable way.</li>
     </ul>
 
-    <p>Check out my blog: <a href="https://tinyurl.com/TimothyK">Code Monkey Projectiles</a></p>
+    <p>
+      Check out my blog:
+      <a href="https://tinyurl.com/TimothyK">Code Monkey Projectiles</a>
+    </p>
 
-    <p>Check out my <a href="https://github.com/TimothyK">GitHub repositories</a>.</p>
+    <p>
+      Check out my
+      <a href="https://github.com/TimothyK">GitHub repositories</a>.
+    </p>
 
     <p>Some JavaScript applications:</p>
-        <ul>
-            <li><a href="TicTacToe/">Tic Tac Toe</a> [<a href="https://github.com/TimothyK/JsTicTacToe">Source</a>]</li>
-        </ul>    
+    <ul>
+      <li>
+        <a href="TicTacToe/">Tic Tac Toe</a> [<a
+          href="https://github.com/TimothyK/JsTicTacToe"
+          >Source</a
+        >]
+      </li>
+    </ul>
 
-    <a href="www.linkedin.com/in/timothy-klenke"><img src="linkedin.png" alt="LinkedIn profile"></a>
-    
+    <a href="www.linkedin.com/in/timothy-klenke"
+      ><img src="linkedin.png" alt="LinkedIn profile"
+    /></a>
 
+    <div>
+      <script
+        src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"
+      ></script>
 
-</body>
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"
+      ></script>
+    </div>
+  </body>
 </html>
