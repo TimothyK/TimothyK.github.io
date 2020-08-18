@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <title>Timothy Klenke</title>
   </head>
+
   <body>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
       <div class="container">
@@ -51,6 +52,14 @@
             </li>
             <li class="nav-item">
               <a
+                href="https://www.meetup.com/Edmonton-NET-User-Group/"
+                class="nav-link"
+              >
+                <i class="fab fa-meetup fa-3x"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
                 href="https://www.linkedin.com/in/timothy-klenke"
                 class="nav-link"
               >
@@ -67,59 +76,196 @@
       </div>
     </nav>
 
-    <img
-      src="TimothyK-avatar.jpg"
-      alt="avatar"
-      style="width: 120px; height: 160px;"
-    />
+    <section id="about" class="pt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1>Hi, I'm Timothy Klenke</h1>
+            <p class="lead">I am a software developer in Edmonton, Canada.</p>
+          </div>
 
-    <p>
-      Welcome! I'm Timothy Klenke. This is my home page. I am a software
-      developer in Edmonton, Canada.
-    </p>
+          <div class="col-md-6 align-self-end">
+            <p>
+              I primarily work on on the C# stack. I'm skilled in TDD, SQL
+              Server, code reviews, mentoring.
+            </p>
+            <p>
+              Projects include web applications, business to business interfaces
+              (e.g. SAP & ERP Interfaces), developer tooling libraries.
+            </p>
+            <p>
+              Bachelor's of Computing Science, University of Alberta 1998. MCSA
+              Web Applications
+            </p>
+            <p>Hobbies include camping and poker.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <a
-      href="http://geekswithblogs.net/TimothyK/archive/2019/02/18/values-statement.aspx"
-      >My Values Statement:</a
-    >
-    <ul>
-      <li>
-        will
-        <a
-          href="http://geekswithblogs.net/TimothyK/archive/2019/01/07/empowerment.aspx"
-          >empower</a
-        >
-        all those whom I work with, which will foster trust and respect.
-      </li>
-      <li>will provide value to my customers and employer.</li>
-      <li>will deliver software with the utmost quality.</li>
-      <li>will continue to improve and learn.</li>
-      <li>will do all of the above in a sustainable way.</li>
-    </ul>
+    <section id="blog-header">
+      <div class="mt-3">
+        <div class="dark-overlay">
+          <div class="container">
+            <h2>
+              <i class="fas fa-pencil-alt"></i>
+              <span class="m-10">
+                The Blog
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <p>
-      Check out my blog:
-      <a href="https://tinyurl.com/TimothyK">Code Monkey Projectiles</a>
-    </p>
+    <section id="blog">
+      <div class="container mt-3 mb-5">
+        <div class="row">
+          <div class="col-md-4 offset-md-2">
+            <div class="card bg-dark">
+              <div class="card-header">
+                <h3>
+                  <a
+                    href="http://geekswithblogs.net/TimothyK/archive/2100/01/01/index.aspx"
+                  >
+                    Code Monkey Projectiles
+                  </a>
+                </h3>
+              </div>
 
-    <p>
-      Check out my
-      <a href="https://github.com/TimothyK">GitHub repositories</a>.
-    </p>
+              <div class="card-body">
+                <p>
+                  I've been blogging since 2013. It started as a New Year's
+                  resolution to blog twice a month for 2014. I made it to
+                  September, which is better than most of my other New Year's
+                  resolutions.
+                </p>
+                <p>
+                  Now I just blog when I get the urge. Usually a couple times a
+                  year. The tag line for the blog is "Code Monkey Projectiles".
+                  Please browse the archive.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card bg-dark">
+              <div class="card-header">
+                <h3>
+                  <a
+                    href="http://geekswithblogs.net/TimothyK/archive/2019/07/30/the-17-layered-app.aspx"
+                  >
+                    The 17-Layered App
+                  </a>
+                </h3>
+                <span class="text-muted">2019-07-30</span>
+                <span class="badge badge-success badge-pill">
+                  Design Patterns
+                </span>
+                <span class="badge badge-warning badge-pill">
+                  Most Recent
+                </span>
+              </div>
+              <div class="card-body">
+                <p class="mt-3">
+                  In this post, I will dive down deeper into the layers and see
+                  exactly how these could fit together. Each high-level layer is
+                  implemented by smaller focused layers, making 17 in all, at
+                  least in this example.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <p>Some JavaScript applications:</p>
-    <ul>
-      <li>
-        <a href="TicTacToe/">Tic Tac Toe</a> [<a
-          href="https://github.com/TimothyK/JsTicTacToe"
-          >Source</a
-        >]
-      </li>
-    </ul>
+    <section id="code-header">
+      <div class="mt-3">
+        <div class="dark-overlay">
+          <div class="container">
+            <h2>
+              <i class="fas fa-code"></i>
+              <span class="m-10">
+                The Code
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <a href="www.linkedin.com/in/timothy-klenke"
-      ><img src="linkedin.png" alt="LinkedIn profile"
-    /></a>
+    <section id="code">
+      <div class="mt-3">
+        <p>Some JavaScript applications:</p>
+        <ul>
+          <li>
+            <a href="TicTacToe/">Tic Tac Toe</a> [<a
+              href="https://github.com/TimothyK/JsTicTacToe"
+              >Source</a
+            >]
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="values-header">
+      <div class="mt-3">
+        <div class="dark-overlay">
+          <div class="container">
+            <h2>
+              <i class="fas fa-hand-holding-heart"></i>
+              <span class="m-10">
+                My Values Statement
+              </span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="values">
+      <div class="container mt-3">
+        <div class="row">
+          <div class="col-6 offset-3">
+            <ul class="list-group">
+              <li>
+                I will
+                <a
+                  href="http://geekswithblogs.net/TimothyK/archive/2019/01/07/empowerment.aspx"
+                  >empower</a
+                >
+                all those whom I work with, which will foster trust and respect.
+              </li>
+
+              <li>I will provide value to my customers and employer.</li>
+              <li>I will deliver software with the utmost quality.</li>
+              <li>I will continue to improve and learn.</li>
+              <li>I will do all of the above in a sustainable way.</li>
+            </ul>
+
+            <p class="text-right">
+              <a
+                class="mt-5"
+                href="http://geekswithblogs.net/TimothyK/archive/2019/02/18/values-statement.aspx"
+              >
+                Read More...
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark mt-5 p-5">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <p>&copy; 2020 - Timothy Klenke</p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <div>
       <script
