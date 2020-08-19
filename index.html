@@ -32,7 +32,7 @@
               height="90"
             />
           </a>
-          <h3 class="d-inline align-middle">
+          <h3 class="d-inline align-middle pl-2">
             Timothy Klenke
           </h3>
         </div>
@@ -119,61 +119,57 @@
     </section>
 
     <section id="blog">
-      <div class="container mt-3 mb-5">
-        <div class="row">
-          <div class="col-md-4 offset-md-2">
-            <div class="card bg-dark">
-              <div class="card-header">
-                <h3>
-                  <a
-                    href="http://geekswithblogs.net/TimothyK/archive/2100/01/01/index.aspx"
-                  >
-                    Code Monkey Projectiles
-                  </a>
-                </h3>
-              </div>
+      <div class="container">
+        <div class="card-deck mt-3">
+          <div class="card bg-dark border-light">
+            <div class="card-header">
+              <h3>
+                <a
+                  href="http://geekswithblogs.net/TimothyK/archive/2100/01/01/index.aspx"
+                >
+                  Code Monkey Projectiles
+                </a>
+              </h3>
+            </div>
 
-              <div class="card-body">
-                <p>
-                  I've been blogging since 2013. It started as a New Year's
-                  resolution to blog twice a month for 2014. I made it to
-                  September, which is better than most of my other New Year's
-                  resolutions.
-                </p>
-                <p>
-                  Now I just blog when I get the urge. Usually a couple times a
-                  year. The tag line for the blog is "Code Monkey Projectiles".
-                  Please browse the archive.
-                </p>
-              </div>
+            <div class="card-body">
+              <p>
+                I've been blogging since 2013. It started as a New Year's
+                resolution to blog twice a month for 2014. I made it to
+                September, which is better than most of my other New Year's
+                resolutions.
+              </p>
+              <p>
+                Now I just blog when I get the urge. Usually a couple times a
+                year. The tag line for the blog is "Code Monkey Projectiles".
+                Please browse the archive.
+              </p>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card bg-dark">
-              <div class="card-header">
-                <h3>
-                  <a
-                    href="http://geekswithblogs.net/TimothyK/archive/2019/07/30/the-17-layered-app.aspx"
-                  >
-                    The 17-Layered App
-                  </a>
-                </h3>
-                <span class="text-muted">2019-07-30</span>
-                <span class="badge badge-success badge-pill">
-                  Design Patterns
-                </span>
-                <span class="badge badge-warning badge-pill">
-                  Most Recent
-                </span>
-              </div>
-              <div class="card-body">
-                <p class="mt-3">
-                  In this post, I will dive down deeper into the layers and see
-                  exactly how these could fit together. Each high-level layer is
-                  implemented by smaller focused layers, making 17 in all, at
-                  least in this example.
-                </p>
-              </div>
+          <div class="card bg-dark border-light">
+            <div class="card-header">
+              <h3>
+                <a
+                  href="http://geekswithblogs.net/TimothyK/archive/2019/07/30/the-17-layered-app.aspx"
+                >
+                  The 17-Layered App
+                </a>
+              </h3>
+              <span class="text-muted">2019-07-30</span>
+              <span class="badge badge-success badge-pill">
+                Design Patterns
+              </span>
+              <span class="badge badge-warning badge-pill">
+                Most Recent
+              </span>
+            </div>
+            <div class="card-body">
+              <p class="mt-3">
+                In this post, I will dive down deeper into the layers and see
+                exactly how these could fit together. Each high-level layer is
+                implemented by smaller focused layers, making 17 in all, at
+                least in this example.
+              </p>
             </div>
           </div>
         </div>
@@ -196,16 +192,184 @@
     </section>
 
     <section id="code">
-      <div class="mt-3">
-        <p>Some JavaScript applications:</p>
-        <ul>
-          <li>
-            <a href="TicTacToe/">Tic Tac Toe</a> [<a
-              href="https://github.com/TimothyK/JsTicTacToe"
-              >Source</a
-            >]
-          </li>
-        </ul>
+      <div class="container mt-3">
+        <div class="card-columns">
+          <div class="card bg-dark border-light">
+            <div class="card-header">
+              <h3>
+                <a
+                  href="https://github.com/TimothyK/StronglyTypedEnumConverter"
+                >
+                  Strongly Typed Enum Converter
+                </a>
+              </h3>
+              <span class="badge badge-success badge-pill">
+                Tools
+              </span>
+            </div>
+
+            <div class="card-body">
+              <p>
+                This is a code generator that takes a standard C# enum code and
+                outputs a strongly typed enum class.
+              </p>
+              <p>
+                The strongly typed enum design pattern is an derivative of the
+                Singleton and Multiton design patterns. A Singleton allows for a
+                single instance of a class. A Multiton allows for a very limited
+                number of instances of a class.
+              </p>
+              <p>
+                An enum is very much like a Multiton where only a very few
+                possible values exist. But C# enums are primitive values, not
+                classes. The strongly typed enum pattern creates Multiton
+                classes that can be used like enums. However they have the full
+                power of classes: supporting static and instance methods,
+                properties, operator overloads, inheritance, and anything else
+                true classes can do.
+              </p>
+            </div>
+            <div class="card-footer text-right">
+              <a
+                class="mt-5"
+                href="http://geekswithblogs.net/TimothyK/archive/2014/07/31/strongly-typed-enum-pattern.aspx"
+              >
+                Read More...
+              </a>
+            </div>
+          </div>
+          <div class="card bg-dark border-light">
+            <div class="card-header">
+              <h3>
+                <a href="https://github.com/TimothyK/SendToClipboard">
+                  Send To Clipboard
+                </a>
+              </h3>
+              <span class="badge badge-success badge-pill">
+                Tools
+              </span>
+            </div>
+            <div class="card-body">
+              <p>
+                This is a handy little utility that can be installed with the
+                Windows Explorer Send To menu. It copies the full path to the
+                clipboard in both plain text and HTML formats. If pasting into
+                an HTML or rich text editor the path is a clickable link for
+                both the path and file. This is very handy for emailing a
+                colleague a path to a network share.
+              </p>
+            </div>
+          </div>
+          <div class="card bg-dark border-light">
+            <div class="card-header">
+              <h3>
+                <a href="https://github.com/TimothyK/Retail">
+                  Retail
+                </a>
+              </h3>
+              <span class="badge badge-success badge-pill">
+                Architecture Example
+              </span>
+            </div>
+            <div class="card-body">
+              <p>
+                This is companion code to my
+                <a
+                  href="http://geekswithblogs.net/TimothyK/archive/2019/07/30/the-17-layered-app.aspx"
+                >
+                  The 17-Layered App
+                </a>
+                blog post. It is a full example of how to implement fully
+                separated data and business layers.
+              </p>
+              <p>
+                It is not my only repo with examples of how to separate
+                concerns. Also check-out my
+                <a href="https://github.com/TimothyK/HitchhikerGuide"
+                  >Hitchhiker's Guide</a
+                >
+                repo. That is some code I used to present at the
+                <a href="https://www.meetup.com/Edmonton-NET-User-Group/">
+                  .NET User Group
+                </a>
+                for my presentation on Dependency Inversion Principle. In the
+                presentation I take a very badly designed ball of mud
+                application and refactor it to separate out the UI, then the
+                business and data layers. The data layer is a simple file
+                system.
+              </p>
+              <p>
+                I used the same Hitchhiker example (<a
+                  href="https://github.com/TimothyK/HitchhikerGuide/tree/Logging"
+                  >different branch</a
+                >) in another presentation I did on Seq and analytics. I wanted
+                to show how easy it is to merge log messages from a client,
+                server, and other layers of a distributed architecture. Because
+                of the separation I already did in Hitchhiker it was very easy
+                to swap out the file system data layer with a client/server.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-dark border-light">
+            <div class="card-header">
+              <h3>
+                <a href="https://github.com/TimothyK/RxExamples">
+                  Rx Examples
+                </a>
+              </h3>
+              <span class="badge badge-success badge-pill">
+                Blog
+              </span>
+            </div>
+            <div class="card-body">
+              <p>
+                These are the code examples that accompany my 5 part blog post
+                on implementing notification patterns using Reactive Extensions
+                (Rx).
+              </p>
+            </div>
+            <div class="card-footer text-right">
+              <a
+                class="mt-5"
+                href="http://geekswithblogs.net/TimothyK/archive/2014/08/31/notification-patterns-in-rx-part-i-introduction.aspx"
+              >
+                Read More...
+              </a>
+            </div>
+          </div>
+
+          <div class="card bg-dark border-light">
+            <div class="card-header">
+              <h3>
+                Tic Tac Toe
+              </h3>
+              <span class="badge badge-success badge-pill">
+                Kata
+              </span>
+            </div>
+            <div class="card-body">
+              <p>
+                One of the things I do when learning a new programming language
+                is to implement a familiar problem, namely Tic Tac Toe.
+              </p>
+              <p>
+                Available in:
+              </p>
+              <ul>
+                <li>
+                  <a href="https://github.com/TimothyK/JsTicTacToe"
+                    >JavaScript</a
+                  >
+                  <a href="TicTacToe/" class="btn btn-danger ml-2">Play Now</a>
+                </li>
+                <li>
+                  <a href="https://github.com/TimothyK/TicTacToe">Python</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -228,30 +392,34 @@
       <div class="container mt-3">
         <div class="row">
           <div class="col-6 offset-3">
-            <ul class="list-group">
-              <li>
-                I will
+            <div class="card bg-dark border-light">
+              <div class="card-body">
+                <ul class="list-group pl-3">
+                  <li>
+                    I will
+                    <a
+                      href="http://geekswithblogs.net/TimothyK/archive/2019/01/07/empowerment.aspx"
+                      >empower</a
+                    >
+                    all those whom I work with, which will foster trust and
+                    respect.
+                  </li>
+
+                  <li>I will provide value to my customers and employer.</li>
+                  <li>I will deliver software with the utmost quality.</li>
+                  <li>I will continue to improve and learn.</li>
+                  <li>I will do all of the above in a sustainable way.</li>
+                </ul>
+              </div>
+              <div class="card-footer text-right">
                 <a
-                  href="http://geekswithblogs.net/TimothyK/archive/2019/01/07/empowerment.aspx"
-                  >empower</a
+                  class="mt-5"
+                  href="http://geekswithblogs.net/TimothyK/archive/2019/02/18/values-statement.aspx"
                 >
-                all those whom I work with, which will foster trust and respect.
-              </li>
-
-              <li>I will provide value to my customers and employer.</li>
-              <li>I will deliver software with the utmost quality.</li>
-              <li>I will continue to improve and learn.</li>
-              <li>I will do all of the above in a sustainable way.</li>
-            </ul>
-
-            <p class="text-right">
-              <a
-                class="mt-5"
-                href="http://geekswithblogs.net/TimothyK/archive/2019/02/18/values-statement.aspx"
-              >
-                Read More...
-              </a>
-            </p>
+                  Read More...
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
