@@ -48,3 +48,13 @@ body {
   text-align: left;
   color: #fff;
 }
+
+a:link,
+a:visited,
+a:hover {
+  color: #99ccff;
+}
+
+.btn {
+  color: #fff !important;
+}
