@@ -114,14 +114,18 @@ function buildPostListItem(builder, post) {
 
   let categoryBadge = '';
   if (builder.showCategory) {
-    categoryBadge = `<span class="badge badge-success badge-pill">${post.category}</span>`;
+    categoryBadge = `<span class="badge badge-secondary badge-pill">${post.category}</span>`;
   }
 
   link.innerHTML = `${post.title} 
-  <p class="text-right mb-0">
-  ${mostRecentBadge}
-  ${categoryBadge}
-  <small class="text-muted">${post.date}</small>
+  <p class="d-flex justify-content-between align-items-center mb-0">
+  <span>
+    <small class="text-muted">${post.date}</small>
+  </span>
+  <span>
+    ${mostRecentBadge}
+    ${categoryBadge}
+  </span>
   </p>`;
 
   return link;
