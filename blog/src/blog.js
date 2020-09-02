@@ -17,7 +17,11 @@ const yearBuilder = {
   showCategory: true,
 };
 
+let mostRecentPost;
+
 function buildTableOfContents(posts) {
+  mostRecentPost = posts[posts.length - 1];
+
   const toc = document.getElementById('toc');
   toc.innerHTML = '';
 
@@ -101,13 +105,22 @@ function buildPostListItem(builder, post) {
   const link = document.createElement('a');
   link.href = root() + post.path;
   link.classList.add('list-group-item', 'list-group-item-action', 'p-2');
-  let category = '';
-  if (builder.showCategory) {
-    category = `<span class="badge badge-success badge-pill">${post.category}</span>`;
+
+  let mostRecentBadge = '';
+  if (mostRecentPost === post) {
+    mostRecentBadge =
+      '<span class="badge badge-warning badge-pill">Most Recent</span>';
   }
+
+  let categoryBadge = '';
+  if (builder.showCategory) {
+    categoryBadge = `<span class="badge badge-success badge-pill">${post.category}</span>`;
+  }
+
   link.innerHTML = `${post.title} 
   <p class="text-right mb-0">
-  ${category}
+  ${mostRecentBadge}
+  ${categoryBadge}
   <small class="text-muted">${post.date}</small>
   </p>`;
 
