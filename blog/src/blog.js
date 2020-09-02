@@ -8,11 +8,13 @@ getPosts().then((posts) => buildTableOfContents(posts));
 const categoryBuilder = {
   getGroup: (post) => post.category,
   name: 'category',
+  showCategory: false,
 };
 
 const yearBuilder = {
   getGroup: (post) => new Date(post.date).getUTCFullYear().toString(),
   name: 'year',
+  showCategory: true,
 };
 
 function buildTableOfContents(posts) {
@@ -89,18 +91,23 @@ function buildCardBody(builder, group, posts) {
   body.appendChild(list);
 
   for (const post of posts) {
-    list.appendChild(buildPostListItem(post));
+    list.appendChild(buildPostListItem(builder, post));
   }
 
   return categoryId;
 }
 
-function buildPostListItem(post) {
+function buildPostListItem(builder, post) {
   const link = document.createElement('a');
   link.href = root() + post.path;
   link.classList.add('list-group-item', 'list-group-item-action', 'p-2');
+  let category = '';
+  if (builder.showCategory) {
+    category = `<span class="badge badge-success badge-pill">${post.category}</span>`;
+  }
   link.innerHTML = `${post.title} 
   <p class="text-right mb-0">
+  ${category}
   <small class="text-muted">${post.date}</small>
   </p>`;
 
