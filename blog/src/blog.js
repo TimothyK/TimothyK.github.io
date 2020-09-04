@@ -1,5 +1,5 @@
 async function getPosts() {
-  const response = await fetch('../../../data/posts.json');
+  const response = await fetch(root() + 'data/posts.json');
   return await response.json();
 }
 
@@ -24,9 +24,10 @@ function buildTableOfContents(posts) {
   mostRecentPost = posts[posts.length - 1];
   activePost = findActivePost(posts);
 
+  buildPartNav(posts);
+
   const toc = document.getElementById('toc');
   toc.innerHTML = '';
-
   toc.appendChild(buildPostsTable(categoryBuilder, posts));
   toc.appendChild(buildPostsTable(yearBuilder, posts));
 }
@@ -36,6 +37,49 @@ function findActivePost(posts) {
     document.location.pathname.includes(x.path)
   );
   return matches.length == 1 ? matches[0] : null;
+}
+
+function buildPartNav(posts) {
+  if (activePost === null) return;
+
+  var partNavs = $('.nav-part');
+
+  if (activePost.parentKey === undefined) {
+    partNavs.hide();
+    return;
+  }
+
+  const parts = posts.filter((post) => post.parentKey === activePost.parentKey);
+
+  partNavs.each(function () {
+    this.innerHTML = '';
+    this.appendChild(buildPartNavList(parts));
+  });
+}
+
+function buildPartNavList(posts) {
+  var list = document.createElement('ul');
+  list.classList.add('pagination');
+
+  list.innerHTML =
+    '<li class="page-item disabled"><a class="page-link">Part</a></li>';
+  for (const post of posts) {
+    const item = document.createElement('li');
+    item.classList.add('page-item');
+    if (post === activePost) {
+      item.classList.add('active');
+    }
+
+    const link = document.createElement('a');
+    link.href = root() + post.path;
+    link.classList.add('page-link');
+    link.innerText = post.part;
+    item.appendChild(link);
+
+    list.appendChild(item);
+  }
+
+  return list;
 }
 
 function buildPostsTable(builder, posts) {
