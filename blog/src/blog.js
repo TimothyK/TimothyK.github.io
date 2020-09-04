@@ -18,15 +18,24 @@ const yearBuilder = {
 };
 
 let mostRecentPost;
+let activePost;
 
 function buildTableOfContents(posts) {
   mostRecentPost = posts[posts.length - 1];
+  activePost = findActivePost(posts);
 
   const toc = document.getElementById('toc');
   toc.innerHTML = '';
 
   toc.appendChild(buildPostsTable(categoryBuilder, posts));
   toc.appendChild(buildPostsTable(yearBuilder, posts));
+}
+
+function findActivePost(posts) {
+  var matches = posts.filter((x) =>
+    document.location.pathname.includes(x.path)
+  );
+  return matches.length == 1 ? matches[0] : null;
 }
 
 function buildPostsTable(builder, posts) {
@@ -85,6 +94,9 @@ function buildCardBody(builder, group, posts) {
   const categoryId = document.createElement('div');
   categoryId.id = builder.name + '-' + group.toLowerCase().replace(' ', '-');
   categoryId.classList.add('collapse');
+  if (posts.includes(activePost)) {
+    categoryId.classList.add('show');
+  }
 
   const body = document.createElement('div');
   body.classList.add('card-body', 'p-0');
@@ -105,6 +117,9 @@ function buildPostListItem(builder, post) {
   const link = document.createElement('a');
   link.href = root() + post.path;
   link.classList.add('list-group-item', 'list-group-item-action', 'p-2');
+  if (post === activePost) {
+    link.classList.add('active');
+  }
 
   let mostRecentBadge = '';
   if (mostRecentPost === post) {
@@ -120,7 +135,9 @@ function buildPostListItem(builder, post) {
   link.innerHTML = `${post.title} 
   <p class="d-flex justify-content-between align-items-center mb-0">
   <span>
-    <small class="text-muted">${post.date}</small>
+    <small class="${post !== activePost ? 'text-muted' : ''}">${
+    post.date
+  }</small>
   </span>
   <span>
     ${mostRecentBadge}
