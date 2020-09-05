@@ -24,6 +24,14 @@ function buildTableOfContents(posts) {
   mostRecentPost = posts[posts.length - 1];
   activePost = findActivePost(posts);
 
+  //TODO:
+  navbarPartial();
+  //title header
+  footerPartial();
+  //set share post on social media links
+  //index (non-post)
+  //babel
+
   buildPartNav(posts);
 
   const toc = document.getElementById('toc');
@@ -37,6 +45,91 @@ function findActivePost(posts) {
     document.location.pathname.includes(x.path)
   );
   return matches.length == 1 ? matches[0] : null;
+}
+
+function navbarPartial() {
+  const navbar = document.querySelector('nav');
+  navbar.innerHTML = '';
+  navbar.appendChild(buildNavbar());
+}
+
+function buildNavbar() {
+  const navbar = document.createElement('div');
+  navbar.classList.add('container');
+
+  navbar.innerHTML = `<div class="navbar-brand">
+    <a href="${root()}"
+      ><img
+        src="${root()}/img/monkey.jpg"
+        alt="logo"
+        class="rounded-circle"
+        height="90"
+    /></a>
+    <a href="${root()}"
+      ><h3 class="d-inline align-middle pl-2">
+        Code Monkey Projectiles
+      </h3></a
+    >
+  </div>
+  <div>
+    <small>A blog by <a href="${root()}/..">Timothy Klenke</a></small>
+  </div>`;
+
+  return navbar;
+}
+
+function footerPartial() {
+  const navbar = document.querySelector('footer');
+  navbar.innerHTML = '';
+  navbar.appendChild(buildFooter());
+}
+
+function buildFooter() {
+  const footer = document.createElement('div');
+  footer.classList.add('container');
+
+  footer.innerHTML = `<div class="row">
+  <div class="col">
+    <a href="${root()}">
+      Code Monkey Projectiles
+    </a>
+    <br />
+    <small>by <a href="${root()}/..">Timothy Klenke</a></small>
+  </div>
+  </div>`;
+
+  if (activePost === null) return footer;
+
+  const row = footer.querySelector('.row');
+
+  var share = document.createElement('div');
+  share.classList.add('col-md-5', 'mb-3');
+  share.innerHTML = `<span class="align-middle">Share on </span>
+  <span class="align-middle p-3">
+    <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(
+      document.URL
+    )}&text=${encodeURIComponent(
+    activePost.title
+  )}"><i class="fab fa-twitter fa-2x"></i></a>
+  </span>
+  <span class="align-middle p-3">
+    <a href="http://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+      document.URL
+    )}&title=${encodeURIComponent(
+    activePost.title
+  )}"><i class="fab fa-linkedin fa-2x"></i></a>
+  </span>
+  <span class="align-middle p-3">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+    document.URL
+  )}"><i class="fab fa-facebook fa-2x"></i></a>
+  </span>
+  `;
+
+  // row.appendChild(share);
+  row.insertBefore(share, row.firstChild);
+
+  return footer;
 }
 
 function buildPartNav(posts) {
