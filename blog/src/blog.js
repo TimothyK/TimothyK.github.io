@@ -160,6 +160,7 @@ function buildCardBody(builder, group, posts) {
 function buildPostListItem(builder, post) {
   const link = document.createElement('a');
   link.href = root() + post.path;
+  link.title = post.excerpt;
   link.classList.add('list-group-item', 'list-group-item-action', 'p-2');
   if (post === activePost) {
     link.classList.add('active');
