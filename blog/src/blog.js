@@ -24,15 +24,13 @@ function buildTableOfContents(posts) {
   mostRecentPost = posts[posts.length - 1];
   activePost = findActivePost(posts);
 
-  //TODO:
   navbarPartial();
-  //title header
+  titlePartial(posts);
   footerPartial();
-  //set share post on social media links
+  //TODO:
   //index (non-post)
+  //expand/collapse all
   //babel
-
-  buildPartNav(posts);
 
   const toc = document.getElementById('toc');
   toc.innerHTML = '';
@@ -104,7 +102,7 @@ function buildFooter() {
 
   var share = document.createElement('div');
   share.classList.add('col-md-5', 'mb-3');
-  share.innerHTML = `<span class="align-middle">Share on </span>
+  share.innerHTML = `<span class="align-middle">Share</span>
   <span class="align-middle p-3">
     <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(
       document.URL
@@ -132,26 +130,55 @@ function buildFooter() {
   return footer;
 }
 
-function buildPartNav(posts) {
+function titlePartial(posts) {
   if (activePost === null) return;
 
-  var partNavs = $('.nav-part');
+  document.getElementById('Title-Header').remove();
 
+  const main = document.querySelector('main');
+  main.parentElement.insertBefore(buildTitle(posts), main);
+  main.parentElement.appendChild(buildPartNav(posts));
+}
+
+function buildTitle(posts) {
+  const section = document.createElement('section');
+  section.id = 'Title-Header';
+
+  section.innerHTML = `            <div class="row">
+  <div class="col-md" id="Title">
+    <h1>${activePost.title}</h1>
+  </div>
+
+  <div class="col-md-3 text-right">
+    <span id="Category" class="badge badge-secondary badge-pill"
+      >${activePost.category}</span
+    >
+    <br />
+    <span id="Date" class="text-muted">${activePost.date}</span>
+  </div>
+</div>`;
+
+  section.querySelector('#Title').appendChild(buildPartNav(posts));
+
+  return section;
+}
+
+function buildPartNav(posts) {
   if (activePost.parentKey === undefined) {
-    partNavs.hide();
-    return;
+    return null;
   }
 
-  const parts = posts.filter((post) => post.parentKey === activePost.parentKey);
+  const nav = document.createElement('nav');
+  nav.classList.add('small');
 
-  partNavs.each(function () {
-    this.innerHTML = '';
-    this.appendChild(buildPartNavList(parts));
-  });
+  const parts = posts.filter((post) => post.parentKey === activePost.parentKey);
+  nav.appendChild(buildPartNavList(parts));
+
+  return nav;
 }
 
 function buildPartNavList(posts) {
-  var list = document.createElement('ul');
+  const list = document.createElement('ul');
   list.classList.add('pagination');
 
   list.innerHTML =
@@ -219,7 +246,7 @@ function buildCardHeader(builder, group, count) {
     class="d-flex justify-content-between align-items-center"
   >
     ${group}
-    <span class="badge badge-primary badge-pill">${count}</span>
+    <span class="badge badge-danger badge-pill">${count}</span>
   </div>
 </h6>
 `;
