@@ -131,6 +131,7 @@
     "category": "Design Patterns",
     "date": "2014-07-31",
     "path": "2014/StronglyTypedEnum",
+    "codeUrl": "https://github.com/TimothyK/StronglyTypedEnumConverter",
     "excerpt": "Enums are great. However, enums do have their problems. There is nothing to stop someone from assigning any other integer to an enum variable. Also, the enum is not very extendable. The Strongly Typed Enum design pattern can solve these problems."
   },
   {
@@ -149,6 +150,7 @@
     "category": "Reactive Extensions",
     "date": "2014-08-30",
     "path": "2014/RxNotify/CreateStream",
+    "codeUrl": "https://github.com/TimothyK/RxExamples",
     "excerpt": "In this and the next few blog posts I’m going to be going over some examples of how to use Rx to help distribute notifications. I’ve posted all the source code on GitHub. Before we get to the actual examples of managing notifications, this post will cover the preamble of the basic framework of the example program and how to create a stream of data to work with."
   },
   {
@@ -158,6 +160,7 @@
     "category": "Reactive Extensions",
     "date": "2014-08-30",
     "path": "2014/RxNotify/Lossless",
+    "codeUrl": "https://github.com/TimothyK/RxExamples",
     "excerpt": "As with all our examples, when we have a high volume of errors occurring we don’t want to spam people. Despite our desire to avoid spam, we also don’t want to lose any data. We want to make sure that details about each exception are sent out. Therefore each email sent may include details about several exceptions."
   },
   {
@@ -167,6 +170,7 @@
     "category": "Reactive Extensions",
     "date": "2014-08-30",
     "path": "2014/RxNotify/UnexpectedErrors",
+    "codeUrl": "https://github.com/TimothyK/RxExamples",
     "excerpt": "A feature that every serious program should have is the ability to notify when an unexpected error occurs. Every unexpected error should be reported and investigated. This is necessary in order to build quality software. In this post I’ll cover an Rx notification pattern that will report unexpected errors."
   },
   {
@@ -176,6 +180,7 @@
     "category": "Reactive Extensions",
     "date": "2014-08-30",
     "path": "2014/RxNotify/ConnectionErrors",
+    "codeUrl": "https://github.com/TimothyK/RxExamples",
     "excerpt": "The behaviour we want out of this pattern is when a connection error occurs we should queue up a notification to be delivered at some point in the near future. When it comes time to actually deliver the notification we check if the connection has been restored. If the connection has been restored we cancel the notification."
   },
   {
@@ -286,6 +291,7 @@
     "category": "Design Patterns",
     "date": "2019-07-30",
     "path": "2019/LayeredApp/Seventeen",
+    "codeUrl": "https://github.com/TimothyK/Retail",
     "excerpt": "In this post, I will dive down deeper into the layers and see exactly how these could fit together. Each high-level layer is implemented by smaller focused layers, making 17 in all, at least in this example."
   }
 ]

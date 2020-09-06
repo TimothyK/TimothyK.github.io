@@ -27,9 +27,6 @@ function buildTableOfContents(posts) {
   navbarPartial();
   titlePartial(posts);
   footerPartial();
-  //TODO:
-  //expand/collapse all
-  //babel
 
   postsTablePartial(categoryBuilder, posts);
   postsTablePartial(yearBuilder, posts);
@@ -132,8 +129,21 @@ function titlePartial(posts) {
   document.getElementById('Title-Header').remove();
 
   const main = document.querySelector('main');
-  main.parentElement.insertBefore(buildTitle(posts), main);
-  main.parentElement.appendChild(buildPartNav(posts));
+  safeInsertBefore(buildTitle(posts), main);
+  safeInsertBefore(buildCodeLink(), main);
+  safeAppendChild(buildPartNav(posts), main.parentElement);
+}
+
+function safeInsertBefore(newNode, target) {
+  if (newNode === null) return;
+
+  target.parentElement.insertBefore(newNode, target);
+}
+
+function safeAppendChild(newNode, target) {
+  if (newNode === null) return;
+
+  target.appendChild(newNode);
 }
 
 function buildTitle(posts) {
@@ -154,7 +164,7 @@ function buildTitle(posts) {
   </div>
 </div>`;
 
-  section.querySelector('#Title').appendChild(buildPartNav(posts));
+  safeAppendChild(buildPartNav(posts), section.querySelector('#Title'));
 
   return section;
 }
@@ -196,6 +206,20 @@ function buildPartNavList(posts) {
   }
 
   return list;
+}
+
+function buildCodeLink() {
+  if (activePost.codeUrl === undefined) return null;
+
+  const button = document.createElement('a');
+  button.classList.add('mb-4', 'btn', 'btn-outline-primary');
+  button.href = activePost.codeUrl;
+
+  // button.innerHTML = `<a href="${activePost.codeUrl}"><span class="align-middle"><i class="fab fa-github fa-2x"></i></span></a>
+  // <a href="${activePost.codeUrl}"><span class="align-middle">Show me the code!</span></a>`;
+  button.innerHTML = `<i class="fab fa-github"></i> Show me the code!`;
+
+  return button;
 }
 
 function postsTablePartial(builder, posts) {
@@ -282,6 +306,11 @@ function buildPostListItem(builder, post) {
     link.classList.add('active');
   }
 
+  let codeBadge = '';
+  if (post.codeUrl !== undefined) {
+    codeBadge = '<i class="fab fa-github"></i>';
+  }
+
   let mostRecentBadge = '';
   if (mostRecentPost === post) {
     mostRecentBadge =
@@ -301,6 +330,7 @@ function buildPostListItem(builder, post) {
   }</small>
   </span>
   <span>
+    ${codeBadge}
     ${mostRecentBadge}
     ${categoryBadge}
   </span>
