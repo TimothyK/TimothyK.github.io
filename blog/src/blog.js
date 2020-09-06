@@ -1,5 +1,5 @@
 async function getPosts() {
-  const response = await fetch(root() + 'data/posts.json');
+  const response = await fetch(root() + '/data/posts.json');
   return await response.json();
 }
 
@@ -28,14 +28,11 @@ function buildTableOfContents(posts) {
   titlePartial(posts);
   footerPartial();
   //TODO:
-  //index (non-post)
   //expand/collapse all
   //babel
 
-  const toc = document.getElementById('toc');
-  toc.innerHTML = '';
-  toc.appendChild(buildPostsTable(categoryBuilder, posts));
-  toc.appendChild(buildPostsTable(yearBuilder, posts));
+  postsTablePartial(categoryBuilder, posts);
+  postsTablePartial(yearBuilder, posts);
 }
 
 function findActivePost(posts) {
@@ -54,7 +51,6 @@ function navbarPartial() {
 function buildNavbar() {
   const navbar = document.createElement('div');
   navbar.classList.add('container');
-
   navbar.innerHTML = `<div class="navbar-brand">
     <a href="${root()}"
       ><img
@@ -202,7 +198,7 @@ function buildPartNavList(posts) {
   return list;
 }
 
-function buildPostsTable(builder, posts) {
+function postsTablePartial(builder, posts) {
   var table = document.createElement('div');
   table.id = 'toc-' + builder.name;
   table.classList.add('my-5');
@@ -221,7 +217,8 @@ function buildPostsTable(builder, posts) {
     table.appendChild(card);
   }
 
-  return table;
+  var og = document.getElementById(table.id);
+  og.parentElement.replaceChild(table, og);
 }
 
 function buildCard(builder, group, posts) {
@@ -258,7 +255,7 @@ function buildCardBody(builder, group, posts) {
   const categoryId = document.createElement('div');
   categoryId.id = builder.name + '-' + group.toLowerCase().replace(' ', '-');
   categoryId.classList.add('collapse');
-  if (posts.includes(activePost)) {
+  if (posts.includes(activePost ?? mostRecentPost)) {
     categoryId.classList.add('show');
   }
 
@@ -323,5 +320,5 @@ function root() {
   for (let i = 0; i < depth; i++) {
     result += '../';
   }
-  return result;
+  return result === '' ? '.' : result;
 }
