@@ -201,7 +201,6 @@ function buildPartNavList(posts) {
 function postsTablePartial(builder, posts) {
   var table = document.createElement('div');
   table.id = 'toc-' + builder.name;
-  table.classList.add('my-5');
 
   var groups = posts
     .map((post) => builder.getGroup(post))

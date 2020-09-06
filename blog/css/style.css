@@ -14,3 +14,7 @@ footer a:visited,
 footer a:hover {
   color: #99ccff;
 }
+
+.btn {
+  font-size: 0.8rem;
+}
