@@ -350,5 +350,5 @@ function root() {
   for (let i = 0; i < depth; i++) {
     result += '../';
   }
-  return result === '' ? '.' : result;
+  return result === '' ? './' : result;
 }
