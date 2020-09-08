@@ -65,13 +65,248 @@
 
           <!-- Post Body -->
           <main id="post">
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+            <p>
+              In my
+              <a href="../IsTheThing/">previous post</a>
+              I described my feeling on why it is so critically important to
+              develop a good user story.&nbsp; However I didn’t go into much
+              detail on how that is done.&nbsp; I’m going to cover that in this
+              post.&nbsp; I’ll start by looking at the classic “goal/desire”
+              based user story formats, followed by my own reason based format,
+              then an example.
+            </p>
+
+            <h4>Classic “Goal/Desire” Based User Story Formats</h4>
+
+            <p>
+              The traditional format of a user story is “As a &lt;role&gt;, I
+              want &lt;goal/desire&gt; [so that &lt;benefit&gt;]”.&nbsp; For
+              example, “As a billing officer, I want to search for unbilled
+              completed orders so that I can bill the customer”.
+            </p>
+
+            <p>
+              Now there is some debate as to how important the &lt;benefit&gt;
+              clause is in the user story.&nbsp; In the above example it seems
+              kind of obvious that the benefit is the ability to bill customers,
+              and that is a good thing.&nbsp; Some stay that it is so obvious
+              that it can just be omitted.&nbsp; Others argue that the
+              &lt;benefit&gt; clause is the most important part of the user
+              story and it should be stated first.&nbsp; That format is “In
+              order to &lt;receive benefit&gt; as a &lt;role&gt;, I want
+              &lt;goal/desire&gt;”.&nbsp; In this example it would read “In
+              order to bill customers as a billing officer, I want to search for
+              unbilled completed orders”.
+            </p>
+
+            <p>
+              The &lt;goal/desire&gt; clause of the user story is the really
+              difficult part to get right.&nbsp; There is a real art to
+              this.&nbsp; You are describing a desired solution (i.e. a
+              requirement), but it must be stated in a way that allows for
+              flexibility and out-of-the-box thinking.
+            </p>
+
+            <p>
+              For example let’s examine if the user story was restated “As a
+              billing officer, I want unbilled completed orders to be
+              highlighted in red”.&nbsp; This is much more restrictive than the
+              first statement.&nbsp; This really binds the hands of the
+              developer, product manager, or UX designer.&nbsp; Before anyone
+              can suggest alternatives, they have to convince the person
+              submitting the user story to throw out they story in its current
+              form, go back to the drawing board, and restate their requirement
+              in a wording that is more flexible.
+            </p>
+
+            <p>
+              Even my original example can be too restrictive.&nbsp; Is manually
+              searching for unbilled completed orders the best solution?&nbsp;
+              How about emailing a these orders directly to the billing
+              officer?&nbsp; How about automating the billing process so that
+              there is no need to search for unbilled completed orders?<o:p
+              ></o:p>
+            </p>
+
+            <p>
+              I believe it is nearly impossible to get the goal/desire clause of
+              the user story to be flexible enough to allow for a truly open
+              discussion. &nbsp;Therefore, I advise against trying to use this
+              format as a starting point.&nbsp; My preferred process for
+              developing a user story is as follows.
+            </p>
+
+            <h4>Reason Based User Story</h4>
+
+            <p>
+              I find when creating a user story, or any activity, the best place
+              to start with the reason.&nbsp; It is critical that everyone knows
+              why something is worth doing before doing it.
+            </p>
+
+            <p>
+              The reason should be broken into two parts: the problem and the
+              impact to the business.&nbsp;
+            </p>
+
+            <p>
+              The problem statement is usually fairly easy to collect.&nbsp;
+              This can be done listening to the user’s gripes as they are doing
+              their job or “at the water cooler”.&nbsp; The problem statement
+              that is written in the user story can usually be done verbatim
+              from the end-user.&nbsp;
+            </p>
+
+            <p>
+              The next step is for a business analyst to assess the impact of
+              that problem on the business.&nbsp; The business analyst’s work
+              results on assigning a value or benefit to the issue.
+            </p>
+
+            <p>
+              After the business analyst drafts the impact statement, it is
+              important that this is reviewed (i.e. tested).&nbsp; The end-user
+              and their managers submitting the problem statement should review
+              the analyst’s impact assessment to ensure there are no
+              communication errors.&nbsp; The problem and impact statement are
+              the first milestone in creating a user story.&nbsp; With this work
+              done it can be entered onto the backlog.
+            </p>
+
+            <p>
+              So the impact statement serves the same purpose as the benefit
+              clause from the traditional user story format.&nbsp; However the
+              formats are very different. &nbsp;The reason format attaches a
+              real end-user’s problem to the benefit clause, whereas the
+              traditional user story format attaches the benefit to a goal or
+              solution. &nbsp;The reason needs to be able to stand on its own,
+              independent of solution.&nbsp; This allows the end users and
+              business analysts to discuss the value of the problem without the
+              potential solutions biasing that discussion.&nbsp; It also gives
+              the business a firm footing to start on before evaluating
+              potential solutions.
+            </p>
+
+            <p>
+              With the problem well defined, the next step is for the business
+              to seek multiple solutions.&nbsp; These solutions should be sought
+              from both internal employees and external vendors.&nbsp; Both high
+              and low tech solutions should be welcome.&nbsp; The business can
+              then evaluate each solution for how well it will solve the
+              problem.&nbsp; Estimates can be gathered for the most promising
+              solutions.&nbsp; Often multiple solutions will be chosen to be
+              implemented to cover any gaps or to provide redundancy in the
+              system.
+            </p>
+
+            <p>
+              <b><u>Example</u></b>
+            </p>
+
+            <p>So let’s apply this methodology to an example problem.&nbsp;</p>
+            <p class="ml-5">
+              <b>Problem:</b> Some customers are not being billed for their
+              completed orders.
+            </p>
+
+            <p>Next we attach an impact statement to the problem.</p>
+
+            <p class="ml-5">
+              <b>Impact:</b> Missing billing opportunities have been estimated
+              at $50K per month of missing revenue.
+            </p>
+
+            <p>
+              Then we can start collecting solutions from a variety of people.
+            </p>
+            <p>
+              <div class="ml-5">
+                <b>Solution(s):</b>
+            <ul>
+              <li>
+                As a Billing Officer, I could solve this problem with better
+                  search tools in the software for unbilled completed
+                  orders.
+              </li>
+              <li>
+                As a Developer, I could solve this problem by writing a
+                  program to email unbilled completed orders to the Billing
+                  Officer.
+              </li>
+              <li>
+                As a Developer, I could solve this problem by automating the
+                  billing process.
+              </li>
+              <li>
+                As an Order Filler, I could solve this problem by remembering
+                  to click the Bill button.
+              </li>
+            </ul>
+          </div>
+        </p>
+
+            <p>
+              With the suggestions collected the business people can analyze how
+              effective each suggestion would be at solving the problem.&nbsp;
+              Sometimes seeing all the various solutions can lead people to more
+              solutions.&nbsp; For example, “As a Developer, I could change the
+              software to encourage the Order Filler to click the Bill button”.
+            </p>
+
+            <p>
+              Rejected solutions and be crossed off.&nbsp; Estimates can be
+              attached to each solution.&nbsp; Approved solutions can be
+              assigned.&nbsp; The final reason based user story card would
+              appear as follows.
+            </p>
+
+            <div class="card mb-5">
+              <div class="card-body">
+                <p>
+                  <b>Problem:</b> Some customers are not being billed for
+                  their completed orders.
+                </p>
+    
+                <p>
+                  <b>Impact:</b> Missing billing opportunities have been
+                  estimated at $50K per month of missing revenue.
+                </p>
+    
+                <p>
+                  <b>Solution(s)</b>:
+                </p>
+                <ol>
+                  <li>
+                    As a Billing Officer, I could solve this problem with better
+                      search tools in the software for unbilled completed orders. 
+                      <i>[8 story points, approval depending on success of solution#5]</i>
+                  </li>
+                  <li>
+                    <del>
+                    As a Developer, I could solve this problem by writing a
+                      program to email unbilled completed orders to the Billing
+                      Officer.</del> 
+                      <i>[Too large]</i>
+                  </li>
+                  <li>
+                    <del>As a Developer, I could solve this problem by automating the
+                      billing process.</del> 
+                      <i>[Too large]</i>
+                  </li>
+                  <li>
+                    <del>As an Order Filler, I could solve this problem by remembering
+                      to click the Bill button.</del> 
+                      <i>[Not testable]</i>
+                  </li>
+                  <li>
+                    As a Developer, I could change the software to encourage the
+                      Order Filler to click the Bill button. 
+                      <i>[2 story points, approved for next sprint]</i>
+                  </li>
+                </ol>
+    
+              </div>
+            </div>
           </main>
         </div>
 
