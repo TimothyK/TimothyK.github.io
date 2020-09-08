@@ -200,6 +200,7 @@ function buildPartNavList(posts) {
     link.href = root() + post.path;
     link.classList.add('page-link');
     link.innerText = post.part;
+    link.title = post.title;
     item.appendChild(link);
 
     list.appendChild(item);
