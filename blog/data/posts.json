@@ -135,7 +135,7 @@
     "excerpt": "Enums are great. However, enums do have their problems. There is nothing to stop someone from assigning any other integer to an enum variable. Also, the enum is not very extendable. The Strongly Typed Enum design pattern can solve these problems."
   },
   {
-    "title": "Notification Patterns in Rx, Part I: Introduction",
+    "title": "Notification Patterns in Rx",
     "part": 1,
     "parentKey": "RxNotify",
     "category": "Reactive Extensions",
@@ -144,7 +144,7 @@
     "excerpt": "Reactive Extensions (Rx) is a set of classes and functions that allow a developer to control data over time. It allows for event streams to be manipulated as easily as collections can be manipulated with LINQ. I like to think of Rx as LINQ but extended out to three dimensions: data, time, and threads."
   },
   {
-    "title": "Notification Patterns in Rx, Part II: Creating a Stream",
+    "title": "Creating a Stream",
     "part": 2,
     "parentKey": "RxNotify",
     "category": "Reactive Extensions",
@@ -154,7 +154,7 @@
     "excerpt": "In this and the next few blog posts I’m going to be going over some examples of how to use Rx to help distribute notifications. I’ve posted all the source code on GitHub. Before we get to the actual examples of managing notifications, this post will cover the preamble of the basic framework of the example program and how to create a stream of data to work with."
   },
   {
-    "title": "Notification Patterns in Rx, Part III: Lossless Notifications",
+    "title": "Lossless Notifications",
     "part": 3,
     "parentKey": "RxNotify",
     "category": "Reactive Extensions",
@@ -164,7 +164,7 @@
     "excerpt": "As with all our examples, when we have a high volume of errors occurring we don’t want to spam people. Despite our desire to avoid spam, we also don’t want to lose any data. We want to make sure that details about each exception are sent out. Therefore each email sent may include details about several exceptions."
   },
   {
-    "title": "Notification Patterns in Rx, Part IV: Unexpected Errors",
+    "title": "Unexpected Errors",
     "part": 4,
     "parentKey": "RxNotify",
     "category": "Reactive Extensions",
@@ -174,7 +174,7 @@
     "excerpt": "A feature that every serious program should have is the ability to notify when an unexpected error occurs. Every unexpected error should be reported and investigated. This is necessary in order to build quality software. In this post I’ll cover an Rx notification pattern that will report unexpected errors."
   },
   {
-    "title": "Notification Patterns in Rx, Part V: Connection Errors",
+    "title": "Connection Errors",
     "part": 5,
     "parentKey": "RxNotify",
     "category": "Reactive Extensions",
