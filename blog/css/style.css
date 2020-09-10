@@ -1,0 +1,20 @@
+.navbar {
+  border-bottom: #000 3px solid;
+  opacity: 0.8;
+}
+
+.navbar-brand a:link,
+.navbar-brand a:visited,
+.navbar-brand a:hover {
+  color: #000;
+}
+
+footer a:link,
+footer a:visited,
+footer a:hover {
+  color: #99ccff;
+}
+
+.button-small {
+  font-size: 0.8rem;
+}

@@ -1,0 +1,297 @@
+[
+  {
+    "title": "The User Story Is The Thing",
+    "part": 1,
+    "parentKey": "UserStory",
+    "category": "User Stories",
+    "date": "2013-12-28",
+    "path": "2013/UserStory/IsTheThing",
+    "excerpt": "If any developer feels the need to improve the user story, solution, or requirement they are presented with that developer needs to be empowered, nay encouraged, to ask whatever questions are necessary to improve that user story."
+  },
+  {
+    "title": "Reason Based User Stories",
+    "part": 2,
+    "parentKey": "UserStory",
+    "category": "User Stories",
+    "date": "2013-12-28",
+    "path": "2013/UserStory/ReasonBased",
+    "excerpt": "In my previous post I described my feeling on why it is so critically important to develop a good user story.  However I didn’t go into much detail on how that is done.  I’m going to cover that in this post."
+  },
+  {
+    "title": "Software Developer Process Links",
+    "category": "Agile",
+    "date": "2014-01-01",
+    "path": "2014/SoftwareDevProcessLinks",
+    "excerpt": "A while ago I did a talk that was a very general overview of many of the popular software development processes being used in the industry. Following the talk I released a large list of additional resources. Go forth learn. Here is that list."
+  },
+  {
+    "title": "Introduction To Rowversion",
+    "category": "SQL Server",
+    "date": "2014-01-14",
+    "path": "2014/IntroToRowversion",
+    "excerpt": "SQL Server has a built-in data type that automatically marks changes to rows. This data type can be used for 2 main purposes: optimistic record locking and data queue processing."
+  },
+  {
+    "title": "Use System Queries to Browse Columns, Indexes, and FKs",
+    "part": 1,
+    "parentKey": "SysQuery",
+    "category": "SQL Server",
+    "date": "2014-02-27",
+    "path": "2014/SysQuery/Browse",
+    "excerpt": "The Object Explorer (F8) in SQL Server Management Studio is quite limiting when you need to search for a table or column. System queries to the rescue!"
+  },
+  {
+    "title": "Add Column Descriptions in SQL Server",
+    "part": 2,
+    "parentKey": "SysQuery",
+    "category": "SQL Server",
+    "date": "2014-02-27",
+    "path": "2014/SysQuery/ColumnDescription",
+    "excerpt": "In my previous post, I described how to use a query quickly search for columns in a database. The only thing missing from this table is a description for each of the columns."
+  },
+  {
+    "title": "What Is NuGet?",
+    "part": 1,
+    "parentKey": "NuGet",
+    "category": "NuGet",
+    "date": "2014-03-27",
+    "path": "2014/NuGet/WhatIs",
+    "excerpt": "a prerequisite post on what NuGet is, how to use it, and what it does."
+  },
+  {
+    "title": "Creating NuGet Packages",
+    "part": 2,
+    "parentKey": "NuGet",
+    "category": "NuGet",
+    "date": "2014-03-27",
+    "path": "2014/NuGet/CreatingPackages",
+    "excerpt": "Revealing what's in a NuGet Package, how to create one both manually and via an automated build process, and publishing it to either and internal or external NuGet feed."
+  },
+  {
+    "title": "Benefits of Pair Programming",
+    "part": 1,
+    "parentKey": "PairProgramming",
+    "category": "Pair Programming",
+    "date": "2014-04-27",
+    "path": "2014/PairProgramming/Benefits",
+    "excerpt": "This is the first in a three part post on pair programming. This post describes the benefits of pairing, including: improved quality, lower development costs, pair learning, and team building."
+  },
+  {
+    "title": "Scheduling Pairing Sessions",
+    "part": 2,
+    "parentKey": "PairProgramming",
+    "category": "Pair Programming",
+    "date": "2014-04-27",
+    "path": "2014/PairProgramming/Scheduling",
+    "excerpt": "This second of three posts on pair program discusses how to get over the initial hurdles of starting to get pairing into your routine."
+  },
+  {
+    "title": "Inside a Pairing Session",
+    "part": 3,
+    "parentKey": "PairProgramming",
+    "category": "Pair Programming",
+    "date": "2014-04-27",
+    "path": "2014/PairProgramming/Inside",
+    "excerpt": "This last of three posts on pair programming covers how to conduct a successful pairing session."
+  },
+  {
+    "title": "Testing Workflows - Test After",
+    "part": 1,
+    "parentKey": "TestingWorkflows",
+    "category": "Unit Testing",
+    "date": "2014-05-30",
+    "path": "2014/TestingWorkflows/TestAfter",
+    "excerpt": "In this post I’m going to outline a few common methods that can be used to increase the coverage of of your test suite. Each approach you are skilled at applying is another tool in your tool belt. The more vectors of attack you have on a problem – the better. In this post I’ll enumerate some test-after workflows: Bug Reporting, Exploratory Testing, Examples, Smoke Tests, Coverage Analysis, and Test Refactoring."
+  },
+  {
+    "title": "Testing Workflows - Test Before",
+    "part": 2,
+    "parentKey": "TestingWorkflows",
+    "category": "Unit Testing",
+    "date": "2014-05-30",
+    "path": "2014/TestingWorkflows/TestBefore",
+    "excerpt": "This is the second of two posts on some common strategies for approaching the job of writing tests. So here is a partial list of some test-first methodologies: Ping Pong, Test Blazer, TDD, ATDD, and BDD."
+  },
+  {
+    "title": "DRY and SRP",
+    "category": "Craftsmanship",
+    "date": "2014-06-11",
+    "path": "2014/DryAndSrp",
+    "excerpt": "I don’t think it is fair to compare “Expressing Intent” against “DRY”. This is a comparison of apples to oranges. “Expressing Intent” is a principal of code quality. “Repeating Yourself” is a code smell. A code smell is merely an indicator that there might be something wrong with the code. What principle is the code smell of Duplication pointing to and how good of an indicator is it?"
+  },
+  {
+    "title": "Release Notes Are Hard",
+    "category": "Craftsmanship",
+    "date": "2014-06-20",
+    "path": "2014/ReleaseNotesAreHard",
+    "excerpt": "Being able to write good release notes, code, or any other form of writing is a skill that takes hard work to learn and develop. Writing good release notes is hard. In this post I’ll cover some of the reasons why it is so hard and some tips to do better."
+  },
+  {
+    "title": "Strongly Typed Enum Pattern",
+    "category": "Design Patterns",
+    "date": "2014-07-31",
+    "path": "2014/StronglyTypedEnum",
+    "codeUrl": "https://github.com/TimothyK/StronglyTypedEnumConverter",
+    "excerpt": "Enums are great. However, enums do have their problems. There is nothing to stop someone from assigning any other integer to an enum variable. Also, the enum is not very extendable. The Strongly Typed Enum design pattern can solve these problems."
+  },
+  {
+    "title": "Notification Patterns in Rx",
+    "part": 1,
+    "parentKey": "RxNotify",
+    "category": "Reactive Extensions",
+    "date": "2014-08-30",
+    "path": "2014/RxNotify/Intro",
+    "excerpt": "Reactive Extensions (Rx) is a set of classes and functions that allow a developer to control data over time. It allows for event streams to be manipulated as easily as collections can be manipulated with LINQ. I like to think of Rx as LINQ but extended out to three dimensions: data, time, and threads."
+  },
+  {
+    "title": "Creating a Stream",
+    "part": 2,
+    "parentKey": "RxNotify",
+    "category": "Reactive Extensions",
+    "date": "2014-08-30",
+    "path": "2014/RxNotify/CreateStream",
+    "codeUrl": "https://github.com/TimothyK/RxExamples",
+    "excerpt": "In this and the next few blog posts I’m going to be going over some examples of how to use Rx to help distribute notifications. I’ve posted all the source code on GitHub. Before we get to the actual examples of managing notifications, this post will cover the preamble of the basic framework of the example program and how to create a stream of data to work with."
+  },
+  {
+    "title": "Lossless Notifications",
+    "part": 3,
+    "parentKey": "RxNotify",
+    "category": "Reactive Extensions",
+    "date": "2014-08-30",
+    "path": "2014/RxNotify/Lossless",
+    "codeUrl": "https://github.com/TimothyK/RxExamples",
+    "excerpt": "As with all our examples, when we have a high volume of errors occurring we don’t want to spam people. Despite our desire to avoid spam, we also don’t want to lose any data. We want to make sure that details about each exception are sent out. Therefore each email sent may include details about several exceptions."
+  },
+  {
+    "title": "Unexpected Errors",
+    "part": 4,
+    "parentKey": "RxNotify",
+    "category": "Reactive Extensions",
+    "date": "2014-08-30",
+    "path": "2014/RxNotify/UnexpectedErrors",
+    "codeUrl": "https://github.com/TimothyK/RxExamples",
+    "excerpt": "A feature that every serious program should have is the ability to notify when an unexpected error occurs. Every unexpected error should be reported and investigated. This is necessary in order to build quality software. In this post I’ll cover an Rx notification pattern that will report unexpected errors."
+  },
+  {
+    "title": "Connection Errors",
+    "part": 5,
+    "parentKey": "RxNotify",
+    "category": "Reactive Extensions",
+    "date": "2014-08-30",
+    "path": "2014/RxNotify/ConnectionErrors",
+    "codeUrl": "https://github.com/TimothyK/RxExamples",
+    "excerpt": "The behaviour we want out of this pattern is when a connection error occurs we should queue up a notification to be delivered at some point in the near future. When it comes time to actually deliver the notification we check if the connection has been restored. If the connection has been restored we cancel the notification."
+  },
+  {
+    "title": "Working Simply",
+    "part": 1,
+    "parentKey": "Simple",
+    "category": "Craftsmanship",
+    "date": "2015-02-20",
+    "path": "2015/Simply/Working",
+    "excerpt": "I believe that Beck’s Four Rules can be simplified to 2 axioms: 1. Write working software 2. Write simple software"
+  },
+  {
+    "title": "Simplicity Principles and Anti-Patterns",
+    "part": 2,
+    "parentKey": "Simple",
+    "category": "Craftsmanship",
+    "date": "2015-02-20",
+    "path": "2015/Simply/Patterns",
+    "excerpt": "Review of the Simplicity principles and anti-patterns: KISS, Clever Code, Golden Hammer, Yak Shaving, YAGNI, Premature Optimization, Worse Is Better, Big Design Up Front, and Bike Shedding."
+  },
+  {
+    "title": "Ethics Organization",
+    "category": "Ethics",
+    "date": "2015-10-26",
+    "path": "2015/EthicsOrg",
+    "excerpt": "When specializing in servicing an industry you must become part of that industry. You must learn to talk like you clients. You must adopt their culture and behaviours."
+  },
+  {
+    "title": "Effective Chat",
+    "category": "Agile",
+    "date": "2016-10-17",
+    "path": "2016/EffectiveChat",
+    "excerpt": "So I thought I’d write down some tips for using a chat application effectively on a development team. Chat applications can revolutionize a how a development team works and even its culture. I’ll go through some of the goals of implementing a chat application, some best practices, and pitfalls."
+  },
+  {
+    "title": "Reasons For Automated Testing",
+    "category": "Unit Testing",
+    "date": "2017-02-23",
+    "path": "2017/ReasonsForAutomatedTesting",
+    "excerpt": "So I gave a talk at the Edmonton .NET User Group on an introduction to automated testing. And of course in this introduction I gave a list of reasons why unit testing is a good idea. Although there are already many blog posts other there on this subject, I thought I’d record my reasons here."
+  },
+  {
+    "title": "Database Enums",
+    "category": "SQL Server",
+    "date": "2017-09-20",
+    "path": "2017/DatabaseEnums",
+    "excerpt": "So is it better to store enumerated types in a database as a string/varchar or integer? Well it depends, but in general as a string is your best bet. In this post I explore the pros and cons of each."
+  },
+  {
+    "title": "Code Reviews",
+    "part": 1,
+    "parentKey": "CodeReview",
+    "category": "Craftsmanship",
+    "date": "2018-09-05",
+    "path": "2018/CodeReview/WhyWhen",
+    "excerpt": "This is a 2 part blog post on code reviews. This first post is on why and when code reviews should be done and some of the soft skills needed."
+  },
+  {
+    "title": "How To Code Review",
+    "part": 2,
+    "parentKey": "CodeReview",
+    "category": "Craftsmanship",
+    "date": "2018-09-05",
+    "path": "2018/CodeReview/HowTo",
+    "excerpt": "This is the second of a two part blog post on code reviews. This second post is a technical checklist on some things to look for during a code review."
+  },
+  {
+    "title": "Empowerment",
+    "category": "Ethics",
+    "date": "2019-01-07",
+    "path": "2019/Empowerment",
+    "excerpt": "The objective of empowerment is to enable someone (or everyone) on a team to be able to make the same decisions that the team leader (or CEO) would make."
+  },
+  {
+    "title": "Personal Overtime Policy",
+    "category": "Ethics",
+    "date": "2019-02-13",
+    "path": "2019/PersonalOvertimePolicy",
+    "excerpt": ""
+  },
+  {
+    "title": "Unprofessional Software Professionals",
+    "category": "Ethics",
+    "date": "2019-02-17",
+    "path": "2019/UnprofessionalSoftwareProfessionals",
+    "excerpt": "The reason why I am writing this blog post is to advise software professionals avoid calling their colleagues “unprofessional”. Asking JFK’s question of “what you can do” should be part of every retrospective. Have a list of things to do in the next sprint, and a backlog of things you want to do over the next few months."
+  },
+  {
+    "title": "Values Statement",
+    "category": "Ethics",
+    "date": "2019-02-18",
+    "path": "2019/ValuesStatement",
+    "excerpt": "I, Timothy Klenke, will not act against these values. I would consider it unethical to act against these stated values. I hold myself to be accountable to them, and others may hold me to this as well."
+  },
+  {
+    "title": "The 3-Layered App",
+    "part": 1,
+    "parentKey": "LayeredApp",
+    "category": "Design Patterns",
+    "date": "2019-07-30",
+    "path": "2019/LayeredApp/Three",
+    "excerpt": "It is a gross over simplification of software architecture to attempt to describe modern software systems in only 3 layers. However, this post is a primer where I will just talk briefly about the 3 high level layers."
+  },
+  {
+    "title": "The 17-Layered App",
+    "part": 2,
+    "parentKey": "LayeredApp",
+    "category": "Design Patterns",
+    "date": "2019-07-30",
+    "path": "2019/LayeredApp/Seventeen",
+    "codeUrl": "https://github.com/TimothyK/Retail",
+    "excerpt": "In this post, I will dive down deeper into the layers and see exactly how these could fit together. Each high-level layer is implemented by smaller focused layers, making 17 in all, at least in this example."
+  }
+]
