@@ -48,7 +48,7 @@ function navbarPartial() {
 function buildNavbar() {
   const navbar = document.createElement('div');
   navbar.classList.add('container');
-  navbar.innerHTML = `<div class="navbar-brand">
+  navbar.innerHTML = `
     <a href="${root()}"
       ><img
         src="${root()}/img/monkey.jpg"
@@ -56,6 +56,7 @@ function buildNavbar() {
         class="rounded-circle"
         height="90"
     /></a>
+    <div class="navbar-brand ml-2 mr-auto">
     <a href="${root()}"
       ><h3 class="d-inline align-middle pl-2">
         Code Monkey Projectiles
