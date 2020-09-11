@@ -116,6 +116,13 @@ function buildFooter() {
     document.URL
   )}"><i class="fab fa-facebook fa-2x"></i></a>
   </span>
+  <span class="align-middle p-3">
+  <a href="mailto:?subject=${encodeURIComponent(
+    activePost.title
+  )}&body=${encodeURIComponent(
+    document.URL
+  )}"><i class="fas fa-envelope fa-2x"></i></a>
+  </span>
   `;
 
   // row.appendChild(share);
