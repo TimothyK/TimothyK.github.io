@@ -64,7 +64,7 @@ function buildNavbar() {
     >
   </div>
   <div>
-    <small>A blog by <a href="${root()}/..">Timothy Klenke</a></small>
+    <small>A blog by <a href="${root()}..">Timothy Klenke</a></small>
   </div>`;
 
   return navbar;
@@ -86,7 +86,7 @@ function buildFooter() {
       Code Monkey Projectiles
     </a>
     <br />
-    <small>by <a href="${root()}/..">Timothy Klenke</a></small>
+    <small>by <a href="${root()}..">Timothy Klenke</a></small>
   </div>
   </div>`;
 
