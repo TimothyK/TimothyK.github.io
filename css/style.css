@@ -58,3 +58,10 @@ a:hover {
 .btn {
   color: #fff !important;
 }
+
+.fab {
+  color: rgba(255, 255, 255, 0.5);
+}
+.fab:hover {
+  color: #99ccff;
+}
