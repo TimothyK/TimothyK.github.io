@@ -82,8 +82,13 @@ function buildFooter() {
 
   footer.innerHTML = `<div class="row">
   <div class="col">
-    <a href="${root()}">
-      Code Monkey Projectiles
+    <a href="${categoryUrl()}">
+      ${
+        activePost !== null
+          ? 'Read more about <b>' + activePost.category + '</b> on <br>'
+          : ''
+      }
+      Code Monkey Projectiles...
     </a>
     <br />
     <small>by <a href="${root()}..">Timothy Klenke</a></small>
@@ -284,16 +289,16 @@ function buildCardHeader(builder, group, count) {
 }
 
 function buildCardBody(builder, group, posts) {
-  const categoryId = document.createElement('div');
-  categoryId.id = builder.name + '-' + group.toLowerCase().replace(' ', '-');
-  categoryId.classList.add('collapse');
-  if (posts.includes(activePost ?? mostRecentPost)) {
-    categoryId.classList.add('show');
+  const groupRoot = document.createElement('div');
+  groupRoot.id = builder.name + '-' + group.toLowerCase().replace(' ', '-');
+  groupRoot.classList.add('collapse');
+  if (showGroup(builder, group, posts)) {
+    groupRoot.classList.add('show');
   }
 
   const body = document.createElement('div');
   body.classList.add('card-body', 'p-0');
-  categoryId.appendChild(body);
+  groupRoot.appendChild(body);
 
   const list = document.createElement('div');
   list.classList.add('list-group');
@@ -303,7 +308,16 @@ function buildCardBody(builder, group, posts) {
     list.appendChild(buildPostListItem(builder, post));
   }
 
-  return categoryId;
+  return groupRoot;
+}
+
+function showGroup(builder, group, posts) {
+  if (activePost !== null) return posts.includes(activePost);
+
+  const category = getUrlParameter('category');
+  if (category === '') return posts.includes(mostRecentPost);
+
+  return builder === categoryBuilder && group === category;
 }
 
 function buildPostListItem(builder, post) {
@@ -359,4 +373,21 @@ function root() {
     result += '../';
   }
   return result === '' ? './' : result;
+}
+
+function categoryUrl() {
+  if (activePost === null) return root();
+
+  return root() + '?category=' + encodeURIComponent(activePost.category);
+}
+
+//https://davidwalsh.name/query-string-javascript
+//stolen from A-Frame VR toolkit
+function getUrlParameter(name) {
+  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+  var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+  var results = regex.exec(location.search);
+  return results === null
+    ? ''
+    : decodeURIComponent(results[1].replace(/\+/g, ' '));
 }
