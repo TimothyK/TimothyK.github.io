@@ -49,16 +49,16 @@ function buildNavbar() {
   const navbar = document.createElement('div');
   navbar.classList.add('container');
   navbar.innerHTML = `
-    <a href="${root()}"
+    <a class="mr-2" href="${root()}"
       ><img
         src="${root()}/img/monkey.jpg"
         alt="logo"
         class="rounded-circle"
         height="90"
     /></a>
-    <div class="navbar-brand ml-2 mr-auto">
+    <div class="navbar-brand mr-auto">
     <a href="${root()}"
-      ><h3 class="d-inline align-middle pl-2">
+      ><h3 class="d-inline align-middle">
         Code Monkey Projectiles
       </h3></a
     >
@@ -100,7 +100,7 @@ function buildFooter() {
   const row = footer.querySelector('.row');
 
   var share = document.createElement('div');
-  share.classList.add('col-md-5', 'mb-3');
+  share.classList.add('col-md-6', 'mb-3');
   share.innerHTML = `<span class="align-middle">Share</span>
   <span class="align-middle p-3">
     <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(
