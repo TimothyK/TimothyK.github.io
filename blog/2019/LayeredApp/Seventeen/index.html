@@ -11,46 +11,10 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../../../css/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>The 17-Layered App - Code Monkey Projectiles</title>
     <link rel="icon" href="../../../img/monkey.jpg" />
     <link rel="apple-touch-icon" href="../../../img/favicon.png" />
-
-
-    <style>
-      div.sticky {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0;
-        padding-bottom: 25px;
-      }
-
-      .btn-ui {
-        background-color: red;        
-      }
-      .btn-ui a {
-        color: white;
-      }
-      .btn-bus {
-        background-color: #91d250;
-      }
-      .btn-bus a {
-        color: black;
-      }
-      .btn-data {
-        background-color: #0071c2;        
-      }
-      .btn-data a {
-        color: white;
-      }
-      .btn-db {
-        background-color: #ffc200;
-      
-      }
-      .btn-db a {
-        color: black;
-      }
-
-      </style>
 
   </head>
   <body>
@@ -176,39 +140,41 @@
 
             <div id="nav-toolbar" class="sticky">
               <div class="btn-group">
-                <button type="button" class="btn btn-lg btn-md btn-sm"><a href="#Intro" title="Top"><i class="fas fa-arrow-alt-circle-up"></i></i></a></button>
-                <button type="button" class="btn btn-lg btn-md btn-sm"><a href="#Diagram" title="Diagram"><i class="fas fa-layer-group"></i></a></button>
-                <button type="button" class="btn btn-ui btn-lg btn-md btn-sm"><a href="#L1" title="1. View">V</a></button>
-                <button type="button" class="btn btn-ui btn-lg btn-md btn-sm"><a href="#L2" title="2. View Model">VM</a></button>
-                <button type="button" class="btn btn-ui btn-lg btn-md btn-sm"><a href="#L3" title="3. Controller">Ctrl</a></button>
-                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"><a href="#L4" title="4. Application Service">Srv</a></button>
-                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"><a href="#L5" title="5. Domain Model">DomM</a></button>
-                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"><a href="#L6" title="6. Domain">Dom</a></button>
-                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"><a href="#L7" title="7. Repository Interface">IRepo</a></button>
-                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"><a href="#L8" title="8. Abstract Model">AbsM</a></button>
-                <button type="button" class="btn btn-data btn-lg btn-md btn-sm"><a href="#L9" title="9. Repository Adapter">Adapt</a></button>
-                <button type="button" class="btn btn-data btn-lg btn-md btn-sm"><a href="#L10" title="10. Repository">Repo</a></button>
-                <button type="button" class="btn btn-data btn-lg btn-md btn-sm"><a href="#L11" title="11. Data Model">DataM</a></button>
-                <button type="button" class="btn btn-data btn-lg btn-md btn-sm"><a href="#L12" title="12. ORM">ORM</a></button>
-                <button type="button" class="btn btn-data btn-lg btn-md btn-sm"><a href="#L13" title="13. Framework">FW</a></button>
-                <button type="button" class="btn btn-data btn-lg btn-md btn-sm"><a href="#L14" title="14. Driver/Provider">Drv</a></button>
-                <button type="button" class="btn btn-db btn-lg btn-md btn-sm"><a href="#L15" title="15. DB External">SProc</a></button>
-                <button type="button" class="btn btn-db btn-lg btn-md btn-sm"><a href="#L16" title="16. DB Conceptual">Tbl</a></button>
-                <button type="button" class="btn btn-db btn-lg btn-md btn-sm"><a href="#L17" title="17. DB Physical">Phys</a></button>
-                <button type="button" class="btn btn-lg btn-md btn-sm"><a href="#AppendixA" title="Appendix">A</i></i></a></button>
-                <button type="button" class="btn btn-lg btn-md btn-sm"><a href="#Conclusion" title="Conclusion"><i class="fas fa-arrow-alt-circle-down"></i></i></a></button>
+                <button type="button" class="btn btn-lg btn-md btn-sm" onClick="scrollToDiv('Intro')"><abbr title="Top"><i class="fas fa-arrow-alt-circle-up"></i></abbr></button>
+                <button type="button" class="btn btn-lg btn-md btn-sm" onClick="scrollToDiv('Diagram')"><abbr title="Diagram"><i class="fas fa-layer-group"></i></abbr></button>
+                <button type="button" class="btn btn-ui btn-lg btn-md btn-sm" onClick="scrollToDiv('L1')"><abbr title="1. View">V</abbr></button>
+                <button type="button" class="btn btn-ui btn-lg btn-md btn-sm"   onClick="scrollToDiv('L2')"><abbr title="2. View Model">VM</abbr></button>
+                <button type="button" class="btn btn-ui btn-lg btn-md btn-sm"   onClick="scrollToDiv('L3')"><abbr title="3. Controller">Ctrl</abbr></button>
+                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"  onClick="scrollToDiv('L4')"><abbr title="4. Application Service">Srv</abbr></button>
+                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"  onClick="scrollToDiv('L5')"><abbr title="5. Domain Model">DomM</abbr></button>
+                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"  onClick="scrollToDiv('L6')"><abbr title="6. Domain">Dom</abbr></button>
+                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"  onClick="scrollToDiv('L7')"><abbr title="7. Repository Interface">IRepo</abbr></button>
+                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"  onClick="scrollToDiv('L8')"><abbr title="8. Abstract Model">AbsM</abbr></button>
+                <button type="button" class="btn btn-data btn-lg btn-md btn-sm" onClick="scrollToDiv('L9')"><abbr title="9. Repository Adapter">Adapt</abbr></button>
+                <button type="button" class="btn btn-data btn-lg btn-md btn-sm" onClick="scrollToDiv('L10')"><abbr title="10. Repository">Repo</abbr></button>
+                <button type="button" class="btn btn-data btn-lg btn-md btn-sm" onClick="scrollToDiv('L11')"><abbr title="11. Data Model">DataM</abbr></button>
+                <button type="button" class="btn btn-data btn-lg btn-md btn-sm" onClick="scrollToDiv('L12')"><abbr title="12. ORM">ORM</abbr></button>
+                <button type="button" class="btn btn-data btn-lg btn-md btn-sm" onClick="scrollToDiv('L13')"><abbr title="13. Framework">FW</abbr></button>
+                <button type="button" class="btn btn-data btn-lg btn-md btn-sm" onClick="scrollToDiv('L14')"><abbr title="14. Driver/Provider">Drv</abbr></button>
+                <button type="button" class="btn btn-db btn-lg btn-md btn-sm"   onClick="scrollToDiv('L15')"><abbr title="15. DB External">SProc</abbr></button>
+                <button type="button" class="btn btn-db btn-lg btn-md btn-sm"   onClick="scrollToDiv('L16')"><abbr title="16. DB Conceptual">Tbl</abbr></button>
+                <button type="button" class="btn btn-db btn-lg btn-md btn-sm"   onClick="scrollToDiv('L17')"><abbr title="17. DB Physical">Phys</abbr></button>
+                <button type="button" class="btn btn-lg btn-md btn-sm" onClick="scrollToDiv('AppendixA')"><abbr title="Appendix">A</i></abbr></button>
+                <button type="button" class="btn btn-lg btn-md btn-sm" onClick="scrollToDiv('Conclusion')"><abbr title="Conclusion"><i class="fas fa-arrow-alt-circle-down"></i></abbr></button>
               </div>
             </div>
 
-            <a name="Diagram"></a>
-            <p class="d-flex justify-content-center">
-              <img
-                title="17 Layers"
-                style="display: inline; background-image: none"
-                alt="17 Layers"
-                src="17Layers.gif"
-              />
-            </p>
+            <section id="Diagram">
+              <a name="Diagram"></a>
+              <p class="d-flex justify-content-center">
+                <img
+                  title="17 Layers"
+                  style="display: inline; background-image: none"
+                  alt="17 Layers"
+                  src="17Layers.gif"
+                />
+              </p>
+            </section>
             <p>
               As I said in my last post, the best place to start when designing
               a system is at the business layer. This is because it rids you of
@@ -1015,6 +981,7 @@
       ></script>
 
       <script src="../../../build/blog.bundle.js"></script>
+      <script src="src.js"></script>
     </div>
   </body>
 </html>

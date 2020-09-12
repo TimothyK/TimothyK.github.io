@@ -1,0 +1,36 @@
+div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding-bottom: 25px;
+}
+
+.btn-ui {
+  background-color: red;
+}
+.btn-ui abbr {
+  color: white;
+}
+.btn-bus {
+  background-color: #91d250;
+}
+.btn-bus abbr {
+  color: black;
+}
+.btn-data {
+  background-color: #0071c2;
+}
+.btn-data abbr {
+  color: white;
+}
+.btn-db {
+  background-color: #ffc200;
+}
+.btn-db abbr {
+  color: black;
+}
+button abbr {
+  border-bottom: none !important;
+  cursor: inherit !important;
+  text-decoration: none !important;
+}
