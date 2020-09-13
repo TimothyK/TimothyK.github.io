@@ -1,8 +1,21 @@
-function scrollToDiv(id) {
-  if (id[0] !== '#') {
-    id = '#' + id;
+$('body').scrollspy({ target: '#nav-toolbar' });
+
+// Smooth Scrolling
+$('#nav-toolbar a').on('click', function (event) {
+  if (this.hash !== '') {
+    // event.preventDefault();
+    event.stopPropagation();
+
+    const hash = this.hash;
+
+    $('html, body').animate(
+      {
+        scrollTop: $(hash).offset().top,
+      },
+      'fast',
+      function () {
+        window.location.hash = hash;
+      }
+    );
   }
-  $('html,body')
-    .unbind()
-    .animate({ scrollTop: $(id).offset().top - 40 }, 'fast');
-}
+});

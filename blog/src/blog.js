@@ -41,6 +41,7 @@ function findActivePost(posts) {
 
 function navbarPartial() {
   const navbar = document.querySelector('nav');
+  navbar.classList.add('blog-header');
   navbar.innerHTML = '';
   navbar.appendChild(buildNavbar());
 }

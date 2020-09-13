@@ -1,36 +1,52 @@
 div.sticky {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
-  padding-bottom: 25px;
+  top: -10px;
+  padding-bottom: 0px;
 }
 
 .btn-ui {
   background-color: red;
 }
-.btn-ui abbr {
+.btn-ui a {
   color: white;
 }
 .btn-bus {
   background-color: #91d250;
 }
-.btn-bus abbr {
+.btn-bus a {
   color: black;
 }
 .btn-data {
   background-color: #0071c2;
 }
-.btn-data abbr {
+.btn-data a {
   color: white;
 }
 .btn-db {
   background-color: #ffc200;
 }
-.btn-db abbr {
+.btn-db a {
   color: black;
 }
-button abbr {
-  border-bottom: none !important;
-  cursor: inherit !important;
-  text-decoration: none !important;
+
+#nav-toolbar a.active {
+  font-weight: bold;
+  border-bottom-style: double;
+  border-width: 3px;
+  border-color: black;
+  padding: 5px 0px 0px;
+  margin: 2px 3px 0px;
+}
+
+/* Offset the top of the section so that scrollspy and nav-toolbar links skip over the nav-toolbar
+https://stackoverflow.com/a/12606867/902742
+*/
+section h4 {
+  padding-top: 40px;
+  margin-top: -40px;
+}
+#Diagram p {
+  padding-top: 50px;
+  margin-top: -40px;
 }

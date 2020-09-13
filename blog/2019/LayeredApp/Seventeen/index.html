@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" href="../../../img/favicon.png" />
 
   </head>
-  <body>
+  <body data-spy="scroll" data-target="#nav-toolbar" data-offset="50">
     <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
@@ -64,7 +64,6 @@
           <main id="post">
             <p>
               <section id="Intro">
-                <a name="Intro"></a>
                 <a href="../Three/">My last post</a>
                 discussed a high-level software architecture breaking down an
                 application into user interface, business, and data layers. That
@@ -139,33 +138,76 @@
               </section>
 
             <div id="nav-toolbar" class="sticky">
-              <div class="btn-group">
-                <button type="button" class="btn btn-lg btn-md btn-sm" onClick="scrollToDiv('Intro')"><abbr title="Top"><i class="fas fa-arrow-alt-circle-up"></i></abbr></button>
-                <button type="button" class="btn btn-lg btn-md btn-sm" onClick="scrollToDiv('Diagram')"><abbr title="Diagram"><i class="fas fa-layer-group"></i></abbr></button>
-                <button type="button" class="btn btn-ui btn-lg btn-md btn-sm" onClick="scrollToDiv('L1')"><abbr title="1. View">V</abbr></button>
-                <button type="button" class="btn btn-ui btn-lg btn-md btn-sm"   onClick="scrollToDiv('L2')"><abbr title="2. View Model">VM</abbr></button>
-                <button type="button" class="btn btn-ui btn-lg btn-md btn-sm"   onClick="scrollToDiv('L3')"><abbr title="3. Controller">Ctrl</abbr></button>
-                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"  onClick="scrollToDiv('L4')"><abbr title="4. Application Service">Srv</abbr></button>
-                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"  onClick="scrollToDiv('L5')"><abbr title="5. Domain Model">DomM</abbr></button>
-                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"  onClick="scrollToDiv('L6')"><abbr title="6. Domain">Dom</abbr></button>
-                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"  onClick="scrollToDiv('L7')"><abbr title="7. Repository Interface">IRepo</abbr></button>
-                <button type="button" class="btn btn-bus btn-lg btn-md btn-sm"  onClick="scrollToDiv('L8')"><abbr title="8. Abstract Model">AbsM</abbr></button>
-                <button type="button" class="btn btn-data btn-lg btn-md btn-sm" onClick="scrollToDiv('L9')"><abbr title="9. Repository Adapter">Adapt</abbr></button>
-                <button type="button" class="btn btn-data btn-lg btn-md btn-sm" onClick="scrollToDiv('L10')"><abbr title="10. Repository">Repo</abbr></button>
-                <button type="button" class="btn btn-data btn-lg btn-md btn-sm" onClick="scrollToDiv('L11')"><abbr title="11. Data Model">DataM</abbr></button>
-                <button type="button" class="btn btn-data btn-lg btn-md btn-sm" onClick="scrollToDiv('L12')"><abbr title="12. ORM">ORM</abbr></button>
-                <button type="button" class="btn btn-data btn-lg btn-md btn-sm" onClick="scrollToDiv('L13')"><abbr title="13. Framework">FW</abbr></button>
-                <button type="button" class="btn btn-data btn-lg btn-md btn-sm" onClick="scrollToDiv('L14')"><abbr title="14. Driver/Provider">Drv</abbr></button>
-                <button type="button" class="btn btn-db btn-lg btn-md btn-sm"   onClick="scrollToDiv('L15')"><abbr title="15. DB External">SProc</abbr></button>
-                <button type="button" class="btn btn-db btn-lg btn-md btn-sm"   onClick="scrollToDiv('L16')"><abbr title="16. DB Conceptual">Tbl</abbr></button>
-                <button type="button" class="btn btn-db btn-lg btn-md btn-sm"   onClick="scrollToDiv('L17')"><abbr title="17. DB Physical">Phys</abbr></button>
-                <button type="button" class="btn btn-lg btn-md btn-sm" onClick="scrollToDiv('AppendixA')"><abbr title="Appendix">A</i></abbr></button>
-                <button type="button" class="btn btn-lg btn-md btn-sm" onClick="scrollToDiv('Conclusion')"><abbr title="Conclusion"><i class="fas fa-arrow-alt-circle-down"></i></abbr></button>
-              </div>
+              <nav class="navbar navbar-expand-sm my-0">
+                <ul class="navbar-nav ml-auto nav-flex-icons list-group">
+                  <li class="nav-item btn-bar list-group-item p-0">
+                    <a href="#Intro" class="nav-link" title="Top"><i class="fas fa-arrow-alt-circle-up"></i></a>
+                  </li>
+                  <li class="nav-item btn-bar list-group-item p-0">
+                    <a href="#Diagram" class="nav-link" title="Diagram"><i class="fas fa-layer-group"></i></a>
+                  </li>
+                  <li class="nav-item btn-ui list-group-item p-0">
+                    <a href="#L1" class="nav-link" title="1. View">V</a>
+                  </li>
+                  <li class="nav-item btn-ui list-group-item p-0">
+                    <a href="#L2" class="nav-link" title="2. View Model">VM</a>
+                  </li>
+                  <li class="nav-item btn-ui list-group-item p-0">
+                    <a href="#L3" class="nav-link" title="3. Controller">Ctrl</a>
+                  </li>
+                  <li class="nav-item btn-bus list-group-item p-0">
+                    <a href="#L4" class="nav-link" title="4. Application Service">Srv</a>
+                  </li>
+                  <li class="nav-item btn-bus list-group-item p-0">
+                    <a href="#L5" class="nav-link" title="5. Domain Model">DomM</a>
+                  </li>
+                  <li class="nav-item btn-bus list-group-item p-0">
+                    <a href="#L6" class="nav-link" title="6. Domain">Dom</a>
+                  </li>
+                  <li class="nav-item btn-bus list-group-item p-0">
+                    <a href="#L7" class="nav-link" title="7. Repository Interface">IRepo</a>
+                  </li>
+                  <li class="nav-item btn-bus list-group-item p-0">
+                    <a href="#L8" class="nav-link" title="8. Abstract Model">AbsM</a>
+                  </li>
+                  <li class="nav-item btn-data list-group-item p-0">
+                    <a href="#L9" class="nav-link" title="9 Repository Adapter. ">Adapt</a>
+                  </li>
+                  <li class="nav-item btn-data list-group-item p-0">
+                    <a href="#L10" class="nav-link" title="10. Repository">Repo</a>
+                  </li>
+                  <li class="nav-item btn-data list-group-item p-0">
+                    <a href="#L11" class="nav-link" title="11. Data Model">DataM</a>
+                  </li>
+                  <li class="nav-item btn-data list-group-item p-0">
+                    <a href="#L12" class="nav-link" title="12. Object/Relational Mapping">ORM</a>
+                  </li>
+                  <li class="nav-item btn-data list-group-item p-0">
+                    <a href="#L13" class="nav-link" title="13. Framework">FW</a>
+                  </li>
+                  <li class="nav-item btn-data list-group-item p-0">
+                    <a href="#L14" class="nav-link" title="14. Driver/Provider">Drv</a>
+                  </li>
+                  <li class="nav-item btn-db list-group-item p-0">
+                    <a href="#L15" class="nav-link" title="15. DB External">SProc</a>
+                  </li>
+                  <li class="nav-item btn-db list-group-item p-0">
+                    <a href="#L16" class="nav-link" title="16. DB Conceptual">Tbl</a>
+                  </li>
+                  <li class="nav-item btn-db list-group-item p-0">
+                    <a href="#L17" class="nav-link" title="17. DB Physical">Phys</a>
+                  </li>
+                  <li class="nav-item btn-bar list-group-item p-0">
+                    <a href="#AppendixA" class="nav-link" title="Appendix A">A</a>
+                  </li>
+                  <li class="nav-item btn-bar list-group-item p-0">
+                    <a href="#Conclusion" class="nav-link" title="Conclusion"><i class="fas fa-arrow-alt-circle-down"></i></a>
+                  </li>
+                </ul>
+              </nav>
             </div>
 
             <section id="Diagram">
-              <a name="Diagram"></a>
               <p class="d-flex justify-content-center">
                 <img
                   title="17 Layers"
@@ -182,7 +224,6 @@
               business goals, job functions, decisions and actions.
             </p>
             <section id="L6">
-              <a name="L6"></a>
               <h4>6. Domain Layer</h4>
               <p>
                 <b><i>Responsibility:</i></b> The Domain layer describes the
@@ -218,7 +259,6 @@
               </p>
             </section>
             <section id="L5">
-              <a name="L5"></a>
               <h4>5. Domain Model</h4>
               <p>
                 <b><i>Responsibility: </i></b> The Domain Layer will have methods
@@ -270,7 +310,6 @@
               </p>
             </section>
             <section id="L4">
-              <a name="L4"></a>
               <h4>4. Application Service</h4>
               <p>
                 <b><i>Responsibility: </i></b>The Domain layer represents core
@@ -315,7 +354,6 @@
               </p>
             </section>
             <section id="L7">
-              <a name="L7"></a>
               <h4>7. Repository Interface</h4>
               <p>
                 <b><i>Responsibility:</i></b> The Domain Layer will need to call
@@ -393,7 +431,6 @@
               </p>
             </section>
             <section id="L8">
-              <a name="L8"></a>
               <h4>8. Abstract Model</h4>
               <p>
                 <b><i>Responsibility:</i></b> With every behavioural class with
@@ -429,7 +466,6 @@
               </p>
             </section>
             <section id="L9">
-              <a name="L9"></a>
               <h4>9. Repository Adapter</h4>
               <p>
                 The Repository Adapter is wiring that allows the business and data
@@ -467,7 +503,6 @@
               </p>
             </section>
             <section id="L10">
-              <a name="L10"></a>
               <h4>10. Repository Layer</h4>
               <p>
                 The Repository Layer is the highest level in the data layer that
@@ -563,7 +598,6 @@
               </p>
             </section>
             <section id="L11">
-              <a name="L11"></a>
               <h4>11. Data Model</h4>
               <p>
                 In order to communicate with the ORM, Data Model classes need to
@@ -632,7 +666,6 @@
               </p>
             </section>
             <section id="L12">
-              <a name="L12"></a>
               <h4>12. ORM</h4>
               <p>
                 The Object/Relation Mapper framework is not something you would
@@ -651,7 +684,6 @@
               </p>
             </section>
             <section id="L13">
-              <a name="L13"></a>
               <h4>13. Data Framework</h4>
               <p>
                 Most programming languages have a framework that provides
@@ -677,7 +709,6 @@
               </p>
             </section>
             <section id="L14">
-              <a name="L14"></a>
               <h4>14. Driver / Provider</h4>
               <p>
                 I’ve added this layer only for completeness. Like the ORM and Data
@@ -703,7 +734,6 @@
               </p>
             </section>
             <section id="L15">
-              <a name="L15"></a>
               <h4>15. DB External Layer</h4>
               <p>
                 Although a database primarily consists of tables, it can be
@@ -731,7 +761,6 @@
               </p>
             </section>
             <section id="L16">
-              <a name="L16"></a>
               <h4>16. DB Conceptual Layer</h4>
               <p>
                 The DB Conceptual Layer contains all the Tables in the database.
@@ -765,7 +794,6 @@
               </p>
             </section>
             <section id="L17">
-              <a name="L17"></a>
               <h4>17. DB Physical Layer</h4>
               <p>
                 The physical layer of the database controls where the data is
@@ -787,7 +815,6 @@
               </p>
             </section>
             <section id="L1">
-              <a name="L1"></a>
               <h4>1. View</h4>
               <p>
                 The View is the presentation layer for the system to the user. It
@@ -816,7 +843,6 @@
               </p>
             </section>
             <section id="L2">
-              <a name="L2"></a>
               <h4>2. ViewModel</h4>
               <p>
                 The ViewModel are the data classes that the View will consume.
@@ -840,7 +866,6 @@
               </p>
             </section>
             <section id="L3">
-              <a name="L3"></a>
               <h4>3. Controller</h4>
               <p>
                 The Controller is an adapter class that allows the View to consume
@@ -884,7 +909,6 @@
               </p>
             </section>
             <section id="AppendixA">
-              <a name="AppendixA"></a>
               <h4>Appendix A: Cross Cutting Concerns</h4>
               <p>
                 Before closing out this post, I will briefly touch on some of the
@@ -917,7 +941,6 @@
               </p>
             </section>
             <section id="Conclusion">
-              <a name="Conclusion"></a>
               <h4>Conclusion</h4>
               <p>
                 The reasons for breaking an application into 3 or 17 layers is to
