@@ -15,7 +15,6 @@ $(document).ready(function () {
     }
 
     var groups = ['btn-ui', 'btn-bus', 'btn-data', 'btn-db'];
-    var activeGroup;
     for (group of groups)
       if (activeChild.parentElement.classList.contains(group)) {
         $('#nav-toolbar li.btn-parent.' + group).hide();
