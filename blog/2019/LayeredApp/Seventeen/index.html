@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" href="../../../img/favicon.png" />
 
   </head>
-  <body data-spy="scroll" data-target="#nav-toolbar" data-offset="50">
+  <body data-spy="scroll" data-target="#nav-toolbar">
     <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
@@ -62,8 +62,10 @@
 
           <!-- Post Body -->
           <main id="post">
+            <section id="Intro">
+
             <p>
-              <section id="Intro">
+              
                 <a href="../Three/">My last post</a>
                 discussed a high-level software architecture breaking down an
                 application into user interface, business, and data layers. That
@@ -137,75 +139,95 @@
               </p>
               </section>
 
-            <div id="nav-toolbar" class="sticky">
-              <nav class="navbar navbar-expand">
-                <ul class="navbar-nav nav-flex-icons list-group">
-                  <li class="nav-item btn-bar list-group-item p-0">
+              <nav class="navbar navbar-expand sticky" id="nav-toolbar" >
+                <div class="container-fluid">
+                <ul class="nav navbar-nav ">
+                  <li class="btn-bar">
                     <a href="#Intro" class="nav-link" title="Top"><i class="fas fa-arrow-alt-circle-up"></i></a>
                   </li>
-                  <li class="nav-item btn-bar list-group-item p-0">
+                  <li class="btn-bar">
                     <a href="#Diagram" class="nav-link" title="Diagram"><i class="fas fa-layer-group"></i></a>
                   </li>
-                  <li class="nav-item btn-ui list-group-item p-0">
+
+                  <li class="btn-ui btn-parent">
+                    <a href="#L1" class="nav-link" title="UI"><i class="fas fa-desktop"></i></a>
+                  </li>
+
+                  <li class="btn-ui btn-child">
                     <a href="#L1" class="nav-link" title="1. View">V</a>
                   </li>
-                  <li class="nav-item btn-ui list-group-item p-0">
+                  <li class="btn-ui btn-child">
                     <a href="#L2" class="nav-link" title="2. View Model">VM</a>
                   </li>
-                  <li class="nav-item btn-ui list-group-item p-0">
+                  <li class="btn-ui btn-child">
                     <a href="#L3" class="nav-link" title="3. Controller">Ctrl</a>
                   </li>
-                  <li class="nav-item btn-bus list-group-item p-0">
+
+                  <li class="btn-bus btn-parent">
+                    <a href="#L6" class="nav-link" title="Business"><i class="fas fa-dollar-sign"></i></a>
+                  </li>
+
+                  <li class="btn-bus btn-child">
                     <a href="#L4" class="nav-link" title="4. Application Service">Srv</a>
                   </li>
-                  <li class="nav-item btn-bus list-group-item p-0">
+                  <li class="btn-bus btn-child">
                     <a href="#L5" class="nav-link" title="5. Domain Model">DomM</a>
                   </li>
-                  <li class="nav-item btn-bus list-group-item p-0">
+                  <li class="btn-bus btn-child">
                     <a href="#L6" class="nav-link" title="6. Domain">Dom</a>
                   </li>
-                  <li class="nav-item btn-bus list-group-item p-0">
+                  <li class="btn-bus btn-child">
                     <a href="#L7" class="nav-link" title="7. Repository Interface">IRepo</a>
                   </li>
-                  <li class="nav-item btn-bus list-group-item p-0">
+                  <li class="btn-bus btn-child">
                     <a href="#L8" class="nav-link" title="8. Abstract Model">AbsM</a>
                   </li>
-                  <li class="nav-item btn-data list-group-item p-0">
+
+                  <li class="btn-data btn-parent">
+                    <a href="#L9" class="nav-link" title="Data"><i class="fas fa-table"></i></a>
+                  </li>
+
+                  <li class="btn-data btn-child">
                     <a href="#L9" class="nav-link" title="9 Repository Adapter. ">Adapt</a>
                   </li>
-                  <li class="nav-item btn-data list-group-item p-0">
+                  <li class="btn-data btn-child">
                     <a href="#L10" class="nav-link" title="10. Repository">Repo</a>
                   </li>
-                  <li class="nav-item btn-data list-group-item p-0">
+                  <li class="btn-data btn-child">
                     <a href="#L11" class="nav-link" title="11. Data Model">DataM</a>
                   </li>
-                  <li class="nav-item btn-data list-group-item p-0">
+                  <li class="btn-data btn-child">
                     <a href="#L12" class="nav-link" title="12. Object/Relational Mapping">ORM</a>
                   </li>
-                  <li class="nav-item btn-data list-group-item p-0">
+                  <li class="btn-data btn-child">
                     <a href="#L13" class="nav-link" title="13. Framework">FW</a>
                   </li>
-                  <li class="nav-item btn-data list-group-item p-0">
+                  <li class="btn-data btn-child">
                     <a href="#L14" class="nav-link" title="14. Driver/Provider">Drv</a>
                   </li>
-                  <li class="nav-item btn-db list-group-item p-0">
+
+                  <li class="btn-db btn-parent">
+                    <a href="#L15" class="nav-link" title="Database"><i class="fas fa-database"></i></a>
+                  </li>
+
+                  <li class="btn-db btn-child">
                     <a href="#L15" class="nav-link" title="15. DB External">SProc</a>
                   </li>
-                  <li class="nav-item btn-db list-group-item p-0">
+                  <li class="btn-db btn-child">
                     <a href="#L16" class="nav-link" title="16. DB Conceptual">Tbl</a>
                   </li>
-                  <li class="nav-item btn-db list-group-item p-0">
+                  <li class="btn-db btn-child">
                     <a href="#L17" class="nav-link" title="17. DB Physical">Phys</a>
                   </li>
-                  <li class="nav-item btn-bar list-group-item p-0">
+                  <li class="btn-bar">
                     <a href="#AppendixA" class="nav-link" title="Appendix A">A</a>
                   </li>
-                  <li class="nav-item btn-bar list-group-item p-0">
+                  <li class="btn-bar">
                     <a href="#Conclusion" class="nav-link" title="Conclusion"><i class="fas fa-arrow-alt-circle-down"></i></a>
                   </li>
                 </ul>
+              </div>
               </nav>
-            </div>
 
             <section id="Diagram">
               <p class="d-flex justify-content-center">

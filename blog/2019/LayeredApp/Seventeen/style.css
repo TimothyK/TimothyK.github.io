@@ -1,10 +1,13 @@
-div.sticky {
+nav.sticky {
   position: -webkit-sticky;
   position: sticky;
   top: -10px;
   padding-bottom: 0px;
 }
 
+.btn-bar {
+  background-color: white;
+}
 .btn-ui {
   background-color: red;
 }
@@ -35,8 +38,10 @@ div.sticky {
   border-bottom-style: double;
   border-width: 3px;
   border-color: black;
-  padding: 5px 0px 0px;
-  margin: 2px 3px 0px;
+  /* padding: 5px 0px 0px;
+  margin: 2px 3px 0px; */
+  padding-bottom: 0px;
+  /* margin-bottom: 2px; */
 }
 
 /* Offset the top of the section so that scrollspy and nav-toolbar links skip over the nav-toolbar
