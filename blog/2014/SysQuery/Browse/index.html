@@ -16,7 +16,10 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../../../css/style.css" />
-    <title>Use System Queries to Browse Columns, Indexes, and FKs - Code Monkey Projectiles</title>
+    <title>
+      Use System Queries to Browse Columns, Indexes, and FKs - Code Monkey
+      Projectiles
+    </title>
     <link rel="icon" href="../../../img/monkey.jpg" />
     <link rel="apple-touch-icon" href="../../../img/favicon.png" />
   </head>
@@ -65,13 +68,120 @@
 
           <!-- Post Body -->
           <main id="post">
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+            <p>
+              The Object Explorer (F8) in SQL Server Management Studio is quite
+              limiting when you need to search for a table or column. In fact,
+              there are no search capabilities at all. All you can do with the
+              simple tree user interface is drill down, scroll and scan through
+              the tables and columns. You have to navigate to different nodes in
+              the tree and/or open popup windows if you what to see the column
+              names, default values, or indexes.
+            </p>
+            <p>
+              System queries to the rescue! I've written (and tweaked over the
+              years) a small query against the system tables that allows me to
+              easily search a database for any table or column name. The results
+              show a list of all tables and columns matching the search criteria
+              along with data type, null constraint, index and foreign key
+              information.
+            </p>
+            <p>
+              I don’t even use the Object Explorer any more. Instead I just use
+              this query. It is a saved file I have on my machine, which I pin
+              to the taskbar. Most days I just use this query and the Object
+              Explorer never gets opened. I prevent the Object Explorer from
+              opening automatically by the Tool-Options-Environment-Startup
+              settings.
+            </p>
+            <p>So here is the query:</p>
+
+            <script src="https://gist.github.com/TimothyK/9040368.js?file-columnsearch-sql"></script>
+
+            <p>
+              Once the query is open and I point to the correct database
+              (Ctrl+U) then enter the table or column name filter values. They
+              are wildcard searches so that I can search for any part of the
+              table or column name.
+            </p>
+            <p>
+              Generally I’ll only enter a table name to search on, then F5 to
+              run it. The query results will report the full table definition.
+              If the results are too long, or its just easier to do, I’ll use
+              the column name filter.
+            </p>
+            <p>
+              There are few commented out filters that I like to keep handy. The
+              first limits the query to report only primary keys. The second
+              searches for just date columns or bit columns. The last commented
+              out filter searches for foreign key children that reference a
+              table or column.
+            </p>
+            <p>
+              The columns in the query report table and column name, SQL Server
+              data type, and the null constraint. Also the default value for the
+              column is reported. If the column is an Identity, the value
+              “=Identity” is displayed in the Default column. Calculated columns
+              also are displayed in the Default column with a “=” prefix and the
+              calculation definition.
+            </p>
+            <p>
+              The result set also has a column for the index the column belongs
+              to. If the column’s index is a primary key the value “PK” appears
+              in the Index column. Otherwise the index will reported as “IX2”,
+              “IX3”, and so on for all the indexes defined on the table. Unique
+              indexes get reported with “UQ” instead of “IX”. If the column is a
+              member of a composite index the index marker will be followed by a
+              dash and the position number of the column in the index. For
+              example an Order Line Item table may have the primary key columns
+              OrderID and LineItemID, which would be marked with “PK-1” and
+              “PK-2” respectively.
+            </p>
+            <p>
+              On a side note, I think it is really critical that the tool you
+              use to discover what columns exist in the database report any
+              indexes defined against them. The first step in query performance
+              tuning is to ensure that the columns you are using to filter on do
+              belong to an index. That is why this query reports indexes along
+              with column definitions as if they are first class properties of
+              the column.
+            </p>
+            <p>
+              The last column is the foreign key. The table and column name of
+              the parent column being referenced is reported.
+            </p>
+            <p>
+              Note that database columns (i.e. rows in the result set) can be
+              reported duplicate times if they belong to multiple indexes or
+              foreign keys. Maybe I’ll get around to fixing that one day.
+            </p>
+            <p>
+              This query work great for quick searches of columns in a database.
+              However, this is just a starting point. I will often modify the
+              this query adding extra nested filters or new columns. This column
+              search query is a gateway script that can be leveraged to do much
+              more powerful things using the system tables.
+            </p>
+            <p>
+              For example there is a commented out column in the select clause
+              to report the .NET framework’s CLR type instead of the SQL Server
+              data type. I will often uncomment this and append a space, the
+              column name, and a semicolon to create quick field or property
+              definitions in C# classes.
+            </p>
+            <p>
+              I will also routinely use this to generate SQL scripts to drop or
+              rebuild default constraints, indexes or foreign keys. For example,
+              I’ll add the following column to the select list to generate
+              script to drop Default Constraints in the database: “'Alter Table
+              ' + obj.name + ' Drop Constraint ' + def.name”.
+            </p>
+            <p>
+              System queries are a really powerful tool to have in your tool
+              belt to work effectively with SQL Server (or any relational)
+              database system. I hope you find this query not only helpful for
+              column searching, but also to learn and build system queries of
+              your own.
+            </p>
           </main>
         </div>
 

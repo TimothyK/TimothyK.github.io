@@ -38,6 +38,7 @@
     "category": "SQL Server",
     "date": "2014-02-27",
     "path": "2014/SysQuery/Browse",
+    "codeUrl": "https://gist.github.com/TimothyK/9040368#file-columnsearch-sql",
     "excerpt": "The Object Explorer (F8) in SQL Server Management Studio is quite limiting when you need to search for a table or column. System queries to the rescue!"
   },
   {
@@ -47,6 +48,7 @@
     "category": "SQL Server",
     "date": "2014-02-27",
     "path": "2014/SysQuery/ColumnDescription",
+    "codeUrl": "https://gist.github.com/TimothyK/9264388",
     "excerpt": "In my previous post, I described how to use a query quickly search for columns in a database. The only thing missing from this table is a description for each of the columns."
   },
   {

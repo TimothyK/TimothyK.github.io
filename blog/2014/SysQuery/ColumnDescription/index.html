@@ -16,7 +16,9 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../../../css/style.css" />
-    <title>Add Column Descriptions in SQL Server - Code Monkey Projectiles</title>
+    <title>
+      Add Column Descriptions in SQL Server - Code Monkey Projectiles
+    </title>
     <link rel="icon" href="../../../img/monkey.jpg" />
     <link rel="apple-touch-icon" href="../../../img/favicon.png" />
   </head>
@@ -65,13 +67,128 @@
 
           <!-- Post Body -->
           <main id="post">
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+            <p>
+              In my
+              <a href="../Browse/">previous post</a>, I described how to use a
+              query quickly search for columns in a database. The query output
+              was a nice little table reporting the columns, data type, null
+              constraints, defaults, indexes, and foreign key references. Let me
+              tell you, I've copied and pasted this result set into many a
+              design document in my days. The only thing missing from this table
+              is a description for each of the columns.
+            </p>
+            <p>
+              SQL Server’s Extended Properties to the rescue! Extended
+              properties are simple key value pairs you can add to basically any
+              entity in the database (tables, views, columns, triggers, stored
+              procedures, functions, indexes, the database itself, any many
+              more). Just right click on almost any node in the Object Explorer
+              (F8) tree, select Properties, and go to the Extended Properties
+              page. You can add any key name you want. In this article we’ll be
+              adding a Description property to Columns.
+            </p>
+            <p>
+              Adding Extended Properties via the Object Explorer works fine, but
+              my preferred method is to use a stored procedure. Here is command:
+            </p>
+            <code>
+              <pre>
+  exec sp_AddExtendedProperty 'Description', @description
+    , 'SCHEMA', @schemaName
+    , 'TABLE', @tableName
+    , 'COLUMN', @columnName</pre
+              >
+            </code>
+
+            <p>
+              A problem with the Add Extended Property stored procedure is that
+              it fails if the column already has the extended property defined.
+              There is an Update Extended Property stored procedure, but it
+              fails if the column doesn’t already have the extended property
+              defined. Here is a temporary stored procedure that updates a
+              column’s Description extended property regardless of whether it is
+              defined yet or not.
+            </p>
+
+            <code>
+              <pre>
+  Create Procedure #SetColumnDescription(
+    @schemaName sysname
+    , @tableName sysname
+    , @columnName sysname
+    , @description sql_variant
+  )
+  As
+    If Exists (
+      Select 1 
+      From fn_listextendedproperty('Description'
+        , 'SCHEMA', @schemaName
+        , 'TABLE', @tableName
+        , 'COLUMN', @columnName
+      )
+    )
+      exec sp_DropExtendedProperty 'Description'
+        , 'SCHEMA', @schemaName
+        , 'TABLE', @tableName
+        , 'COLUMN', @columnName
+
+    If (Not @description Is Null) And (Not @description = '')
+      exec sp_AddExtendedProperty 'Description', @description
+        , 'SCHEMA', @schemaName
+        , 'TABLE', @tableName
+        , 'COLUMN', @columnName
+  GO</pre
+              >
+            </code>
+
+            <p>
+              As you may have figured out from the temporary stored procedure,
+              to read the Description back use the following table function:
+            </p>
+
+            <code>
+              <pre class="brush: sql; auto-links: false;">
+  Select value From fn_listextendedproperty('Description'
+    , 'SCHEMA', @schemaName
+    , 'TABLE', @tableName
+    , 'COLUMN', @columnName
+  )
+              </pre>
+            </code>
+
+            <p>
+              So this function lookup can be added to the Select clause of my
+              column search query to add a Description column to the output.
+              Here is a new version of the column search query with the
+              Description column added:
+              <a
+                class="btn btn-outline-primary"
+                href="https://gist.github.com/TimothyK/9264388"
+                ><i class="fab fa-github"></i> Show me the code!</a
+              >
+            </p>
+
+            <p>
+              Also embedded in this query is a commented out column to generate
+              the call to the SetColumnDescription stored procedure. The
+              definition of the SetColumnDescription procedure is commented out
+              at the bottom of the file. In my day to day work I copy the
+              SetColumnDescription definition to a new query window, flip back
+              to the column search query, run it to generate the
+              SetColumnDescription commands, then I copy and paste those
+              commands to the SetColumnDescription query windows. Here I
+              edit/create the column descriptions in the query window and run
+              the script to apply those descriptions to the database. There is
+              also a commented out filter in the Where clause to limit the
+              results to columns that don’t have a Description defined yet.
+            </p>
+
+            <p>
+              And with the power of Extended Properties we’ve just added Column
+              Descriptions to our database design and turned the Column Search
+              query into a power database design living document. I hope you
+              find this useful.
+            </p>
           </main>
         </div>
 

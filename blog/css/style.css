@@ -18,3 +18,13 @@ footer a:hover {
 .button-small {
   font-size: 0.8rem;
 }
+
+.gist {
+  max-width: 825px;
+  overflow: auto;
+}
+code {
+  font-family: Consolas, 'courier new';
+  font-size: 105%;
+  color: black;
+}
