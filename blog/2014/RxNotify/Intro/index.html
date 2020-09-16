@@ -65,13 +65,165 @@
 
           <!-- Post Body -->
           <main id="post">
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+            <p>
+              Reactive Extensions (Rx) is a set of classes and functions that
+              allow a developer to control data over time. It allows for event
+              streams to be manipulated as easily as collections can be
+              manipulated with LINQ.
+            </p>
+            <p>
+              An event stream can be made up of anything. It could be button
+              clicks, key presses, or calls to/from a client or server. One of
+              the classic “Hello, world!” examples for Rx is implementing a
+              search box [<a href="http://rxwiki.wikidot.com/101samples#toc30"
+                >101 Rx Samples</a
+              >,
+              <a
+                href="http://stackoverflow.com/questions/5438639/rx-autocompletebox"
+                >Stack Overflow</a
+              >]. This is where the search doesn’t occur until the user has
+              stopped typing for a few hundred milliseconds. Searching on every
+              keystroke, especially against an external database, would bog down
+              the user interface. However with a couple Rx function calls the
+              program can aggregate these events, run the search in background
+              thread, then return to the UI thread.
+            </p>
+            <p></p>
+            <p>
+              I like to think of Rx as LINQ but extended out to three
+              dimensions.
+            </p>
+            <p>
+              The first dimension of Rx is <b>Data</b>. LINQ also has this
+              dimension. Most LINQ functions you are familiar with are also
+              available with Rx event streams. An Rx event stream is defined in
+              the library as an <code>IObservable&lt;T&gt;</code>, which is
+              analogous to the <code>IEnumerable&lt;T&gt;</code> type. This
+              supports a Select method to transform the data to another type and
+              a Where method to filter objects on the stream. Rx is also similar
+              to LINQ in that it follows a
+              <a href="http://martinfowler.com/bliki/FluentInterface.html"
+                >fluent</a
+              >, functional programing (FP) style. This FP style allows the code
+              to be very expressive and maintainable.
+            </p>
+            <p>
+              The second dimension of Rx is <b>Time</b>. Rx has additional
+              functions, not found in LINQ, to control and aggregate data on the
+              stream over time. Event data can be grouped into time boxes (the
+              Buffer or Sample methods), delayed (the Delay method), or monitor
+              for missing data (the Timeout method). These are just a few
+              examples and I will cover these in this series of blog posts. Also
+              note that Rx support a scheduler so that production code that
+              works with events over hours can have automated unit tests that
+              execute this code in milliseconds.
+            </p>
+            <p>
+              The third dimension of Rx is <b>Threading</b>. By default Rx is
+              single threaded. Applying functions like Select or Where will have
+              the resulting event stream handled on the same thread that the
+              events are generated on. However it is a simple matter of
+              injecting the <code>ObserveOn</code> method into the fluent FP
+              method chain to offload the work to a different thread or join to
+              another thread.
+            </p>
+            <p></p>
+            <p>
+              I found the best way to learn Rx is to try to apply it to a real
+              world problems. I’ve found this much more productive than simply
+              reading up on all the available methods and hoping to replace my
+              existing code with these methods. That was the approach I took
+              with LINQ, and for LINQ it was very effective. LINQ can typically
+              be used to take non-LINQ code (such as for loops and if
+              statements) that are already implemented and replace it with LINQ
+              functions and lambdas. Using LINQ functions over conventional
+              programming constructs often yielded half the amount of code.
+            </p>
+            <p>
+              I’ve found Rx isn’t applied in the same way. Yes, Rx does reduce
+              the lines of code required to solve a problem. However the code
+              savings are much, much more than half. Typically I find that the
+              problems I am solving with Rx are problems that I wouldn’t even
+              attempt to solve if I were limited to conventional programming
+              constructs.
+            </p>
+            <p>
+              In this series of blog posts the real world problem I’ll be
+              looking at is notifying users. There are a number of common
+              patterns that I employ when setting up a notification system.
+              First and foremost, I want to avoid spamming users with every
+              single nugget of information the program is producing. There are
+              three patterns I’ll cover:
+            </p>
+            <ul>
+              <li>
+                <a href="../Lossless/">Lossless Notifications</a>, where data
+                from each event is aggregated into a single message
+              </li>
+              <li>
+                <a href="../UnexpectedErrors/">Unexpected Error Notifications</a
+                >, where duplicate errors are thrown out
+              </li>
+              <li>
+                <a href="../ConnectionErrors/">Connection Error Notifications</a
+                >, where connection are queued and can be cancelled if the
+                connection self corrects
+              </li>
+            </ul>
+            <p>
+              Before I get to these notification patterns, I cover the basics of
+              <a href="../CreateStream/"
+                >setting up an event stream, subscribing, and a general
+                overview</a
+              >
+              of the test program I’ll be using for the demonstrations. All the
+              code is
+              <a href="https://github.com/TimothyK/RxExamples"
+                >available on GitHub</a
+              >.
+            </p>
+            <p></p>
+            <p>
+              Before we get started, I’ll quickly state some history and
+              additional resources. The Rx library is owned and maintained by
+              Microsoft. It was originally releases around 2010. It targets the
+              4.0 framework, although there is version available that targets
+              3.5 if needed.
+            </p>
+            <ul>
+              <li>
+                The Rx libraries are available on NuGet:
+                <a
+                  title="https://www.nuget.org/packages/Rx-Main/"
+                  href="https://www.nuget.org/packages/Rx-Main/"
+                  >https://www.nuget.org/packages/Rx-Main/</a
+                >
+              </li>
+              <li>
+                Microsoft Home Page for Rx:
+                <a
+                  title="http://msdn.microsoft.com/en-ca/data/gg577609.aspx"
+                  href="http://msdn.microsoft.com/en-ca/data/gg577609.aspx"
+                  >http://msdn.microsoft.com/en-ca/data/gg577609.aspx</a
+                >
+              </li>
+              <li>
+                Some examples:
+                <a
+                  title="http://rxwiki.wikidot.com/101samples"
+                  href="http://rxwiki.wikidot.com/101samples"
+                  >http://rxwiki.wikidot.com/101samples</a
+                >
+              </li>
+              <li>
+                A free e-book:
+                <a
+                  title="http://www.introtorx.com/"
+                  href="http://www.introtorx.com/"
+                  >http://www.introtorx.com/</a
+                >
+              </li>
+            </ul>
           </main>
         </div>
 

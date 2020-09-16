@@ -144,6 +144,7 @@
     "category": "Reactive Extensions",
     "date": "2014-08-30",
     "path": "2014/RxNotify/Intro",
+    "codeUrl": "https://github.com/TimothyK/RxExamples",
     "excerpt": "Reactive Extensions (Rx) is a set of classes and functions that allow a developer to control data over time. It allows for event streams to be manipulated as easily as collections can be manipulated with LINQ. I like to think of Rx as LINQ but extended out to three dimensions: data, time, and threads."
   },
   {
