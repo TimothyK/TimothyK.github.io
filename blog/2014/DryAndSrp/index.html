@@ -65,13 +65,173 @@
 
           <!-- Post Body -->
           <main id="post">
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+            <p>
+              Kent Beck’s
+              <a href="http://xp.c2.com/XpSimplicityRules.html"
+                >XP Simplicity Rules</a
+              >
+              (aka Four Rules of Simple Design) are a prioritized list of rules
+              that when applied to your code generally yield a great design. As
+              you’ll see from the above link the list has slightly evolved over
+              time. I find today they are usually listed as:
+            </p>
+            <ol>
+              <li>All Tests Pass</li>
+              <li>Don’t Repeat Yourself (DRY)</li>
+              <li>Express Intent</li>
+              <li>Minimalistic</li>
+            </ol>
+            <p>
+              These are prioritized. If your code doesn’t work (rule 1) then
+              everything else is forfeit. Go back to rule one and get the code
+              working before worrying about anything else.
+            </p>
+            <p>
+              Over the years the community have debated whether the priority of
+              rules 2 and 3 should be reversed. Some say a little duplication in
+              the code is OK as long as it helps express intent. I’ve debated it
+              myself.
+              <a
+                href="http://llewellynfalco.blogspot.ca/2014/06/do-you-favor-removing-duplication-or.html"
+                >This recent post</a
+              >
+              got me thinking about this again, hence this post.
+            </p>
+            <p></p>
+            <p>
+              I don’t think it is fair to compare “Expressing Intent” against
+              “DRY”. This is a comparison of apples to oranges. “Expressing
+              Intent” is a principal of code quality. “Repeating Yourself” is a
+              code smell. A code smell is merely an indicator that there
+              <u><em>might</em></u> be something wrong with the code. It takes
+              further investigation to determine if a violation of an underlying
+              principal of code quality has actually occurred.
+            </p>
+            <p>
+              For example “using nouns for method names”, “using verbs for
+              property names”, or “using Booleans for parameters” are all code
+              smells that indicate that code probably isn’t doing a good job at
+              expressing intent. They are usually very good indicators. But what
+              principle is the code smell of Duplication pointing to and how
+              good of an indicator is it?
+            </p>
+            <p>
+              Duplication in the code base is bad for a couple reasons. If you
+              need to make a change and that needs to be made in a number of
+              locations it is difficult to know if you have caught all of them.
+              This can lead to bugs if/when one of those locations is
+              overlooked. By refactoring the code to remove all duplication
+              there will be left with only one place to change, thereby
+              eliminating this problem.
+            </p>
+            <p>
+              With most projects the code becomes the single source of truth for
+              a project. If a production code base is inconsistent with a five
+              year old requirements or design document the production code that
+              people are currently living with is usually declared as the
+              current reality (or truth). Requirement or design documents at
+              this age in a project life cycle are usually of little value.
+            </p>
+            <p>
+              Although comparing production code to external documentation is
+              usually straight forward, duplication within the code base muddles
+              this declaration of truth. When code is duplicated small
+              discrepancies will creep in between the two copies over time. The
+              question then becomes which copy is correct? As different factions
+              debate how the software should work, trust in the software and the
+              team behind it erodes.
+            </p>
+            <p>
+              The code smell of Duplication points to a violation of the
+              “<strong>Single Source of Truth” principle</strong>. Let me define
+              that as:
+            </p>
+            <p class="lead mx-md-5 mx-2">
+              A stakeholder’s requirement for a software change should never
+              cause more than one class to change.
+            </p>
+            <p>
+              Violation of the Single Source of Truth principle will always
+              result in duplication in the code. However, the inverse is not
+              always true. Duplication in the code does not necessarily indicate
+              that there is a violation of the Single Source of Truth principle.
+            </p>
+            <p>
+              To illustrate this, let’s look at a retail system where the system
+              will (1) send a transaction to a bank and (2) print a receipt for
+              the customer. Although these are two separate features of the
+              system, they are closely related. The reason for printing the
+              receipt is usually to provide an audit trail back to the bank
+              transaction. Both features use the same data: amount charged,
+              account number, transaction date, customer name, retail store
+              name, and etcetera. Because both features use much of the same
+              data, there is likely to be a lot of duplication between them.
+              This duplication can be removed by making both features use the
+              same data access layer.
+            </p>
+            <p>
+              Then start coming the divergent requirements. The receipt
+              stakeholder wants a change so that the account number has the last
+              few digits masked out to protect the customer’s privacy. That can
+              be solved with a small IF statement whilst still eliminating all
+              duplication in the system. Then the bank wants to take a picture
+              of the customer as well as capture their signature and/or PIN
+              number for enhanced security. Then the receipt owner wants to pull
+              data from a completely different system to report the customer’s
+              loyalty program point total.
+            </p>
+            <p>
+              After a while you realize that the two stakeholders have somewhat
+              similar, but ultimately different responsibilities. They have
+              their own reasons for pulling the data access layer in different
+              directions. Then it dawns on you, the
+              <strong
+                ><a
+                  href="http://www.objectmentor.com/resources/articles/srp.pdf"
+                  >Single Responsibility Principle</a
+                ></strong
+              >:
+            </p>
+            <p class="lead mx-md-5 mx-2">
+              There should never be more than one reason for a class to change.
+            </p>
+            <p>
+              In this example we have two stakeholders giving two separate
+              reasons for the data access class to change. It is clear violation
+              of the Single Responsibility Principle. That’s a problem because
+              it can often lead the project owner pitting the two stakeholders
+              against each other in a vein attempt to get them to work out a
+              mutual single source of truth. But that doesn’t exist. There are
+              two completely valid truths that the developers need to support.
+              How is this to be supported and honour the Single Responsibility
+              Principle? The solution is to duplicate the data access layer and
+              let each stakeholder control their own copy.
+            </p>
+            <p>
+              The Single Source of Truth and Single Responsibility Principles
+              are very closely related. SST tells you when to remove
+              duplication; SRP tells you when to introduce it. They may seem to
+              be fighting each other, but really they are not. The key is to
+              clearly identify the different responsibilities (or sources of
+              truth) over a system. Sometimes there is a single person with that
+              responsibility, other times there are many. This can be especially
+              difficult if the same person has dual responsibilities. They might
+              not even realize they are wearing multiple hats.
+            </p>
+            <p>
+              In my opinion Single Source of Truth should be listed as the
+              second rule of simple design with Express Intent at number three.
+              Investigation of the DRY code smell should yield to the proper
+              application SST, without violating SRP. When necessary leave
+              duplication in the system and let the class names express the
+              different people that are responsible for controlling them.
+              Knowing all the people with responsibilities over a system is the
+              higher priority because you’ll need to know this before you can
+              express it. Although it may be a code smell when there is
+              duplication in the code, it does not necessarily mean that the
+              coder has chosen to be expressive over DRY or that the code is
+              bad.
+            </p>
           </main>
         </div>
 
