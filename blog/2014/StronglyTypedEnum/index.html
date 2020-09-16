@@ -65,13 +65,274 @@
 
           <!-- Post Body -->
           <main id="post">
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+            <p>
+              Enums are great. They provide a quick, easy to use collection of
+              values. They are a great way of indicating the valid, possible
+              values to assign to a variable, database field, or API. They offer
+              good encapsulation by making sure that all possible values are
+              defined in one, easy to find location. They also avoid using
+              <a href="http://en.wikipedia.org/wiki/Magic_number_(programming)"
+                >magic numbers</a
+              >
+              or strings to define possible values.
+            </p>
+            <p>
+              However, enums do have their problems. The first is that under the
+              hood, the .NET Framework represents them as an integer primitive.
+              Although you may declare a enum to have only three possible values
+              {0, 1, and 2}. There is nothing to stop someone from assigning any
+              other integer to an enum variable.
+            </p>
+            <code>
+              <pre>
+  enum CowboyType {Good, Bad, Ugly}
+
+  public void Foo()
+  {
+    CowboyType eastwood;
+    eastwood = CowboyType.Good;
+
+    //This is totally valid - WTF?!
+    eastwood = (CowboyType) 42;
+  }
+                </pre
+              >
+            </code>
+
+            <p>
+              The second problem is that the enum is not very extendable. Yes,
+              .NET does support extension methods. However, you can’t add
+              extension static methods, override the ToString method, or do
+              operator overloading.
+            </p>
+
+            <p>
+              The Strongly Typed Enum design pattern can solve these problems. A
+              Strongly Typed Enum is a plain old class that has the same look
+              and feel as an enum, but also provides all the benefits of a
+              proper class. The basic structure of a Strongly Typed Enum class
+              is as follows.
+            </p>
+
+            <code>
+              <pre>
+  class CowboyType
+  {
+    private CowboyType() { }
+
+    public static readonly CowboyType Good = new CowboyType();
+    public static readonly CowboyType Bad = new CowboyType();
+    public static readonly CowboyType Ugly = new CowboyType();
+  }
+                </pre
+              >
+            </code>
+
+            <p>
+              The class has a <strong>private constructor</strong>. This ensures
+              that nothing outside the class can create an instances of it.
+              Nobody can create an instance of a CowboyType class with the value
+              42 or other invalid value.
+            </p>
+
+            <p>
+              The only way to create an instance of the class is through one of
+              the three <strong>static read only fields</strong>. Because they
+              are static, they are instantiated automatically the first time the
+              class is referenced. They are declared as read only so that their
+              values never change. It doesn’t really matter that the underlying
+              objects don’t have any properties. As long as they are uniquely
+              instantiated objects. The standard equality operator (==) can be
+              used to confirm if two values are equal.
+            </p>
+
+            <p>
+              These three static fields give the same look and feel as a regular
+              enum. They are referenced in the code the same way as the original
+              enum was, “CowboyType.Good”. The intellisense offered by Visual
+              Studio behaves the same. When a variable is declared of type
+              CowboyType, typing the assignment operator (=) invokes the same
+              three values in the intellisense drop down list.
+            </p>
+
+            <p>
+              From this basic starting point you can now extended the class by
+              adding any methods you need.
+            </p>
+
+            <p>
+              The <strong>ToString method</strong> can (and should) be
+              overridden to report the static field name. The build-in enum type
+              does this automatically. You’ll need to explicitly add this
+              override in order to maintain the same behaviour. The built-in
+              enum type uses reflection to implement its ToString method.
+              Obfuscators can thwart the behaviour of the enum’s ToString
+              implementation, but this won’t be a problem in the overridden
+              method.
+            </p>
+
+            <code>
+              <pre>
+  public override string ToString()
+  {
+    var map = new Dictionary&lt;CowboyType, string&gt; 
+    {
+      {Good, "Good"},
+      {Bad, "Bad"},
+      {Ugly, "Ugly"}
+    };
+    return map[this];
+  }
+                </pre
+              >
+            </code>
+
+            <p>
+              The System.Enum type supports a method to GetValues() or
+              GetNames(). A static method can be added to the class to easily
+              get at all the member values as an IEnumerable. I implement this
+              as an <strong>All method</strong> instead of calling it GetValues.
+            </p>
+
+            <code>
+              <pre>
+  public static IEnumerable&lt;CowboyType&gt; All()
+  {
+    yield return Good;
+    yield return Bad;
+    yield return Ugly;
+  }
+                </pre
+              >
+            </code>
+
+            <p>
+              An<strong> explicit conversion</strong> can be added to allow
+              casting to or from integers. However, because you are implementing
+              this yourself you can choose the behaviour. Invalid integers (like
+              42) can throw an invalid cast exception instead of being allowed.
+            </p>
+
+            <code>
+              <pre>
+  public static explicit operator CowboyType(int value)
+  {
+    var result = All().FirstOrDefault(x =&gt; (int)x == value);
+    if (result != null) return result;
+
+    throw new InvalidCastException("The value " + value + " is not a valid CowboyType");
+  }
+    
+  public static explicit operator int(CowboyType value)
+  {
+    var map = new Dictionary&lt;CowboyType, int&gt;
+    {
+      {Good, 0},
+      {Bad, 1},
+      {Ugly, 2}
+    };
+    return map[value];
+  }</pre
+              >
+            </code>
+
+            <p>
+              Explicit or implicit conversion operators are just two ways to go
+              for allowing for conversions between the new enum class and other
+              types. “To” methods, like ToString, can also provide this.
+              <strong>“From” static methods</strong> can be added to provide the
+              conversion in the other direction. Providing To/From methods
+              usually is easier to trace through than the explicit operator and
+              especially the implicit operator. Below is the FromString method.
+            </p>
+
+            <code>
+              <pre>
+  public static CowboyType FromString(string value)
+  {
+    if (value == null) throw new ArgumentNullException("value");
+    var result = All().FirstOrDefault(x =&gt; x.ToString() == value);
+    if (result != null) return result;
+
+    throw new ArgumentOutOfRangeException("value", value, "Invalid CowboyType");
+  }</pre
+              >
+            </code>
+
+            <p>
+              I’ll often add ToDbValue and FromDbValue methods as well as the
+              To/FromString method. The FromDbValue takes the value as it is
+              stored in the database as an input. If I know the column name this
+              data type is usually stored in I'll often create an overloaded
+              version of FromDbValue that takes a DataRow.
+            </p>
+
+            <p></p>
+
+            <p>
+              You can start adding any other methods you find you need to this
+              class. For example it would be easy to add a DefaultHatColor
+              method to this class. I often find once I convert a simple enum to
+              a strongly typed enum class I start to see new methods to add that
+              I never thought of before. Providing a place holder to add logic
+              in advance lowers the barrier to actually doing so in the future.
+              It makes the the calling code easier to read because often I can
+              move those nasty IF statements surrounding my simple enum
+              consumption into the strongly typed class. Using simple enums
+              instead of proper classes is actually a well defined code smell
+              called
+              <a href="http://c2.com/cgi/wiki?PrimitiveObsession"
+                ><strong>Primitive Obsession</strong></a
+              >.
+            </p>
+
+            <p></p>
+
+            <p>
+              In the above ToString and CowboyType to int explicit conversion
+              methods I use a mapping function to define how each enum member
+              maps to the different data type. This has the advantage that if I
+              want to add a new To method I can do so by just adding the method
+              and its mappings. There is no code outside the new method that
+              needs to change.
+            </p>
+
+            <p>
+              The disadvantage comes when adding a new Enum member (static read
+              only field). When doing this all To methods need to be updated to
+              map for the new value. If it is more likely that new members are
+              added instead of new conversion routines then the pattern can be
+              altered to store the string or integer values as private read only
+              instance properties. When the static field is initialized it will
+              set the values of these private instance properties via the
+              private constructor. The To methods just expose these private
+              properties, or forego the To methods any make the read only
+              instance properties public. Then to add a new member there is only
+              a single line that needs to be added, the declaration of static
+              field and its call to the private constructor.
+              <strong
+                >Which technique to use depends on which type of change is more
+                likely</strong
+              >.
+            </p>
+
+            <p></p>
+
+            <p>
+              So you may be thinking at this point that strongly typed enum
+              classes look great, but that’s a lot of code to manually write.
+              Well, I have a solution for that. I wrote a small conversion
+              program that will take C# or VB source code for a standard enum
+              type and convert this into the code for a strongly typed enum
+              class. This code is available here:
+              <a href="https://github.com/TimothyK/StronglyTypedEnumConverter"
+                >source code</a
+              >,
+              <a
+                href="https://github.com/TimothyK/StronglyTypedEnumConverter/releases"
+                >download EXE and DLL</a
+              >.
+            </p>
           </main>
         </div>
 

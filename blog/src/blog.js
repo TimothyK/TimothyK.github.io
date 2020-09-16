@@ -224,17 +224,32 @@ function buildPartNavList(posts) {
 }
 
 function buildCodeLink() {
-  if (activePost.codeUrl === undefined) return null;
+  if (activePost.codeUrl === undefined && activePost.downloadUrl === undefined)
+    return null;
 
-  const button = document.createElement('a');
-  button.classList.add('mb-4', 'btn', 'btn-outline-primary');
-  button.href = activePost.codeUrl;
+  const buttonArea = document.createElement('div');
+  buttonArea.classList.add('mb-4');
 
-  // button.innerHTML = `<a href="${activePost.codeUrl}"><span class="align-middle"><i class="fab fa-github fa-2x"></i></span></a>
-  // <a href="${activePost.codeUrl}"><span class="align-middle">Show me the code!</span></a>`;
-  button.innerHTML = `<i class="fab fa-github"></i> Show me the code!`;
+  if (activePost.codeUrl !== undefined) {
+    const codeButton = document.createElement('a');
+    codeButton.classList.add('btn', 'btn-outline-primary', 'mr-2');
+    codeButton.href = activePost.codeUrl;
 
-  return button;
+    codeButton.innerHTML = `<i class="fab fa-github"></i> Show me the code!`;
+
+    buttonArea.appendChild(codeButton);
+  }
+  if (activePost.downloadUrl !== undefined) {
+    const downloadButton = document.createElement('a');
+    downloadButton.classList.add('btn', 'btn-outline-success', 'mr-2');
+    downloadButton.href = activePost.downloadUrl;
+
+    downloadButton.innerHTML = `<i class="fas fa-download"></i> Download`;
+
+    buttonArea.appendChild(downloadButton);
+  }
+
+  return buttonArea;
 }
 
 function postsTablePartial(builder, posts) {
@@ -335,6 +350,11 @@ function buildPostListItem(builder, post) {
     codeBadge = '<i class="fab fa-github"></i>';
   }
 
+  let downloadBadge = '';
+  if (post.downloadUrl !== undefined) {
+    downloadBadge = '<i class="fas fa-download"></i>';
+  }
+
   let mostRecentBadge = '';
   if (mostRecentPost === post) {
     mostRecentBadge =
@@ -355,6 +375,7 @@ function buildPostListItem(builder, post) {
   </span>
   <span>
     ${codeBadge}
+    ${downloadBadge}
     ${mostRecentBadge}
     ${categoryBadge}
   </span>

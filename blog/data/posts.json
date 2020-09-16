@@ -134,6 +134,7 @@
     "date": "2014-07-31",
     "path": "2014/StronglyTypedEnum",
     "codeUrl": "https://github.com/TimothyK/StronglyTypedEnumConverter",
+    "downloadUrl": "https://github.com/TimothyK/StronglyTypedEnumConverter/releases",
     "excerpt": "Enums are great. However, enums do have their problems. There is nothing to stop someone from assigning any other integer to an enum variable. Also, the enum is not very extendable. The Strongly Typed Enum design pattern can solve these problems."
   },
   {
