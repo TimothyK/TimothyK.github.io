@@ -19,6 +19,16 @@
     <title>Scheduling Pairing Sessions - Code Monkey Projectiles</title>
     <link rel="icon" href="../../../img/monkey.jpg" />
     <link rel="apple-touch-icon" href="../../../img/favicon.png" />
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        padding: 0px 10px 0px;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar">
@@ -65,13 +75,291 @@
 
           <!-- Post Body -->
           <main id="post">
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+            <p>
+              This second of three posts on Pair Programming. The
+              <a href="../Benefits/">first post</a>
+              described why pair programming is a good idea. I’m going to assume
+              you’ve read that and now you want to start pair programming on
+              your team.
+            </p>
+            <p>
+              Wanting to do pair programing and actually doing pair programming
+              are two different things. It would be an over simplification to
+              say that the way to start pair programming is to simply “start
+              pairing”. Its like saying to lose weight, simply eat less and
+              exercise more. There are usually other factors in play and it
+              takes disciplined approach to get over the initial hurdle so that
+              pairing is part of your routine.
+            </p>
+            <p>
+              Logistically, it does take a little bit of effort to plan a
+              pairing session. A task to pair on must be identified, the two
+              developers to be paired must be assigned, and a mutually
+              acceptable time for the session must be planned.
+            </p>
+            <p>
+              Besides these logistics issues, there is cultural change that
+              needs to occur. If you’re not doing pairing now, you’re probably
+              in the habit where every developer comes in the morning, goes to
+              their cube, and stays there silent for most of the day. They
+              actively try to avoid interrupting their colleagues. They may
+              believe that less talk and more person-hours typing is the key to
+              productivity. These habits and attitudes need to be broken.
+            </p>
+            <p>
+              I’m going to describe three different approaches for getting over
+              this initial hurdle and start to regularly pair. These approaches
+              are: Shadowing, Stand-ups and Round Robin.
+            </p>
+            <p>
+              Before I get to the approaches, I’ll first talk about choosing a
+              partner. If you want to skip over that section the TL;DR version
+              is that any two developers should be able to successfully pair
+              together. However, various types of pairing can lead to different
+              dynamics. The Choose a Partner section describes the dynamics and
+              benefits of each pairing type. If you have specific goals in mind,
+              choosing the correct pair may be a factor.
+            </p>
+            <h4>
+              <b><u>Choose a Partner</u></b>
+            </h4>
+            <p>
+              In a <b>typical, Complementary Pairing</b> each person will
+              <b>give</b> <b>expertise</b> in one area and <b>receive</b>
+              <b>training</b> in another. Multiple skills are required to
+              complete any task. The pair should complement each other whereby
+              the weaknesses of one individual are the strengths of the other
+              and vice versa.
+            </p>
+            <p>
+              For example when integrating a new DLL into an existing program
+              the developer(s) working on the task must have some knowledge
+              about the new DLL and some knowledge about the existing code base
+              to be modified. A good pairing would be someone familiar with the
+              existing code base paired with someone that has worked on (or
+              with) the DLL before. The expert on the existing code base will
+              get up to speed with the new DLL very quickly. The DLL expert gets
+              exposure to other parts of the system. Also, the DLL expert
+              increases their own expertise by receiving feedback on consumption
+              of their DLL. This may lead to enhancements to the DLL or
+              libraries that make it easier to consume in the future.
+            </p>
+            <p>
+              <b>Expert-Novice</b> pairings are usually done to train new
+              employees. They are also very common in teams that have low bus
+              numbers. It is best to work on tasks that aren’t too complicated
+              so that the novice isn’t too overwhelmed and can is able to
+              contribute some code. Obviously, in this scenario the novice
+              benefits from the pairing session by receiving training. The
+              expert also benefits because the simple act of tutoring often
+              increases the expert’s expertise. The expert also gets an
+              opportunity to work on their soft skills and team building.
+            </p>
+            <p>
+              <b>Expert-Expert</b> pairings are able to take on insanely
+              difficult tasks. They can solve problems that would be too
+              intimidating for a single person.
+            </p>
+            <p>
+              <b>Novice-Novice</b> pairings are beneficial even in the absence
+              of an expert. Analogies to “the blind leading the blind” are a
+              myth. Solo novices can often waste hours on little problems that
+              can be easily solved by asking any other team member. Novice pairs
+              spend far less time being stuck. If they both are stuck they are
+              confident in knowing “it’s not them” and seek the help of an
+              expert. Also novice pairing can be excellent for gaining
+              confidence as at least one will have to pretend to be the expert.
+            </p>
+            <p>
+              Pairing does not have to be limited to new coding tasks.
+              Maintenance or hot fix coding, working on support calls, R &amp;
+              D, design tasks, or
+              <b>most other development work can be paired on</b>. Also
+              <b>tedious tasks</b> can be occasionally paired on. You may think
+              that every developer does this task every day and it only takes 5
+              minutes so it isn’t worth pairing on. Don’t assume everyone knows
+              the fastest way to get something done. Other developers might be
+              using tools that take them an order of magnitude faster or slower
+              on the same task. Also tedious tasks are usually error prone and
+              can often use an extra set of eyes.
+            </p>
+            <p>
+              It is best to <b>rotate</b> partners frequently. Don’t pair with
+              the same person day in and day out. Switching partners frequently
+              maximizes the spread of knowledge in the team.
+            </p>
+            <h4>
+              <b><u>Shadowing</u></b>
+            </h4>
+            <p>
+              Shadowing is where one person is assigned another. This approach
+              is typically used with new hires. The new hire is<strong>
+                assigned to another developer for mentoring</strong
+              >. The new hire will learn everything they need to know about
+              their new company by performing the daily tasks with a colleague.
+            </p>
+            <p>
+              Shadowing is probably the easiest approach to implement. There are
+              fewer cultural barriers here. Even if your team doesn’t do pair
+              programming currently, it probably still does one-on-one training
+              for new hires. The new hire is also more open to new ideas; they
+              don’t have any bad habits that need to be broken. If you tell them
+              from day one that they are expected to work as a team they may
+              actually do that as opposed to telling the same thing to an
+              existing employee set in their ways.
+            </p>
+            <h4>
+              <b><u>Stand-up</u></b>
+            </h4>
+            <p>
+              The daily stand-up meeting is where each team member states what
+              tasks they are working on an obstacles they are facing. The
+              obstacles are usually something they need help with. If your not
+              doing stand-ups then there is probably some other mechanism you
+              have in place to keep in touch with your colleague’s daily tasks
+              (kanban boards,
+              <a href="https://campfirenow.com/">chat rooms</a>,
+              <a href="https://idonethis.com/">daily reports</a>, or various
+              other dashboard tools).
+            </p>
+            <p>
+              These discussion forums give an opportunity to schedule pair
+              programming sessions. If colleague is assigned a task you think
+              you could help with, volunteer to pair on it. If you think you
+              could benefit from someone else’s help on your task, ask for a
+              pairing session. Just add a
+              <a href="http://guide.agilealliance.org/guide/threeqs.html"
+                >fourth question</a
+              >
+              to your daily stand-up of “<strong
+                >who can I pair with today?</strong
+              >”
+            </p>
+            <h4>
+              <b><u>Round Robin</u></b>
+            </h4>
+            <p>
+              The last approach I’ll present for getting pairing sessions going
+              is Round Robin. This a top down management mandate to force
+              developers to give pairing a try. This approach doesn’t exactly
+              fit with the typical grass roots capital-A Agile approaches teams
+              usually prefer. However, sometimes an extreme approach like this
+              can be effective at changing habits and trying new things.
+            </p>
+            <p>
+              This approach works best when you have a small team that should be
+              <strong>cross-functional</strong>. This is where you want every
+              team member to be familiar with all other aspects of the system.
+            </p>
+            <p>
+              Under this approach pair programming can be introduced slowly and
+              be implemented on a trial basis. It<strong>
+                lets sceptics see how pairing works</strong
+              >, while giving them
+              <strong>strict control of the hours </strong>dedicated to the
+              experiment. It can start with only a couple 60-90 minute sessions
+              per developer per week. As both developers and managers start
+              seeing the benefits of the sessions, more can be added as needed.
+            </p>
+            <p>
+              This approach removes the demand on developers for asking to
+              receive or volunteering to give help. This barrier is replaced
+              with fixed assignments. The
+              <b>partners will be assigned</b> each week. Assignments will be
+              done in a round-robin that will be rotated each week. For example
+              here is a monthly schedule of pairs for a team of 5 members.
+            </p>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <b>Task Owner</b>
+                  </td>
+                  <td>
+                    <b>Week 1</b>
+                  </td>
+                  <td>
+                    <b>Week 2</b>
+                  </td>
+                  <td>
+                    <b>Week 3</b>
+                  </td>
+                  <td>
+                    <b>Week 4</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Alice</b>
+                  </td>
+                  <td>Eric</td>
+                  <td>Dave</td>
+                  <td>Carol</td>
+                  <td>Bob</td>
+                </tr>
+                <tr>
+                  <td><b>Bob</b></td>
+                  <td>Alice</td>
+                  <td>Eric</td>
+                  <td>Dave</td>
+                  <td>Carol</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Carol</b>
+                  </td>
+                  <td>Bob</td>
+                  <td>Alice</td>
+                  <td>Eric</td>
+                  <td>Dave</td>
+                </tr>
+                <tr>
+                  <td><b>Dave</b></td>
+                  <td>Carol</td>
+                  <td>Bob</td>
+                  <td>Alice</td>
+                  <td>Eric</td>
+                </tr>
+                <tr>
+                  <td><b>Eric</b></td>
+                  <td>Dave</td>
+                  <td>Carol</td>
+                  <td>Bob</td>
+                  <td>Alice</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              During the first week Eric will spend 60-90 minutes at Alice’s
+              desk working as a pair on one of Alice’s assigned tasks. Also, at
+              a different time during the same week Alice will pair with Bob on
+              one of Bob’s tasks. Therefore each developer participates in
+              <b>two pairing sessions per week</b>.
+            </p>
+            <p>
+              The rotation schedule can accommodate a team of any size. If
+              desired, a slot could be added for a “foreign exchange developer”
+              to introduce a few cross-team sessions.
+            </p>
+            <p>
+              Team members are responsible for
+              <b>scheduling their own pairing sessions</b>. Negotiation of this
+              starts with the task owner suggesting a time to whoever is helping
+              them that week. It is best to make the planning of the pairing
+              session into a habit. Every Monday morning at 9:00 take 2 minutes
+              to schedule the session.
+            </p>
+            <p>
+              Of course, contact between team members is not limited to these
+              pairing sessions. Some tasks may benefit from a specific pairing.
+              If that pairing is not on the schedule for weeks, don’t let that
+              stop you. <b>More pairing sessions can be added as needed</b>.
+            </p>
+            <p>
+              In my
+              <a href="../Inside/">next post</a>
+              I cover how to conduct a successful pair session.
+            </p>
           </main>
         </div>
 
