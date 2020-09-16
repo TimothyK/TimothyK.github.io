@@ -106,12 +106,12 @@
     "excerpt": "In this post I’m going to outline a few common methods that can be used to increase the coverage of of your test suite. Each approach you are skilled at applying is another tool in your tool belt. The more vectors of attack you have on a problem – the better. In this post I’ll enumerate some test-after workflows: Bug Reporting, Exploratory Testing, Examples, Smoke Tests, Coverage Analysis, and Test Refactoring."
   },
   {
-    "title": "Testing Workflows - Test Before",
+    "title": "Testing Workflows - Test First",
     "part": 2,
     "parentKey": "TestingWorkflows",
     "category": "Unit Testing",
     "date": "2014-05-30",
-    "path": "2014/TestingWorkflows/TestBefore",
+    "path": "2014/TestingWorkflows/TestFirst",
     "excerpt": "This is the second of two posts on some common strategies for approaching the job of writing tests. So here is a partial list of some test-first methodologies: Ping Pong, Test Blazer, TDD, ATDD, and BDD."
   },
   {
