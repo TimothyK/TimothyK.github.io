@@ -35,3 +35,7 @@ code {
   text-decoration: underline;
   margin-bottom: 0px;
 }
+
+.skim-focus {
+  font-weight: 600;
+}

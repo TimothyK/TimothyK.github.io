@@ -75,171 +75,182 @@
               better. So here is a partial list of some test-first
               methodologies.
             </p>
-            <p>
-              <strong><u>Ping Pong</u></strong>
-            </p>
-            <p>
-              Ping Pong is a methodology commonly used in pair programing. One
-              developer will write a new failing test. Then they hand the
-              keyboard to their partner. The partner writes the production code
-              to get the test passing. The partner then writes the next test
-              before passing the keyboard back to the original developer.
-            </p>
-            <p>
-              The reasoning behind this testing methodology is to facilitate
-              pair programming. That is to say that this testing methodology
-              shares all the
-              <a href="../../PairProgramming/Benefits/"
-                >benefits of pair programming</a
-              >, including ensuring multiple team members are familiar with the
-              code base (i.e. low bus number).
-            </p>
-            <p>
-              <strong><u>Test Blazer</u></strong>
-            </p>
-            <p>
-              <strong><u></u></strong>Test Blazing, in some respects, is also a
-              pairing strategy. The developers don’t work side by side on the
-              same task at the same time. Instead one developer is dedicated to
-              writing tests at their own desk. They write failing test after
-              failing test, never touching the production code. With these tests
-              they are defining the specification for the system. The developer
-              most familiar with the specifications would be assigned this task.
-            </p>
-            <p>
-              The next day or later in the same day another developer fetches
-              the latest test suite. Their job is to write the production code
-              to get those tests passing. Once all the tests pass they fetch
-              from source control the latest version of the test project to get
-              the newer tests.
-            </p>
-            <p>
-              This methodology has some of the benefits of pair programming,
-              namely lowering the bus number. This can be good way adding an
-              extra developer to a project without slowing it down too much. The
-              production coder isn’t slowed down writing tests. The tests are in
-              another project from the production code, so there shouldn’t be
-              any merge conflicts despite two developers working on the same
-              solution.
-            </p>
-            <p>
-              This methodology is also a good test for the tests. Can another
-              developer figure out what system should do just by reading the
-              tests? This question will be answered as the production coder
-              works there way through the test blazer’s tests.
-            </p>
-            <p>
-              <strong><u>Test Driven Development (TDD)</u></strong>
-            </p>
-            <p>
-              TDD is a highly disciplined practice that calls for a new test and
-              an new production code to be written every few minutes. There are
-              <a
-                href="http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd"
-                target="_blank"
-                >strict rules</a
-              >
-              for when you should be writing test or production code. You start
-              by writing a failing (red) test, then write the simplest
-              production code possible to get the code working (green), then you
-              clean up the code (refactor). This is known as the
-              red-green-refactor cycle.
-            </p>
-            <p>
-              The goal of TDD isn’t the creation of a suite of tests, however
-              that is an advantageous side effect. The real goal of TDD is to
-              follow a practice that yields a better design. The practice is
-              meant to push the design toward small, decoupled, modularized
-              components. This is generally considered a better design that
-              large, highly coupled
-              <a href="http://en.wikipedia.org/wiki/Big_ball_of_mud"
-                >ball of mud</a
-              >.
-            </p>
-            <p>
-              TDD accomplishes this through the refactoring cycle. Refactoring
-              is only possible to do safely when tests are in place. In order to
-              use TDD developers must be trained in how to look for and repair
-              <a href="http://martinfowler.com/bliki/CodeSmell.html"
-                >code smells</a
-              >
-              in the system. Through repairing these sections of smelly code
-              (i.e. a refactoring) the design of the system emerges.
-            </p>
-            <p>
-              For further information on TDD, I highly recommend the series
-              <a href="http://martinfowler.com/articles/is-tdd-dead/"
-                >“Is TDD Dead?”</a
-              >. It discusses its pros and cons and when it is best used.
-            </p>
-            <p>
-              <strong><u>Acceptance Test Driven Development (ATDD)</u></strong>
-            </p>
-            <p>
-              Whereas TDD focuses on small unit tests that concentrate on a
-              small piece of the system, Acceptance Tests focuses on the larger
-              integrated environment. Acceptance Tests usually correspond to
-              <a href="../../../?category=User%20Stories">user stories</a>,
-              which come directly from the customer. The unit tests focus on the
-              inputs and outputs of smaller parts of the system, which are too
-              low level to be of interest to the customer.
-            </p>
-            <p>
-              ATDD generally uses the same tools as TDD. However, ATDD uses
-              fewer
-              <a href="http://martinfowler.com/articles/mocksArentStubs.html"
-                >mocks and test doubles</a
-              >
-              than TDD.
-            </p>
-            <p>
-              ATDD often complements TDD; they aren’t competing methods. A full
-              test suite will usually consist of a large number of unit (created
-              via TDD) tests and a smaller number of acceptance tests.
-            </p>
-            <p>
-              <strong><u>Behaviour Driven Development (BDD)</u></strong>
-            </p>
-            <p>
-              BDD is more about audience than workflow. BDD pushes the testing
-              realm out towards the client. Developers, managers and the client
-              all work together to define the tests.
-            </p>
-            <p>
-              Typically different tooling is used for BDD than acceptance and
-              unit testing. This is done because the audience is not just
-              developers. Tools using the
-              <a href="https://github.com/cucumber/cucumber/wiki/Gherkin"
-                >Gherkin</a
-              >
-              family of languages allow for test scenarios to be described in an
-              English format. Other tools such as
-              <a href="https://github.com/machine/machine.specifications"
-                >MSpec</a
-              >
-              or <a href="http://www.fitnesse.org/">FitNesse</a> also strive for
-              highly readable behaviour driven test suites.
-            </p>
-            <p>
-              Because these tests are public facing (viewable by people outside
-              the development team), the terminology usually changes. You can’t
-              get away with the same technobabble you can with unit tests
-              written in a programming language that only developers understand.
-              For starters, they usually aren’t called tests. Usually they’re
-              called “examples”, “behaviours”, “scenarios”, or “specifications”.
-            </p>
-            <p>
-              This may seem like a very subtle difference, but I’ve seen this
-              small terminology change have a huge impact on the acceptance of
-              the process. Many people have a bias that testing is something
-              that comes at the end of a project. When you say we need to define
-              the tests at the start of the project many people will immediately
-              give that a lower priority on the project schedule. But if you say
-              we need to define the specification or behaviour of the system
-              before we can start, you’ll get more cooperation.
-            </p>
-            <p></p>
-            <p>
+
+            <section>
+              <div class="section-header">Ping Pong</div>
+              <p>
+                Ping Pong is a methodology commonly used in pair programing. One
+                developer will write a new failing test. Then they hand the
+                keyboard to their partner. The partner writes the production
+                code to get the test passing. The partner then writes the next
+                test before passing the keyboard back to the original developer.
+              </p>
+              <p>
+                The reasoning behind this testing methodology is to facilitate
+                pair programming. That is to say that this testing methodology
+                shares all the
+                <a href="../../PairProgramming/Benefits/"
+                  >benefits of pair programming</a
+                >, including ensuring multiple team members are familiar with
+                the code base (i.e. low bus number).
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Test Blazer</div>
+              <p>
+                <strong><u></u></strong>Test Blazing, in some respects, is also
+                a pairing strategy. The developers don’t work side by side on
+                the same task at the same time. Instead one developer is
+                dedicated to writing tests at their own desk. They write failing
+                test after failing test, never touching the production code.
+                With these tests they are defining the specification for the
+                system. The developer most familiar with the specifications
+                would be assigned this task.
+              </p>
+              <p>
+                The next day or later in the same day another developer fetches
+                the latest test suite. Their job is to write the production code
+                to get those tests passing. Once all the tests pass they fetch
+                from source control the latest version of the test project to
+                get the newer tests.
+              </p>
+              <p>
+                This methodology has some of the benefits of pair programming,
+                namely lowering the bus number. This can be good way adding an
+                extra developer to a project without slowing it down too much.
+                The production coder isn’t slowed down writing tests. The tests
+                are in another project from the production code, so there
+                shouldn’t be any merge conflicts despite two developers working
+                on the same solution.
+              </p>
+              <p>
+                This methodology is also a good test for the tests. Can another
+                developer figure out what system should do just by reading the
+                tests? This question will be answered as the production coder
+                works there way through the test blazer’s tests.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Test Driven Development (TDD)</div>
+              <p>
+                TDD is a highly disciplined practice that calls for a new test
+                and an new production code to be written every few minutes.
+                There are
+                <a
+                  href="http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd"
+                  target="_blank"
+                  >strict rules</a
+                >
+                for when you should be writing test or production code. You
+                start by writing a failing (red) test, then write the simplest
+                production code possible to get the code working (green), then
+                you clean up the code (refactor). This is known as the
+                red-green-refactor cycle.
+              </p>
+              <p>
+                The goal of TDD isn’t the creation of a suite of tests, however
+                that is an advantageous side effect. The real goal of TDD is to
+                follow a practice that yields a better design. The practice is
+                meant to push the design toward small, decoupled, modularized
+                components. This is generally considered a better design that
+                large, highly coupled
+                <a href="http://en.wikipedia.org/wiki/Big_ball_of_mud"
+                  >ball of mud</a
+                >.
+              </p>
+              <p>
+                TDD accomplishes this through the refactoring cycle. Refactoring
+                is only possible to do safely when tests are in place. In order
+                to use TDD developers must be trained in how to look for and
+                repair
+                <a href="http://martinfowler.com/bliki/CodeSmell.html"
+                  >code smells</a
+                >
+                in the system. Through repairing these sections of smelly code
+                (i.e. a refactoring) the design of the system emerges.
+              </p>
+              <p>
+                For further information on TDD, I highly recommend the series
+                <a href="http://martinfowler.com/articles/is-tdd-dead/"
+                  >“Is TDD Dead?”</a
+                >. It discusses its pros and cons and when it is best used.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">
+                Acceptance Test Driven Development (ATDD)
+              </div>
+              <p>
+                Whereas TDD focuses on small unit tests that concentrate on a
+                small piece of the system, Acceptance Tests focuses on the
+                larger integrated environment. Acceptance Tests usually
+                correspond to
+                <a href="../../../?category=User%20Stories">user stories</a>,
+                which come directly from the customer. The unit tests focus on
+                the inputs and outputs of smaller parts of the system, which are
+                too low level to be of interest to the customer.
+              </p>
+              <p>
+                ATDD generally uses the same tools as TDD. However, ATDD uses
+                fewer
+                <a href="http://martinfowler.com/articles/mocksArentStubs.html"
+                  >mocks and test doubles</a
+                >
+                than TDD.
+              </p>
+              <p>
+                ATDD often complements TDD; they aren’t competing methods. A
+                full test suite will usually consist of a large number of unit
+                (created via TDD) tests and a smaller number of acceptance
+                tests.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">
+                Behaviour Driven Development (BDD)
+              </div>
+              <p>
+                BDD is more about audience than workflow. BDD pushes the testing
+                realm out towards the client. Developers, managers and the
+                client all work together to define the tests.
+              </p>
+              <p>
+                Typically different tooling is used for BDD than acceptance and
+                unit testing. This is done because the audience is not just
+                developers. Tools using the
+                <a href="https://github.com/cucumber/cucumber/wiki/Gherkin"
+                  >Gherkin</a
+                >
+                family of languages allow for test scenarios to be described in
+                an English format. Other tools such as
+                <a href="https://github.com/machine/machine.specifications"
+                  >MSpec</a
+                >
+                or <a href="http://www.fitnesse.org/">FitNesse</a> also strive
+                for highly readable behaviour driven test suites.
+              </p>
+              <p>
+                Because these tests are public facing (viewable by people
+                outside the development team), the terminology usually changes.
+                You can’t get away with the same technobabble you can with unit
+                tests written in a programming language that only developers
+                understand. For starters, they usually aren’t called tests.
+                Usually they’re called “examples”, “behaviours”, “scenarios”, or
+                “specifications”.
+              </p>
+              <p>
+                This may seem like a very subtle difference, but I’ve seen this
+                small terminology change have a huge impact on the acceptance of
+                the process. Many people have a bias that testing is something
+                that comes at the end of a project. When you say we need to
+                define the tests at the start of the project many people will
+                immediately give that a lower priority on the project schedule.
+                But if you say we need to define the specification or behaviour
+                of the system before we can start, you’ll get more cooperation.
+              </p>
+            </section>
+
+            <p class="mt-4">
               Keep these test-first and
               <a href="../TestAfter/">test-after</a>
               workflows in your tool belt. With them you’ll be able to find new

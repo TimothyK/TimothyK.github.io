@@ -65,192 +65,203 @@
 
           <!-- Post Body -->
           <main id="post">
-            <p>
-              In this post I’m going to outline a few common methods that can be
-              used to increase the coverage of of your test suite. This won’t be
-              yet another post on why you should be doing testing; there are
-              plenty of those types of posts already out there. Assuming you
-              know you should be testing, then comes the problem of how do I
-              actual fit that into my day job. When the opportunity to automate
-              testing comes do you take it, or do you even recognize it?
-            </p>
-            <p>
-              There are a lot of ways (workflows) to go about creating automated
-              tests, just like there are many workflows to writing a program.
-              When writing a program you can do it from a top-down approach
-              where you write the main skeleton of the algorithm and call out to
-              dummy stub functions, or a bottom-up approach where the low level
-              functionality is fully implement before it is quickly wired
-              together at the end. Both approaches are perfectly valid under
-              certain contexts.
-            </p>
-            <p>
-              Each approach you are skilled at applying is another tool in your
-              tool belt. The more vectors of attack you have on a problem – the
-              better. So here is a short, incomplete list of some of the
-              workflows that can be applied to increasing the amount of
-              automation in your testing and level of quality in general. Think
-              of each workflow as an opportunity that is available for you to
-              take.
-            </p>
-            <p>
-              Test workflows basically fall into 2 categories: test first or
-              test after. Test first is the best approach. However, this post
-              isn’t about the one and only best approach. I want to focus more
-              on the lesser known, less ideal approaches that still provide an
-              opportunity for adding tests. In this post I’ll enumerate some
-              test-after workflows. In my
-              <a href="../TestFirst/">next post</a>
-              I’ll cover test-first.
-            </p>
-            <p>
-              <strong><u>Bug Reporting</u></strong>
-            </p>
-            <p>
-              When someone calls you up or forwards you a email with a vague
-              description of a bug its usually standard procedure to create or
-              verify a reproduction plan for the bug via manual testing and log
-              that in a bug tracking system. This can be problematic. Often
-              reproduction plans when written down might skip a step that seemed
-              obvious to the tester at the time or they might be missing some
-              crucial environment setting.
-            </p>
-            <p>
-              Instead of data entry into a bug tracking system, try opening up
-              the test project and adding a failing unit test to prove the bug.
-              The test project guarantees that all aspects of the environment
-              are setup properly and no steps are missing. The language in the
-              test project is much more precise than the English that goes into
-              a bug tracking system.
-            </p>
-            <p>
-              This workflow can easily be extended for Enhancement Requests as
-              well as Bug Reporting.
-            </p>
-            <p>
-              <strong><u>Exploratory Testing</u></strong>
-            </p>
-            <p>
-              Exploratory testing comes in when you aren’t sure how the system
-              will behave in a new scenario. The scenario wasn’t planned for in
-              the initial system requirements and there isn’t an existing test
-              for it. By definition the system behaviour is “undefined”.
-            </p>
-            <p>
-              So write a new unit test to define that behaviour. Add assertions
-              to the tests to confirm your assumptions. The new test becomes
-              part of the living system specification that is kept up to date
-              with the test suite.
-            </p>
-            <p>
-              <strong><u>Examples</u></strong>
-            </p>
-            <p>
-              This workflow is especially good when developing APIs. When you
-              are finally done your production API then comes the job of writing
-              documentation on how to consume the API. Good documentation will
-              also include code examples. Don’t let these code examples merely
-              exist in some accompanying manual; implement them in a test suite.
-            </p>
-            <p>
-              Example tests and documentation do not have to be created after
-              the production API is complete. It is best to write the example
-              code (tests) as you go just before the production code.
-            </p>
-            <p>
-              <strong><u>Smoke Tests</u></strong>
-            </p>
-            <p>
-              Every system has a typical use case. This represents the basic,
-              core functionality of the system. If this fails after an upgrade
-              the end users will be hosed and they will be scratching their
-              heads as to how it could be possible that an update got released
-              with this core functionality broken.
-            </p>
-            <p>
-              The tests for this core functionality are referred to as “smoke
-              tests”. It is a good idea to have them automated and run with each
-              build in order to avoid extreme embarrassment and angry customers.
-            </p>
-            <p>
-              <strong><u>Coverage Analysis</u></strong>
-            </p>
-            <p>
-              Code coverage analysis is a tool that reports how much of the
-              production code base is exercised by the test suite. In Visual
-              Studio this can be found under the Test main menu item.
-            </p>
-            <p>
-              The tool will report a total number for the code coverage, which
-              can be anywhere between 0 and 100%. Coverage Analysis shouldn’t be
-              used strictly for numbers reporting. Companies shouldn’t set
-              minimum coverage targets that mandate that all projects must have
-              at least 80% or 100% test coverage. These arbitrary requirements
-              just invite gaming of the coverage analysis, which makes the
-              numbers useless.
-            </p>
-            <p>
-              The analysis tool will break down the coverage by the various
-              classes and methods in projects. Instead of focusing on the total
-              number, drill down into this view and see which classes have high
-              or low coverage. It you are surprised by a low number on a class
-              this is an opportunity to add tests.
-            </p>
-            <p>
-              When drilling through the classes there will be generally two
-              types of reaction to a surprising low test coverage number. The
-              first reaction type is a recognition that there is low hanging
-              fruit to be picked. There may be some classes or methods that
-              aren’t being tested, which could easy be. The other reaction type
-              is “OMG”. This were you find a critical piece of code that isn’t
-              under test. In both cases, go and add the missing tests.
-            </p>
-            <p>
-              <strong><u>Test Refactoring</u></strong>
-            </p>
-            <p>
-              The general theme of this post up to this point has been how to
-              add more and more tests to a test suite. I’ll step back from that
-              a bit and remind that every line of code is a liability. Each line
-              of code has to be read and maintained, which costs money. This is
-              true regardless whether the code is production code or test code.
-            </p>
-            <p>
-              Remember that the primary goal of the test suite is that it be
-              easy to read so that people can easily determine the
-              specifications of the system. Make sure that adding more and more
-              tests doesn’t interfere with this primary goal.
-            </p>
-            <p>
-              Perform code reviews on the test suite as often as on production
-              code. Hold the test code up to the same high readability standards
-              as the production code. If the tests are hard to read then change
-              them.
-            </p>
-            <p>
-              Look to remove duplication. Duplicate setup code between two or
-              more test methods that can be moved to a shared function. Entire
-              test methods can be removed if it is found that the scenario it
-              tests is covered by other tests. Its OK to delete a test that
-              isn’t pulling its own weight anymore.
-            </p>
-            <p>
-              Remember to only start refactoring when all the test are green.
-              Don’t refactor the tests and the production code at the same time.
-              An automated test suite can be thought of as a double entry book
-              keeping system. The unchanging, passing production code serves as
-              the tests for the test suite while refactoring the tests.
-            </p>
-            <p>
-              As with all refactoring, it is best to fit this into your regular
-              work rather than asking for time later to get it done. Fit this
-              into the standard red-green-refactor cycle. The refactor step no
-              only applies to production code but also the tests, but not at the
-              same time. Perhaps the cycle should be called red-green-refactor
-              production-refactor tests (not quite as catchy).
-            </p>
-            <p></p>
-            <p>
+            <section>
+              <p>
+                In this post I’m going to outline a few common methods that can
+                be used to increase the coverage of of your test suite. This
+                won’t be yet another post on why you should be doing testing;
+                there are plenty of those types of posts already out there.
+                Assuming you know you should be testing, then comes the problem
+                of how do I actual fit that into my day job. When the
+                opportunity to automate testing comes do you take it, or do you
+                even recognize it?
+              </p>
+              <p>
+                There are a lot of ways (workflows) to go about creating
+                automated tests, just like there are many workflows to writing a
+                program. When writing a program you can do it from a top-down
+                approach where you write the main skeleton of the algorithm and
+                call out to dummy stub functions, or a bottom-up approach where
+                the low level functionality is fully implement before it is
+                quickly wired together at the end. Both approaches are perfectly
+                valid under certain contexts.
+              </p>
+              <p>
+                Each approach you are skilled at applying is another tool in
+                your tool belt. The more vectors of attack you have on a problem
+                – the better. So here is a short, incomplete list of some of the
+                workflows that can be applied to increasing the amount of
+                automation in your testing and level of quality in general.
+                Think of each workflow as an opportunity that is available for
+                you to take.
+              </p>
+              <p>
+                Test workflows basically fall into 2 categories: test first or
+                test after. Test first is the best approach. However, this post
+                isn’t about the one and only best approach. I want to focus more
+                on the lesser known, less ideal approaches that still provide an
+                opportunity for adding tests. In this post I’ll enumerate some
+                test-after workflows. In my
+                <a href="../TestFirst/">next post</a>
+                I’ll cover test-first.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">Bug Reporting</div>
+              <p>
+                When someone calls you up or forwards you a email with a vague
+                description of a bug its usually standard procedure to create or
+                verify a reproduction plan for the bug via manual testing and
+                log that in a bug tracking system. This can be problematic.
+                Often reproduction plans when written down might skip a step
+                that seemed obvious to the tester at the time or they might be
+                missing some crucial environment setting.
+              </p>
+              <p>
+                Instead of data entry into a bug tracking system, try opening up
+                the test project and adding a failing unit test to prove the
+                bug. The test project guarantees that all aspects of the
+                environment are setup properly and no steps are missing. The
+                language in the test project is much more precise than the
+                English that goes into a bug tracking system.
+              </p>
+              <p>
+                This workflow can easily be extended for Enhancement Requests as
+                well as Bug Reporting.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Exploratory Testing</div>
+              <p>
+                Exploratory testing comes in when you aren’t sure how the system
+                will behave in a new scenario. The scenario wasn’t planned for
+                in the initial system requirements and there isn’t an existing
+                test for it. By definition the system behaviour is “undefined”.
+              </p>
+              <p>
+                So write a new unit test to define that behaviour. Add
+                assertions to the tests to confirm your assumptions. The new
+                test becomes part of the living system specification that is
+                kept up to date with the test suite.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Examples</div>
+              <p>
+                This workflow is especially good when developing APIs. When you
+                are finally done your production API then comes the job of
+                writing documentation on how to consume the API. Good
+                documentation will also include code examples. Don’t let these
+                code examples merely exist in some accompanying manual;
+                implement them in a test suite.
+              </p>
+              <p>
+                Example tests and documentation do not have to be created after
+                the production API is complete. It is best to write the example
+                code (tests) as you go just before the production code.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">Smoke Tests</div>
+              <p>
+                Every system has a typical use case. This represents the basic,
+                core functionality of the system. If this fails after an upgrade
+                the end users will be hosed and they will be scratching their
+                heads as to how it could be possible that an update got released
+                with this core functionality broken.
+              </p>
+              <p>
+                The tests for this core functionality are referred to as “smoke
+                tests”. It is a good idea to have them automated and run with
+                each build in order to avoid extreme embarrassment and angry
+                customers.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">Coverage Analysis</div>
+              <p>
+                Code coverage analysis is a tool that reports how much of the
+                production code base is exercised by the test suite. In Visual
+                Studio this can be found under the Test main menu item.
+              </p>
+              <p>
+                The tool will report a total number for the code coverage, which
+                can be anywhere between 0 and 100%. Coverage Analysis shouldn’t
+                be used strictly for numbers reporting. Companies shouldn’t set
+                minimum coverage targets that mandate that all projects must
+                have at least 80% or 100% test coverage. These arbitrary
+                requirements just invite gaming of the coverage analysis, which
+                makes the numbers useless.
+              </p>
+              <p>
+                The analysis tool will break down the coverage by the various
+                classes and methods in projects. Instead of focusing on the
+                total number, drill down into this view and see which classes
+                have high or low coverage. It you are surprised by a low number
+                on a class this is an opportunity to add tests.
+              </p>
+              <p>
+                When drilling through the classes there will be generally two
+                types of reaction to a surprising low test coverage number. The
+                first reaction type is a recognition that there is low hanging
+                fruit to be picked. There may be some classes or methods that
+                aren’t being tested, which could easy be. The other reaction
+                type is “OMG”. This were you find a critical piece of code that
+                isn’t under test. In both cases, go and add the missing tests.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">Test Refactoring</div>
+              <p>
+                The general theme of this post up to this point has been how to
+                add more and more tests to a test suite. I’ll step back from
+                that a bit and remind that every line of code is a liability.
+                Each line of code has to be read and maintained, which costs
+                money. This is true regardless whether the code is production
+                code or test code.
+              </p>
+              <p>
+                Remember that the primary goal of the test suite is that it be
+                easy to read so that people can easily determine the
+                specifications of the system. Make sure that adding more and
+                more tests doesn’t interfere with this primary goal.
+              </p>
+              <p>
+                Perform code reviews on the test suite as often as on production
+                code. Hold the test code up to the same high readability
+                standards as the production code. If the tests are hard to read
+                then change them.
+              </p>
+              <p>
+                Look to remove duplication. Duplicate setup code between two or
+                more test methods that can be moved to a shared function. Entire
+                test methods can be removed if it is found that the scenario it
+                tests is covered by other tests. Its OK to delete a test that
+                isn’t pulling its own weight anymore.
+              </p>
+              <p>
+                Remember to only start refactoring when all the test are green.
+                Don’t refactor the tests and the production code at the same
+                time. An automated test suite can be thought of as a double
+                entry book keeping system. The unchanging, passing production
+                code serves as the tests for the test suite while refactoring
+                the tests.
+              </p>
+              <p>
+                As with all refactoring, it is best to fit this into your
+                regular work rather than asking for time later to get it done.
+                Fit this into the standard red-green-refactor cycle. The
+                refactor step no only applies to production code but also the
+                tests, but not at the same time. Perhaps the cycle should be
+                called red-green-refactor production-refactor tests (not quite
+                as catchy).
+              </p>
+            </section>
+            <p class="mt-4">
               That about covers most of the test-after workflows I can think of.
               In my
               <a href="../TestFirst/">next post</a>

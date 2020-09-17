@@ -129,7 +129,8 @@
             </code>
 
             <p>
-              The class has a <strong>private constructor</strong>. This ensures
+              The class has a
+              <span class="skim-focus">private constructor</span>. This ensures
               that nothing outside the class can create an instances of it.
               Nobody can create an instance of a CowboyType class with the value
               42 or other invalid value.
@@ -137,13 +138,13 @@
 
             <p>
               The only way to create an instance of the class is through one of
-              the three <strong>static read only fields</strong>. Because they
-              are static, they are instantiated automatically the first time the
-              class is referenced. They are declared as read only so that their
-              values never change. It doesn’t really matter that the underlying
-              objects don’t have any properties. As long as they are uniquely
-              instantiated objects. The standard equality operator (==) can be
-              used to confirm if two values are equal.
+              the three <span class="skim-focus">static read only fields</span>.
+              Because they are static, they are instantiated automatically the
+              first time the class is referenced. They are declared as read only
+              so that their values never change. It doesn’t really matter that
+              the underlying objects don’t have any properties. As long as they
+              are uniquely instantiated objects. The standard equality operator
+              (==) can be used to confirm if two values are equal.
             </p>
 
             <p>
@@ -161,14 +162,14 @@
             </p>
 
             <p>
-              The <strong>ToString method</strong> can (and should) be
-              overridden to report the static field name. The build-in enum type
-              does this automatically. You’ll need to explicitly add this
-              override in order to maintain the same behaviour. The built-in
-              enum type uses reflection to implement its ToString method.
-              Obfuscators can thwart the behaviour of the enum’s ToString
-              implementation, but this won’t be a problem in the overridden
-              method.
+              The <span class="skim-focus">ToString method</span> can (and
+              should) be overridden to report the static field name. The
+              build-in enum type does this automatically. You’ll need to
+              explicitly add this override in order to maintain the same
+              behaviour. The built-in enum type uses reflection to implement its
+              ToString method. Obfuscators can thwart the behaviour of the
+              enum’s ToString implementation, but this won’t be a problem in the
+              overridden method.
             </p>
 
             <code>
@@ -191,7 +192,8 @@
               The System.Enum type supports a method to GetValues() or
               GetNames(). A static method can be added to the class to easily
               get at all the member values as an IEnumerable. I implement this
-              as an <strong>All method</strong> instead of calling it GetValues.
+              as an <span class="skim-focus">All method</span> instead of
+              calling it GetValues.
             </p>
 
             <code>
@@ -207,10 +209,11 @@
             </code>
 
             <p>
-              An<strong> explicit conversion</strong> can be added to allow
-              casting to or from integers. However, because you are implementing
-              this yourself you can choose the behaviour. Invalid integers (like
-              42) can throw an invalid cast exception instead of being allowed.
+              An<span class="skim-focus"> explicit conversion</span> can be
+              added to allow casting to or from integers. However, because you
+              are implementing this yourself you can choose the behaviour.
+              Invalid integers (like 42) can throw an invalid cast exception
+              instead of being allowed.
             </p>
 
             <code>
@@ -240,10 +243,11 @@
               Explicit or implicit conversion operators are just two ways to go
               for allowing for conversions between the new enum class and other
               types. “To” methods, like ToString, can also provide this.
-              <strong>“From” static methods</strong> can be added to provide the
-              conversion in the other direction. Providing To/From methods
-              usually is easier to trace through than the explicit operator and
-              especially the implicit operator. Below is the FromString method.
+              <span class="skim-focus">“From” static methods</span> can be added
+              to provide the conversion in the other direction. Providing
+              To/From methods usually is easier to trace through than the
+              explicit operator and especially the implicit operator. Below is
+              the FromString method.
             </p>
 
             <code>
@@ -282,7 +286,7 @@
               instead of proper classes is actually a well defined code smell
               called
               <a href="http://c2.com/cgi/wiki?PrimitiveObsession"
-                ><strong>Primitive Obsession</strong></a
+                ><span class="skim-focus">Primitive Obsession</span></a
               >.
             </p>
 
@@ -310,9 +314,9 @@
               instance properties public. Then to add a new member there is only
               a single line that needs to be added, the declaration of static
               field and its call to the private constructor.
-              <strong
+              <span class="skim-focus"
                 >Which technique to use depends on which type of change is more
-                likely</strong
+                likely</span
               >.
             </p>
 

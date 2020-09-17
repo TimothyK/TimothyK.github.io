@@ -15,7 +15,11 @@
     <title>The 17-Layered App - Code Monkey Projectiles</title>
     <link rel="icon" href="../../../img/monkey.jpg" />
     <link rel="apple-touch-icon" href="../../../img/favicon.png" />
-
+    <style>
+      b {
+        font-weight: 600;
+      }
+    </style>
   </head>
   <body data-spy="scroll" data-target="#nav-toolbar">
     <nav class="navbar">
@@ -245,7 +249,7 @@
               business goals, job functions, decisions and actions.
             </p>
             <section id="L6">
-              <h4>6. Domain Layer</h4>
+              <div class="section-header">6. Domain Layer</div>
               <p>
                 <b><i>Responsibility:</i></b> The Domain layer describes the
                 business actions. Each public class that has methods will be a
@@ -280,7 +284,7 @@
               </p>
             </section>
             <section id="L5">
-              <h4>5. Domain Model</h4>
+              <div class="section-header">5. Domain Model</div>
               <p>
                 <b><i>Responsibility: </i></b> The Domain Layer will have methods
                 that implement behaviour. Those methods will need to take data as
@@ -331,7 +335,7 @@
               </p>
             </section>
             <section id="L4">
-              <h4>4. Application Service</h4>
+              <div class="section-header">4. Application Service</div>
               <p>
                 <b><i>Responsibility: </i></b>The Domain layer represents core
                 functionality that is important to the business. The Domain
@@ -375,7 +379,7 @@
               </p>
             </section>
             <section id="L7">
-              <h4>7. Repository Interface</h4>
+              <div class="section-header">7. Repository Interface</div>
               <p>
                 <b><i>Responsibility:</i></b> The Domain Layer will need to call
                 into the data layer. However, here is where the
@@ -452,7 +456,7 @@
               </p>
             </section>
             <section id="L8">
-              <h4>8. Abstract Model</h4>
+              <div class="section-header">8. Abstract Model</div>
               <p>
                 <b><i>Responsibility:</i></b> With every behavioural class with
                 methods comes a layer for the models (parameters) those methods
@@ -487,7 +491,7 @@
               </p>
             </section>
             <section id="L9">
-              <h4>9. Repository Adapter</h4>
+              <div class="section-header">9. Repository Adapter</div>
               <p>
                 The Repository Adapter is wiring that allows the business and data
                 layers to talk to each other. This layer allows the Repository to
@@ -524,7 +528,7 @@
               </p>
             </section>
             <section id="L10">
-              <h4>10. Repository Layer</h4>
+              <div class="section-header">10. Repository Layer</div>
               <p>
                 The Repository Layer is the highest level in the data layer that
                 has no knowledge of the business (and UI) layers. It provides
@@ -619,7 +623,7 @@
               </p>
             </section>
             <section id="L11">
-              <h4>11. Data Model</h4>
+              <div class="section-header">11. Data Model</div>
               <p>
                 In order to communicate with the ORM, Data Model classes need to
                 exist. Methods will exist in the Repository Layer to populate Data
@@ -687,7 +691,7 @@
               </p>
             </section>
             <section id="L12">
-              <h4>12. ORM</h4>
+              <div class="section-header">12. ORM</div>
               <p>
                 The Object/Relation Mapper framework is not something you would
                 write yourself. This would be a third-party library like Entity
@@ -705,7 +709,7 @@
               </p>
             </section>
             <section id="L13">
-              <h4>13. Data Framework</h4>
+              <div class="section-header">13. Data Framework</div>
               <p>
                 Most programming languages have a framework that provides
                 low-level access to the relational databases. In C# and other .NET
@@ -730,7 +734,7 @@
               </p>
             </section>
             <section id="L14">
-              <h4>14. Driver / Provider</h4>
+              <div class="section-header">14. Driver / Provider</div>
               <p>
                 I’ve added this layer only for completeness. Like the ORM and Data
                 Framework, this is definitely not something you write yourself.
@@ -755,7 +759,7 @@
               </p>
             </section>
             <section id="L15">
-              <h4>15. DB External Layer</h4>
+              <div class="section-header">15. DB External Layer</div>
               <p>
                 Although a database primarily consists of tables, it can be
                 dangerous to allow all applications direct access to the tables.
@@ -782,7 +786,7 @@
               </p>
             </section>
             <section id="L16">
-              <h4>16. DB Conceptual Layer</h4>
+              <div class="section-header">16. DB Conceptual Layer</div>
               <p>
                 The DB Conceptual Layer contains all the Tables in the database.
                 This is sometimes referred to as the DB Logical Layer. The DBA the
@@ -815,7 +819,7 @@
               </p>
             </section>
             <section id="L17">
-              <h4>17. DB Physical Layer</h4>
+              <div class="section-header">17. DB Physical Layer</div>
               <p>
                 The physical layer of the database controls where the data is
                 stored on disk. In a relational database, this is defined by the
@@ -836,7 +840,7 @@
               </p>
             </section>
             <section id="L1">
-              <h4>1. View</h4>
+              <div class="section-header">1. View</div>
               <p>
                 The View is the presentation layer for the system to the user. It
                 provides the user interface.
@@ -864,7 +868,7 @@
               </p>
             </section>
             <section id="L2">
-              <h4>2. ViewModel</h4>
+              <div class="section-header">2. ViewModel</div>
               <p>
                 The ViewModel are the data classes that the View will consume.
               </p>
@@ -887,7 +891,7 @@
               </p>
             </section>
             <section id="L3">
-              <h4>3. Controller</h4>
+              <div class="section-header">3. Controller</div>
               <p>
                 The Controller is an adapter class that allows the View to consume
                 the Application Service layer. The Application Service has no
@@ -930,7 +934,7 @@
               </p>
             </section>
             <section id="AppendixA">
-              <h4>Appendix A: Cross Cutting Concerns</h4>
+              <div class="section-header">Appendix A: Cross Cutting Concerns</div>
               <p>
                 Before closing out this post, I will briefly touch on some of the
                 infrastructure classes that are not technically part of any single
@@ -962,7 +966,7 @@
               </p>
             </section>
             <section id="Conclusion">
-              <h4>Conclusion</h4>
+              <div class="section-header">Conclusion</div>
               <p>
                 The reasons for breaking an application into 3 or 17 layers is to
                 improve the expressiveness of the code base. That makes it easier

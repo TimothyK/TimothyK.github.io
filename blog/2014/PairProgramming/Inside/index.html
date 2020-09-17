@@ -75,171 +75,183 @@
               >. This last post will cover what is necessary to have a
               successful pairing session.
             </p>
-            <h4>
-              <b><u>Workspace Layout</u></b>
-            </h4>
-            <p>
-              Let’s start with the <b>workspace layout</b>. Many feel that the
-              ideal workspace for pairing is two collocated developers working
-              on a single computer. The computer should have a large monitor,
-              with two keyboards and mice. Developers should be able to sit
-              comfortably side by side at a long straight or slightly convex
-              table, as opposed to behind one another. Tools should be identical
-              from computer to computer (same OS and software versions, add-ins,
-              keyboard shortcuts, and configuration).
-            </p>
-            <p>
-              However, this is just some people’s opinion on the “ideal”.
-              Workspace layout is not a critical factor in the success or
-              failure of pair programming. Any deficiencies in the workspace can
-              be successfully ignored by a focused pair like any other
-              distraction. Tooling standardization can be negotiated. Furniture
-              changes are possible if/when pairing becomes common place.
-              Colocation is increasing becoming a non-issue and the
-              <b>remote pairing</b> community has a large number of
-              <a href="http://www.pairprogramwith.me/"><b>resources</b></a>
-              available to help with that practice.
-            </p>
-            <h4>
-              <b><u>Roles</u></b>
-            </h4>
-            <p>
-              When it comes to actual pairing most literature describes a
-              <b>Driver and Navigator</b> role. The driver works the keyboard
-              and mouse. The driver should stay focused on writing the code,
-              while the navigator stays a few steps ahead. The navigator tells
-              the driver the next line to type in pseudo code shorthand. While
-              the driver converts that to syntactically correct code the
-              navigator has time to think up the next few lines.
-            </p>
-            <p>
-              Another possible dynamic for pairing are
-              <b>Driver and Reviewer</b> roles. In this scenario the driver
-              takes the lead in thinking up the algorithm they implement. The
-              partner is doing a continuous code review. The reviewer points out
-              potential bugs, checks for readability and other “big picture”
-              issues.
-            </p>
-            <p>
-              The roles should be switched<b> (keyboard passed) frequently</b>.
-              This helps with keeping both people fresh and focused. It also
-              encourages egalitarianism in the team building. Sometimes when you
-              get on a roll, this step can get forgotten. When practicing TDD,
-              <a href="http://c2.com/cgi/wiki?PairProgrammingPingPongPattern"
-                >ping pong</a
-              >
-              can be an effective way of triggering these transitions.
-            </p>
-            <h4></h4>
-            <h4>
-              <b><u>Continuous Communication</u></b>
-            </h4>
-            <p>
-              During the session the pair should be
-              <b>communicating continuously</b>. This is <b>critical</b> to
-              staying focused on the task. Pauses in the conversation of 30
-              seconds should be extremely rare and serve as a red flag. Also,
-              the conversation must be <b>two-way</b> with both taking turns
-              talking. There are numerous ways to keep the conversation going:
-            </p>
-            <ul>
-              <li>
-                The driver or navigator can ask for feedback on what they have
-                been writing.
-              </li>
-              <li>
-                The driver can start describing to the reviewer what they are
-                doing.
-              </li>
-              <li>
-                The reviewer can ask questions on common code smells (e.g. is
-                that a good variable name).
-              </li>
-              <li>The expert can quiz the trainee.</li>
-              <li>Discuss the plan for the next steps.</li>
-            </ul>
-            <h4>
-              <b><u>Respect &amp; Confidence</u></b>
-            </h4>
-            <p>
-              One of the main advantages of pairing is the exposure to multiple
-              alternatives when coding. Therefore, it is important to
-              <b>be confident</b> and suggest alternatives. Be open to new ideas
-              and allow for some experimentation. Just because something is “not
-              the way I would have done it” doesn’t necessarily make it wrong.
-              Negotiate for the best solution. Remember to
-              <b>be respectful</b> and remember that one of the goals is team
-              building. Effective communication isn’t only about being a good
-              talker – it’s about listening too.
-            </p>
-            <p>
-              If sessions go over 60-90 minutes, be sure to <b>take breaks</b>.
-              Pairing demands a high level of focus for extended periods. This
-              can be very draining.
-            </p>
-            <p>
-              Lastly, a concession that pairing isn’t for everyone. The vast
-              majority of people that try pairing say they like it. However,
-              there are some tasks, pairings, or people that just aren’t suited
-              to it. Give it an honest try, but if you are having difficulties
-              with pairing let a manager know.
-            </p>
-            <h4>
-              <b><u>Additional Resources</u></b>
-            </h4>
-            <p>
-              Taken from
-              <a href="../../SoftwareDevProcessLinks/">my previous post</a>
-              on some links for good software development processes, here is the
-              section on pair programming.
-            </p>
-            <ul>
-              <li>
-                Book: Laurie Williams and Robert Kessler,
-                <a
-                  href="http://www.amazon.com/Pair-Programming-Illuminated-Laurie-Williams/dp/0201745763"
-                  >Pair Programming Illuminated</a
+            <section>
+              <div class="section-header">Workspace Layout</div>
+              <p>
+                Let’s start with the
+                <span class="skim-focus">workspace layout</span>. Many feel that
+                the ideal workspace for pairing is two collocated developers
+                working on a single computer. The computer should have a large
+                monitor, with two keyboards and mice. Developers should be able
+                to sit comfortably side by side at a long straight or slightly
+                convex table, as opposed to behind one another. Tools should be
+                identical from computer to computer (same OS and software
+                versions, add-ins, keyboard shortcuts, and configuration).
+              </p>
+              <p>
+                However, this is just some people’s opinion on the “ideal”.
+                Workspace layout is not a critical factor in the success or
+                failure of pair programming. Any deficiencies in the workspace
+                can be successfully ignored by a focused pair like any other
+                distraction. Tooling standardization can be negotiated.
+                Furniture changes are possible if/when pairing becomes common
+                place. Colocation is increasing becoming a non-issue and the
+                <span class="skim-focus">remote pairing</span> community has a
+                large number of
+                <a href="http://www.pairprogramwith.me/"
+                  ><span class="skim-focus">resources</span></a
                 >
-              </li>
-              <li>
-                Video (10 min): Laurie Williams,
-                <a href="http://www.youtube.com/watch?v=rG_U12uqRhE"
-                  >Introduction to Pair Programming</a
+                available to help with that practice.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">Roles</div>
+              <p>
+                When it comes to actual pairing most literature describes a
+                <span class="skim-focus">Driver and Navigator</span> role. The
+                driver works the keyboard and mouse. The driver should stay
+                focused on writing the code, while the navigator stays a few
+                steps ahead. The navigator tells the driver the next line to
+                type in pseudo code shorthand. While the driver converts that to
+                syntactically correct code the navigator has time to think up
+                the next few lines.
+              </p>
+              <p>
+                Another possible dynamic for pairing are
+                <span class="skim-focus">Driver and Reviewer</span> roles. In
+                this scenario the driver takes the lead in thinking up the
+                algorithm they implement. The partner is doing a continuous code
+                review. The reviewer points out potential bugs, checks for
+                readability and other “big picture” issues.
+              </p>
+              <p>
+                The roles should be switched<span class="skim-focus">
+                  (keyboard passed) frequently</span
+                >. This helps with keeping both people fresh and focused. It
+                also encourages egalitarianism in the team building. Sometimes
+                when you get on a roll, this step can get forgotten. When
+                practicing TDD,
+                <a href="http://c2.com/cgi/wiki?PairProgrammingPingPongPattern"
+                  >ping pong</a
                 >
-              </li>
-              <li>
-                Blog Post: Jeff Atwood,
-                <a
-                  href="http://www.codinghorror.com/blog/2007/11/pair-programming-vs-code-reviews.html"
-                  >Pair Programming vs. Code Reviews</a
-                >
-              </li>
-              <li>
-                Video (38 min): Angela Harms,
-                <a href="https://www.youtube.com/watch?v=OQXEzwXtzJ8"
-                  >Does Pair Programming have to suck?</a
-                >
-              </li>
-              <li>
-                Video (48 min): Woody Zuill,
-                <a href="https://www.youtube.com/watch?v=hpxDHNgdZTA"
-                  >Mob Programming, A Whole Team Approach</a
-                >
-              </li>
-              <li>
-                Community:
-                <a href="http://www.pairprogramwith.me/">Pair With Me</a>
-              </li>
-              <li>
-                Community: <a href="http://coderetreat.org/">Code Retreat</a>
-              </li>
-              <li>
-                [parody] Video (2 min):
-                <a href="https://www.youtube.com/watch?v=8wUOUmeulNs"
-                  >Spooning</a
-                >
-              </li>
-            </ul>
+                can be an effective way of triggering these transitions.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">Continuous Communication</div>
+              <p>
+                During the session the pair should be
+                <span class="skim-focus">communicating continuously</span>. This
+                is <span class="skim-focus">critical</span> to staying focused
+                on the task. Pauses in the conversation of 30 seconds should be
+                extremely rare and serve as a red flag. Also, the conversation
+                must be <span class="skim-focus">two-way</span> with both taking
+                turns talking. There are numerous ways to keep the conversation
+                going:
+              </p>
+              <ul>
+                <li>
+                  The driver or navigator can ask for feedback on what they have
+                  been writing.
+                </li>
+                <li>
+                  The driver can start describing to the reviewer what they are
+                  doing.
+                </li>
+                <li>
+                  The reviewer can ask questions on common code smells (e.g. is
+                  that a good variable name).
+                </li>
+                <li>The expert can quiz the trainee.</li>
+                <li>Discuss the plan for the next steps.</li>
+              </ul>
+            </section>
+            <section>
+              <div class="section-header">Respect &amp; Confidence</div>
+              <p>
+                One of the main advantages of pairing is the exposure to
+                multiple alternatives when coding. Therefore, it is important to
+                <span class="skim-focus">be confident</span> and suggest
+                alternatives. Be open to new ideas and allow for some
+                experimentation. Just because something is “not the way I would
+                have done it” doesn’t necessarily make it wrong. Negotiate for
+                the best solution. Remember to
+                <span class="skim-focus">be respectful</span> and remember that
+                one of the goals is team building. Effective communication isn’t
+                only about being a good talker – it’s about listening too.
+              </p>
+              <p>
+                If sessions go over 60-90 minutes, be sure to
+                <span class="skim-focus">take breaks</span>. Pairing demands a
+                high level of focus for extended periods. This can be very
+                draining.
+              </p>
+              <p>
+                Lastly, a concession that pairing isn’t for everyone. The vast
+                majority of people that try pairing say they like it. However,
+                there are some tasks, pairings, or people that just aren’t
+                suited to it. Give it an honest try, but if you are having
+                difficulties with pairing let a manager know.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Additional Resources</div>
+              <p>
+                Taken from
+                <a href="../../SoftwareDevProcessLinks/">my previous post</a>
+                on some links for good software development processes, here is
+                the section on pair programming.
+              </p>
+              <ul>
+                <li>
+                  Book: Laurie Williams and Robert Kessler,
+                  <a
+                    href="http://www.amazon.com/Pair-Programming-Illuminated-Laurie-Williams/dp/0201745763"
+                    >Pair Programming Illuminated</a
+                  >
+                </li>
+                <li>
+                  Video (10 min): Laurie Williams,
+                  <a href="http://www.youtube.com/watch?v=rG_U12uqRhE"
+                    >Introduction to Pair Programming</a
+                  >
+                </li>
+                <li>
+                  Blog Post: Jeff Atwood,
+                  <a
+                    href="http://www.codinghorror.com/blog/2007/11/pair-programming-vs-code-reviews.html"
+                    >Pair Programming vs. Code Reviews</a
+                  >
+                </li>
+                <li>
+                  Video (38 min): Angela Harms,
+                  <a href="https://www.youtube.com/watch?v=OQXEzwXtzJ8"
+                    >Does Pair Programming have to suck?</a
+                  >
+                </li>
+                <li>
+                  Video (48 min): Woody Zuill,
+                  <a href="https://www.youtube.com/watch?v=hpxDHNgdZTA"
+                    >Mob Programming, A Whole Team Approach</a
+                  >
+                </li>
+                <li>
+                  Community:
+                  <a href="http://www.pairprogramwith.me/">Pair With Me</a>
+                </li>
+                <li>
+                  Community: <a href="http://coderetreat.org/">Code Retreat</a>
+                </li>
+                <li>
+                  [parody] Video (2 min):
+                  <a href="https://www.youtube.com/watch?v=8wUOUmeulNs"
+                    >Spooning</a
+                  >
+                </li>
+              </ul>
+            </section>
           </main>
         </div>
 
