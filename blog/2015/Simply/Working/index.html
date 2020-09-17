@@ -65,13 +65,74 @@
 
           <!-- Post Body -->
           <main id="post">
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+            <p>
+              So a while back I was listening to
+              <a
+                href="http://devchat.tv/ruby-rogues/186-rr-the-4-rules-of-simple-design-with-corey-haines"
+                >Corey Haines on the Ruby Rogues podcast</a
+              >
+              (a good podcast even if you’re not a Ruby developer). He was
+              talking about how the OLID principles from
+              <a href="http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod"
+                >SOLID</a
+              >
+              could all be derived from the S (Single Responsibility Principle).
+              Furthermore the SRP could be derived from Beck’s
+              <a href="http://c2.com/cgi/wiki?XpSimplicityRules"
+                >four rules of simple design</a
+              >. The four rules are the generative principles or axioms of all
+              good code. He also hinted that perhaps even a smaller set of
+              axioms may exist.
+            </p>
+            <p>
+              I certainly agree with this. When I’m asked how to write good code
+              I point to Uncle Bob’s
+              <a href="http://books.google.ca/books?id=_i6bDeoCQzsC"
+                >Clean Code</a
+              >
+              book. It has over 60 code smells or road signs that can point the
+              way to better code. These are all derived from the Four Rules,
+              SOLID, and
+              <a href="https://martinfowler.com/bliki/TellDontAsk.html"
+                >Tell, Don’t Ask</a
+              >.
+            </p>
+            <p>
+              I believe that Beck’s Four Rules can be simplified to 2 axioms:
+            </p>
+            <ol>
+              <li>Write working software</li>
+              <li>Write simple software</li>
+            </ol>
+            <p>
+              Beck’s first axiom still stands. Software must work. It shouldn’t
+              crash or produce erroneous results. It doesn’t matter how “good”
+              the code is; if it doesn’t work it is worthless.
+            </p>
+            <p>
+              All other rules can be derived from “keep it simple”. Declaring
+              Intent is about making the code simple to read. DRY is about
+              making it simple to maintain (i.e. in only one location). All
+              other principles and code smells can be derived from this second
+              axiom.
+            </p>
+            <p>
+              Granted, this is an oversimplification. Simply telling someone to
+              write simple software is too abstract. There are so many options
+              on how to define “simple software”. Defining the term is so
+              overwhelming of a task that it is like quicksand. A developer can
+              spend so much time on theoretical debates of “simple” that they
+              wouldn’t have any time for coding.
+            </p>
+            <p>
+              This is why the derived principles and code smells are important.
+              They, unlike “being simple”, are actionable. If you look at a
+              class and ask the question, “does this have multiple
+              responsibilities”, there will be a yes or no answer. If the answer
+              is yes then action in needed to clean up the code and split the
+              class into two. Asking “is this class simple” isn’t as straight
+              forward. It doesn’t have a simple, actionable answer.
+            </p>
           </main>
         </div>
 

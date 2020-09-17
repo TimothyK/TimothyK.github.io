@@ -16,7 +16,9 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../../../css/style.css" />
-    <title>Simplicity Principles and Anti-Patterns - Code Monkey Projectiles</title>
+    <title>
+      Simplicity Principles and Anti-Patterns - Code Monkey Projectiles
+    </title>
     <link rel="icon" href="../../../img/monkey.jpg" />
     <link rel="apple-touch-icon" href="../../../img/favicon.png" />
   </head>
@@ -65,13 +67,223 @@
 
           <!-- Post Body -->
           <main id="post">
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+            <p>
+              In my
+              <a href="../Working/">last post</a>
+              I stated that the only guideline for writing good software is to
+              make it simple. There are a number of very specific code analyses
+              that can be applied during a code review that help guide towards
+              that goal (see
+              <a href="http://books.google.ca/books?id=_i6bDeoCQzsC"
+                >Clean Code</a
+              >). In addition to those code analyses there are also a whole
+              family of rules and anti-patterns focused solely on Simplicity.
+              These are worth learning so that they can be recognized and
+              corrected when they begin to bleed into your work.
+            </p>
+            <section>
+              <div class="section-header">KISS</div>
+              <p>
+                The grand-daddy of all these rules is <em>KISS</em>. This is an
+                acronym for “Keep it simple, stupid”. This principle states that
+                simple systems work better than complicated ones.
+              </p>
+              <p>
+                The term comes from the US Navy in the 1960s. The term “stupid”
+                doesn’t refer to the engineers designing the solution; it refers
+                to those people that will be tasked to maintain the system
+                later. You want to keep a system so simple that even stupid
+                people can understand it.
+              </p>
+              <p>
+                The Navy personnel maintaining the systems <u>must</u> be able
+                to figure out what's wrong and fix it quickly. They don't have
+                time to decipher and discuss with their supervisor how the
+                pieces needs to go back together; it should be obviously to any
+                simpleton. They need to fix it quickly, usually while being shot
+                at, and the lives of everyone they work with depends on it.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Clever Code</div>
+              <p>
+                The term “clever” is usually used sarcastically to describe
+                code. “Clever” usually describes very terse code that solves the
+                problem in a non-obvious way.
+              </p>
+              <p>
+                “Clever” is used as the antonym of “stupid” from the “keep it
+                simple stupid” rule. Only clever developers will be able to
+                maintain the code, not average or stupid developers.
+              </p>
+              <p>
+                It is better to write code that is embarrassingly obvious as to
+                what it is doing (Declares Intent) as opposed to clever.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Golden Hammer</div>
+              <p>
+                “Golden Hammer” is an anti-pattern. It is usually expressed with
+                the phrase, “if the only tool you have is a hammer then every
+                problem starts to look like a nail”. This warning is important
+                to have on this list because it is very important to not confuse
+                the terms “simple” and “familiar”.
+              </p>
+              <p>
+                Sometimes KISS can be used to impede learning and
+                experimentation. The argument is that that the “simplest”
+                solution is just to do the same thing we did last time. Although
+                that is familiar, it is not necessarily the simplest solution.
+              </p>
+              <p>
+                For example someone that this very familiar with assembly
+                programming may believe that writing a program in assembly is
+                easier that writing the same program in a object orientated
+                language (with the learning that implies).
+              </p>
+              <p>
+                Sticking with the familiar can put you in a rut. If not
+                corrected this can lead to obsolescence.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">
+                <a
+                  href="http://sethgodin.typepad.com/seths_blog/2005/03/dont_shave_that.html"
+                  >Yak Shaving</a
+                >
+              </div>
+              <p>
+                Although the Golden Hammer anti-pattern teaches us that learning
+                and experimenting on a project is a good thing, too much of this
+                can be bad. Beware of creating artificial and chaining
+                dependencies on your project.
+              </p>
+              <p>
+                For example, I’m already to release my new software build.
+                However, before I release I want to test it on that new
+                operating system. In order to do that I’m going to have to setup
+                a virtualization server. But I don’t know how to do that. No
+                problem, there is a conference on that in Elbonia next week.
+                However, they use yak hair as currency there and I have none.
+                So, I’m at the zoo shaving this yak, and why? Because somehow in
+                my mind I’ve built up an artificial dependency that shaving this
+                yak is a requirement before I can release my software.
+              </p>
+              <p>
+                Before adding dependencies (and especially dependencies of
+                dependencies) on your project, make sure those dependencies are
+                inline with the overall vision for your project, product, or
+                career. If those dependencies add significantly more work than
+                the golden hammer, consider reducing their scope. You don’t want
+                to completely eliminate all opportunities for learning, but you
+                don’t need to get a doctorate degree either. Just take an
+                opportunity to improve a little on every project.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">YAGNI</div>
+              <p>
+                Another acronym rule is YAGNI, “you aren’t gonna need it”. The
+                simplest way to implement something is to not implement it at
+                all. The faster you realize this is the correct course of action
+                the more time you’ll save. And, it’s always 100% bug free.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Premature Optimization</div>
+              <p>
+                Premature Optimization is an anti-pattern derived from applying
+                the YAGNI rule to performance of the system. Systems need to be
+                able to perform at speeds that are tolerable to users, no more.
+                Beta or proof of concept systems may not even need that.
+              </p>
+              <p>
+                It is possible to spend weeks of development to squeeze just a
+                few milliseconds of savings out of a program. Make sure this is
+                <a href="http://xkcd.com/1205/">worth it</a>.
+              </p>
+            </section>
+
+            <p></p>
+            <section>
+              <div class="section-header">
+                Worse Is Better (New Jersey Style)
+              </div>
+              <p>
+                <a href="http://dreamsongs.com/RiseOfWorseIsBetter.html"
+                  >Worse is Better</a
+                >
+                (aka the New Jersey Style) is a philosophy proposed by Richard
+                Gabriel that states that is better to have a simple system over
+                a correct one. It is presented as an alternative to doing “The
+                Right Thing” (aka the MIT approach).
+              </p>
+              <p>
+                Really what this philosophy is supporting is an iterative
+                approach to software development. It is better to get into
+                production a simple system that will handle 99.9999% of customer
+                transactions rather than spending much more time building a
+                complicated system that could handle every transaction.
+              </p>
+              <p>
+                Furthermore, supporting complicated customer scenarios might
+                make the system harder to use for simple transactions. Adding
+                100% correctness in the system could hurt overall usability.
+              </p>
+              <p>
+                Trying to design and implement a perfect system can be a futile,
+                never ending, never delivered endeavour. In the real world there
+                is no such thing as perfect. Simple can be a better, more
+                realistic target.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">Big Design Up Front</div>
+              <p>
+                The “Worse Is Better” philosophy applies to both design and
+                implementation of a system. If this is limited to just design,
+                “the right thing” forms the anti-pattern “Big Design Up Front”.
+                In this scenario people spend a long time attempting to design
+                every aspect of a system before any implementation or delivery
+                is done. Instead of multiple, incremental releases all the
+                functionality is attempted to be delivered in a single release.
+                The large scope of the one and only development cycle makes the
+                development process complicated.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">
+                Bike Shedding (Parkinson’s Law of Triviality)
+              </div>
+              <p>
+                Parkinson’s Law of Triviality notes that more people are willing
+                to spend more time arguing over small, trivial systems than
+                large, complex ones. The example given why this is the case is a
+                comparison of building a nuclear reactor as opposed to a bike
+                shed. The design concepts needed for building a nuclear reactor
+                are complicated, therefore there are fewer people able to
+                constructively criticize this. However, the design of a bike
+                shed is easy to understand, therefore it invites more criticism.
+              </p>
+              <p>
+                The effect that this has is that even small components of a
+                system, which should be simple, can be turned into complicated
+                ones due to endless meetings and design reviews.
+              </p>
+            </section>
+            <p></p>
+            <p></p>
+            <p>
+              Writing software can be complicated. It almost always takes some
+              refactoring and management to turn complicated systems into simple
+              ones. Hopefully this partial list of Simplicity principles and
+              anti-patterns can serve as a reference guide for a daily reminder
+              to strive towards simplicity.
+            </p>
           </main>
         </div>
 
