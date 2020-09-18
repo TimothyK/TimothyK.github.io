@@ -65,13 +65,168 @@
 
           <!-- Post Body -->
           <main id="post">
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+            <p>
+              This is a 2 part blog post on code reviews. This first post is on
+              why and when code reviews should be done and some of the soft
+              skills needed. The second post is a technical checklist on some
+              things to look for during a code review.
+            </p>
+            <section>
+              <div class="section-header">Why</div>
+              <p>
+                Code reviews are arguably the most effective means to bring
+                continuous improvement to your coding skills. Code reviews are
+                not an attempt to write perfect code, if there is such a thing.
+                Code reviews are not about improving the current project or
+                squashing bugs, although those are certainly beneficial side
+                effects.
+              </p>
+              <p>
+                Code reviews will improve your coding skills. By practicing
+                better coding on the current project, those coding skills will
+                be taken to your next project. The code written on that next
+                project will then ever so slightly better that previous project.
+                It might not be a lot, maybe just 0.5% better. However, if you
+                then do a code review on the next project that improvement
+                starts to build on each other. Through the miracle of compound
+                interest and a long career of hundreds of code reviews becoming
+                a
+                <a
+                  href="https://www.ybrikman.com/writing/2013/09/29/the-10x-developer-is-not-myth/"
+                  >10x programmer</a
+                >
+                may be a real possibility.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">When</div>
+              <p>
+                Code reviews should be done often. Ideally, they should be done
+                daily, on every check-in. The more often it is done the tighter
+                the feedback loop is. If you only do a code review once per
+                month then you may be repeating the same mistake every day for a
+                month. In addition, you might be going down the wrong path
+                altogether. The more often code reviews are done the greater
+                that “compound interest”.
+              </p>
+              <p>
+                Another reason to do code reviews often is to prevent fatigue.
+                Doing code reviews for 30 to 60 minutes a day is not that bad.
+                Spending more that 90 to 120 minutes on a task can easily lead
+                to fatigue. Less than an hour should be enough time to review a
+                day’s of code. If you are reviewing a month of coding it can
+                take a week. The greater the backlog of code to review, the more
+                unlikely it will be reviewed. The code that could use
+                improvement just ends up getting rubberstamped.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Practice</div>
+              <p>
+                It is critically important that following a code review the
+                suggested changes be implemented. If you don’t practice making
+                the suggested changes they are easily dismissed, ignored, or
+                forgotten when it comes to working on the next coding
+                assignment. Practice makes perfect.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Discuss</div>
+              <p>
+                Coding is about making decisions. I could code it this way, or
+                that way. It should be a conscience decision regarding which is
+                the best way. There should be a reason as to why you chose to
+                implement it the way you did.
+              </p>
+              <p>
+                A code review is just a critique on those decisions. When asked
+                you should be able to discuss the various ways the program could
+                have been implemented and the pros and cons of each, which led
+                to the decision you made. The reviewer should make sure that the
+                proper compromises are being made, and present new options the
+                coder may not have considered.
+              </p>
+              <p>
+                Coding decisions should not be made by arbitrary reasons, such
+                as “that’s what the code I was copying was doing” or “that’s
+                just my style”. If you are a “professional” coder that means you
+                are writing code for money. Ideally producing code with the
+                lowest cost to maintain. It should be simple for those that read
+                your code to understand what they code is doing and why. The
+                easier it is to read, the cheaper the code base will be to
+                maintain. If someone can read your code and understand it in 15
+                seconds that makes them more productive that if it takes 60
+                seconds.
+              </p>
+              <p>
+                Decisions should be rooted in the generally accepted
+                industry-best software principles. Those principles are designed
+                to produce easy to maintain code.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Ego</div>
+              <p>
+                Refactored code might look very different from the original.
+                That does not mean that the original code was thrown away. It
+                was probably just reorganized and reformatted.
+              </p>
+              <p>
+                Or, maybe it was completely thrown away and rewritten; that’s OK
+                too. Looking at problems from different directions and
+                experimenting builds valuable knowledge and skills.
+                <a
+                  href="http://www.peterprovost.org/blog/2012/05/02/kata-the-only-way-to-learn-tdd/"
+                  >Katas</a
+                >
+                encourage experimenting with different ways to solve the same
+                problem. Although Katas are great, sometimes experimentation
+                needs to be done during work hours on production code.
+              </p>
+              <p>
+                If after a code review it is decided to “start over”, remember
+                you are not your code. Just because another approach is going to
+                be tried does not mean the original work was without value. You
+                must separate your own ego from your code. You must be an
+                <a
+                  href="https://blog.codinghorror.com/egoless-programming-you-are-not-your-job/"
+                  >egoless programmer</a
+                >.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Disagreements</div>
+              <p>
+                Those discussions sometimes may turn to arguments. Sometimes
+                there is yelling and tears. I have been in yelling matches with
+                numerous people over both code I authored and have reviewed.
+                I’ve been dismissive and downright rude to reviewers. I’m not
+                proud of those things, but they did happened.
+              </p>
+              <p>
+                Remember to keep a cool head. Keep your ego separate from the
+                code under review.
+              </p>
+              <p>
+                Be prepared to compromise. Look at the big picture and ask
+                yourself if this is the hill I want to die on. Don’t get into a
+                duel to the death over tabs verse spaces. Ask yourself, “is it
+                really that important?”
+              </p>
+              <p>
+                Be analytical, not emotional. Test the code against known coding
+                standards, not an arbitrary sense of “that’s not the way I’d do
+                it”. Try implementing something both ways and compare. Measure
+                if you can.
+              </p>
+            </section>
+
+            <p class="mt-4">
+              In the
+              <a href="../HowTo/">next post</a>
+              I’ll look at the technical details of what to look for while
+              reviewing code.
+            </p>
           </main>
         </div>
 

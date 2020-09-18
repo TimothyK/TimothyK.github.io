@@ -65,13 +65,434 @@
 
           <!-- Post Body -->
           <main id="post">
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+            <p>
+              This is the second of a two part blog post on code reviews. This
+              <a href="../WhyWhen/">first post</a>
+              is on why and when code reviews should be done and some of the
+              soft skills needed. This post is a technical checklist on some
+              things to look for during a code review.
+            </p>
+
+            <section>
+              <div class="section-header">Coding Standards</div>
+
+              <p>
+                When you actually sit down to do a code review, what should you
+                look for? Ideally, your organization should have a coding
+                standards document. If you don’t have one, plagiarize one of the
+                many you can find on the internet. Alternatively, use Uncle
+                Bob’s
+                <a href="https://www.goodreads.com/book/show/3735293-clean-code"
+                  >Clean Code book</a
+                >
+                as a guide.
+              </p>
+
+              <p>
+                When developing a set of coding standards for your organization
+                it is important to have very specific rules and guidelines, and
+                an understanding of what the reasoning behind each of them are.
+                Know which are hard rules that must always be followed and which
+                are guidelines that can sometimes be broken. Know when it is OK
+                to break a guideline and when it is not. Each rule addresses a
+                specific software principle that is designed to make code
+                simpler to read, understand, and maintain. Know how each of
+                these rules ultimately reduces the cost of maintaining software.
+              </p>
+
+              <p>
+                When you review code, you can check it for compliance to these
+                standards. Having a previous agreed on set of standards can
+                avoid disagreements. It helps that you have already had a team
+                discussion on what the coding standards should be, instead of
+                trying to decide this in the middle of reviewing someone’s code.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">Prioritize</div>
+
+              <p>
+                There is no such thing as perfect code. When reviewing code you
+                should not be checking every line of code against every rule in
+                the coding standards in some vain attempt to reach 100%
+                compliance. Remember the goal is to improve coding practices.
+              </p>
+
+              <p>
+                Some rules are more important than other guidelines. Focus on
+                the more important rules. Spend an hour discussing them then
+                stop the code review. Do not spend multiple hours or days
+                reviewing the same code. It just leads to fatigue. It is a grind
+                that neither the reviewer nor author will enjoy.
+              </p>
+
+              <p>
+                Look for one rule that is frequently violated. Alternatively
+                look for just the most important rule that is being violated.
+                Focus on that one issue and correcting it. Successfully
+                improving the code in just one way that will be carried forward
+                on to the next project is better that haphazardly trying to
+                address multiple issues.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">
+                Beck’s Four Rules of Simple Design
+              </div>
+
+              <p>
+                In my experience, the best way to improve your code is to follow
+                Kent Beck’s
+                <a href="https://martinfowler.com/bliki/BeckDesignRules.html"
+                  >Four Rules of Simple Design</a
+                >. Keep these rules in mind while reviewing code. These rules
+                are:
+              </p>
+
+              <ol>
+                <li>It Works</li>
+                <li>Single Source of Truth (No Duplication, DRY)</li>
+                <li>Expressive</li>
+                <li>Small</li>
+              </ol>
+
+              <p>
+                These rules are prioritized. There is no point in trying to make
+                code smaller if it does not actual work. Get the code working
+                before worrying about any other code quality issues.
+              </p>
+
+              <p>
+                I think that all rules of good software implementation and
+                design can be derived from these four axioms. The
+                <a href="https://en.wikipedia.org/wiki/SOLID">
+                  SOLID principles</a
+                >,
+                <a href="https://martinfowler.com/bliki/TellDontAsk.html"
+                  >“Tell, Don’t Ask”</a
+                >, KISS and other
+                <a href="../../../2015/Simply/Patterns/"
+                  >simplicity principles</a
+                >
+                can all be derived from these rules.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">It Works</div>
+
+              <p>
+                The first thing to check during a code review (or automated
+                check-in policy) is to make sure the code works. The low-bar
+                test for this is, “does it compile”? It is surprising how often
+                code reviews fail on this point. A common reason for code not
+                compiling for the next person are Source Control integration
+                errors. Be sure to follow proper procedures for integrating with
+                the remote branch. Also, avoid partial check-ins.
+              </p>
+
+              <p>
+                Run the tests to confirm they all pass. If there is a large
+                refactoring going on with many failing tests, mark those tests
+                as Ignored until they are passing.
+              </p>
+
+              <p>
+                Fix all compiler warnings, code analysis warning, FxCop or
+                Resharper warnings. Those static analysis tools are there to
+                catch easy to fix improvements to the code.
+              </p>
+
+              <p>
+                Check the code for correctness. Check for edge business cases
+                that the code may need to support. For example, what if quantity
+                on the order is negative, like in a product return scenario;
+                will the program handle this?
+              </p>
+
+              <p>
+                Code correctness analysis can be done on technical grounds,
+                instead of the business domain. Are null reference errors
+                checked properly? Are errors been swallowed instead of reported?
+                Is the security adequate?
+              </p>
+
+              <p>Add tests for any correctness gaps.</p>
+            </section>
+
+            <section>
+              <div class="section-header">Single Source of Truth / DRY</div>
+
+              <p>
+                Once it is reasonably known that the code works, the next step
+                is to look for duplication in the code. Duplication is a code
+                smell (Don’t Repeat Yourself). It is more difficult and costly
+                to maintain two identical lines of code than just one. All true
+                duplication should be removed.
+              </p>
+
+              <p>Let’s look at this function:</p>
+
+              <code>
+                <pre>
+    public string GetFormattedTaxAmount(Invoice invoice)
+    {
+      if (invoice.Country == "Canada")
+        return invoice.CanadianTax.ToString("0.00");
+      if (invoice.Country == "USA")
+        return invoice.AmericanTax.ToString("0.00");
+      return string.Empty;
+    }
+    </pre
+                >
+              </code>
+
+              <p>
+                Quite a few things could be improved with this little function.
+                However, it does work. The next priority is to look for
+                duplication. The duplication in this function is the “ToString”
+                method call. It is being called from multiple places.
+                Refactoring this code with the only goal of removing that
+                duplication would result in the following:
+              </p>
+
+              <code>
+                <pre>
+    public string GetFormattedTaxAmount(Invoice invoice)
+    {
+      decimal taxes;
+  
+      if (invoice.Country == "Canada")
+        taxes = invoice.CanadianTax;
+      else if (invoice.Country == "USA")
+        taxes = invoice.AmericanTax;
+      else
+        return string.Empty;
+  
+      return taxes.ToString("0.00");
+    }
+  </pre
+                >
+              </code>
+
+              <p>
+                In this refactored version, the duplication is gone. The
+                ToString method is called only once. By removing the
+                duplication, it becomes immediately apparent that the function
+                violates the
+                <a
+                  href="https://www.oodesign.com/single-responsibility-principle.html"
+                  >Single Responsibility Principle</a
+                >. The function is doing two things: finding the correct tax
+                amount to charge, and formatting that value.
+              </p>
+
+              <p>
+                Removing duplication will create separation of responsibilities
+                in the code. The two will go hand-in-hand. However, keep in mind
+                that not all duplication is true duplication. Duplication is a
+                code smell that might indicate that something is wrong.
+                Sometimes there are valid reasons for duplication.
+                <a href="../../../2014/DryAndSrp/">See here</a> for more
+                details.
+              </p>
+
+              <p>
+                When doing maintenance on code, an easy red flag that there is
+                duplication in the code is that a single change requires the
+                same code change to be made to multiple lines of code. It is
+                easy to spot this when you look at the check-in. You see the
+                same line of code existing and changing in multiple locations.
+                If the requirements in the above example changes so that the tax
+                amount needed to be displayed to 4 decimal points, or include a
+                dollar sign, you would see on the check-in that two lines of
+                code would have to change instead of one.
+              </p>
+
+              <p>
+                Be especially vigilant looking for duplication in unit testing
+                code. It can be very easy to repeat the same code to setup (i.e.
+                arrange) the test. Move this code into a common setup or
+                <a href="https://martinfowler.com/bliki/ObjectMother.html"
+                  >object mother</a
+                >
+                method.
+              </p>
+
+              <p>
+                Also look for duplication in IF statements. Constantly checking
+                for the same condition usually indicates a missed opportunity
+                for encapsulation.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">Expressive</div>
+
+              <p>
+                The third rule of simple design is that code should be
+                expressive. While supporting and maintaining a program or even
+                during the version 1.0 implementation, a lot more time will be
+                spent reading code than writing it. Code should be written for
+                humans to read, not computers.
+              </p>
+
+              <p>
+                Source code should be written so that reads almost like English.
+                Don’t use comments to explain the technical details of a block
+                of code; encapsulate that in a method and use the method name to
+                describe the program.
+              </p>
+
+              <p>
+                In object orientated or most other programming languages,
+                expressiveness comes from encapsulation. Apply the
+                <a href="https://martinfowler.com/bliki/TellDontAsk.html"
+                  >“Tell, Don’t Ask”</a
+                >
+                rule to push technical details down and leave the concepts you
+                are trying to describe at a higher level. For example, the
+                method in the previous example could be refactored as follows.
+              </p>
+
+              <code>
+                <pre>
+  public string GetFormattedTaxAmount(Invoice invoice)
+  {
+    var taxes = invoice.Taxes;
+    return taxes?.ToString("0.00");
+  }
+  </pre
+                >
+              </code>
+
+              <p>
+                Alternatively, if the Invoice class is sealed or should not have
+                the tax calculation responsibility this can be moved to a
+                different class.
+              </p>
+
+              <code>
+                <pre>
+  public string GetFormattedTaxAmount(Invoice invoice)
+  {
+    var calculator = new TaxCalculator();
+    var taxes = calculator.CalculateSalesTax(invoice);
+    return taxes?.ToString("0.00");
+  }
+</pre
+                >
+              </code>
+
+              <p>
+                Both of these refactored methods have better
+                <a
+                  href="https://odetocode.com/blogs/scott/archive/2011/02/07/the-value-of-symmetry.aspx"
+                  >symmetry</a
+                >. Because all the code in the method is at the same level of
+                abstraction and no part of the method overshadows other parts,
+                there are fewer places for bugs to hide.
+              </p>
+
+              <p>
+                Another strategy for keeping code described at a high level that
+                reads like English is by avoiding
+                <a href="http://wiki.c2.com/?PrimitiveObsession"
+                  >primitive obsession</a
+                >. Don’t use a System.Object when your object is really a
+                string; don’t use a string when your object is really a
+                connection string or FileInfo object.
+              </p>
+
+              <p>
+                Don’t use a number to represent a weight. By having a Weight
+                class you can track not only the numeric value, but also the
+                units. This makes it impossible to forget to update the units at
+                the same time as the numeric value. The Weight class can begin
+                to collect more functionality, such as conversion factors, and
+                timestamps or other audit information. The technical details
+                regarding how to represent a weight measurement begin to gather
+                in this new class as opposed to being intertwined with
+                higher-level code.
+              </p>
+
+              <p>
+                Encapsulation and pushing down code to lower level modules is
+                the key to expressive code. “All problems in computer science
+                can be solved by another level of indirection” [Wheeler]. Just
+                be sure to that the new lower level code follows the
+                <a
+                  href="https://en.wikipedia.org/wiki/Principle_of_least_astonishment"
+                  >Principle of Least Surprise.</a
+                >
+              </p>
+
+              <p>
+                Although unit tests primarily are used to support the first rule
+                and ensure the code works, unit tests can also be very effective
+                in expressing what the code should do. Unit tests can add
+                context and explore scenarios that can be difficult to express
+                in the lean, optimized production code. Unit and integration
+                tests can serve as system documentation. I often find it very
+                difficult to review code that does not have unit tests. I’m not
+                100% sure what the code is meant to do, nor can I safely
+                refactor it.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">Small</div>
+
+              <p>
+                The last rule is to make code as small as possible. Keep classes
+                and methods as small as possible.
+              </p>
+
+              <p>
+                Compliance of the rule usually comes for free as you encapsulate
+                code into smaller class and remove duplication.
+              </p>
+
+              <p>
+                Make sure that code is as terse as possible. Use the latest
+                language features that promote terseness.
+              </p>
+            </section>
+
+            <div class="section-header">Summary</div>
+
+            <ol>
+              <li>It Works</li>
+              <ol type="a">
+                <li>Compiles</li>
+                <li>All tests pass</li>
+                <li>No static analysis warnings</li>
+                <li>Correctness</li>
+              </ol>
+              <li>Single Source of Truth (No Duplication, DRY)</li>
+              <ol type="a">
+                <li>Remove all true duplication, no matter how small.</li>
+                <li>Look for churn</li>
+                <li>Single Responsibility</li>
+                <li>Object Mother</li>
+                <li>Encapsulate IF clauses</li>
+              </ol>
+              <li>Expressive</li>
+              <ol type="a">
+                <li>Read like English, Minimize Comments</li>
+                <li>Tell, Don’t Ask</li>
+                <li>Symmetry</li>
+                <li>Remove primitive obsession</li>
+                <li>Principle of Least Surprise</li>
+                <li>Tests as documentation</li>
+              </ol>
+              <li>Small</li>
+              <ol type="a">
+                <li>Use terse language features</li>
+              </ol>
+            </ol>
           </main>
         </div>
 
