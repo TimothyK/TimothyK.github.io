@@ -65,13 +65,265 @@
 
           <!-- Post Body -->
           <main id="post">
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+            <p>
+              So is it better to store enumerated types in a database as a
+              string/varchar or integer? Well it depends, but in general as a
+              string is your best bet. In this post I explore the pros and cons
+              of each.
+            </p>
+            <section>
+              
+                  <div class="section-header">
+                    Lists verse Enums
+                  </div>
+              <p>
+                Before we get to that let’s first be clear that I’m talking about
+                enums here, not lists. Let me explain the difference.
+              </p>
+              <p>
+                For example let’s say to have a list of a available weight units:
+                pounds, kilograms, grams, short tons, metric tons, long tons,
+                stones, ounces, and etcetera. You might be able to design your
+                database so that the list of possible weight units is in a table.
+              </p>
+              <p>
+                Your application should not have any advanced knowledge of the
+                weight units that are defined in this table. The application reads
+                this dynamic list at run time. Any information needed about these
+                weight units must come from the database. This includes conversion
+                factors, display names with multilingual support, flags to
+                indicate in which situations it is appropriate to offer these
+                units as a choice, mapping rules to external systems, and anything
+                else the application may need. There should be no requirements
+                that pounds must exist as a row or that kilograms must always be
+                ID #1.
+              </p>
+              <p>
+                If you can soft code every behaviour of the weight unit required
+                by applications in the database then the best design is to soft
+                code this in a table. Installers may add or remove rows from this
+                table as needed. This is a “List” of available values, which is
+                defined in a database table.
+              </p>
+              <p>
+                If the available weight units is hard coded into the application
+                as an enum or
+                <a
+                  href="../../2014/StronglyTypedEnum/"
+                  >strongly typed enum</a
+                >
+                then this is an “enum” not a “list”. The available values cannot
+                change without changes to the programs. Therefore the available
+                values should not be a database table. Adding support for new
+                weight units requires code changes, so it is to the code that you
+                must go to make this change. Having a database table falsely
+                implies that the values are easy to change.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Lookup Times</div>
+              <p>
+                The main argument for storing enum values as strings instead of
+                integers is for human readability. People looking at the
+                database can easily see what the values mean. Which of these two
+                tables is easier to read?
+              </p>
+              <div class="container">
+                <div class="row">
+                  <div class="col mb-3">
+                    <table>
+                        <tr>
+                          <th>OrderID</th>
+                          <th>Weight</th>
+                          <th>WeightUnits</th>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>14</td>
+                          <td>kg</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>23</td>
+                          <td>lb</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>25</td>
+                          <td>kg</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>11</td>
+                          <td>lb</td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>18</td>
+                          <td>kg</td>
+                        </tr>
+                    </table>
+                  </div>
+    <div class="col mb-3">
+      
+                    <table>
+                        <tr>
+                          <th>OrderID</th>
+                          <th>Weight</th>
+                          <th>WeightUnitID</th>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>14</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>23</td>
+                          <td>2</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>25</td>
+                          <td>1</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>11</td>
+                          <td>2</td>
+                        </tr>
+                        <tr>
+                          <td>5</td>
+                          <td>18</td>
+                          <td>1</td>
+                        </tr>
+                      </tbody>
+                    </table>
+    </div>
+                </div>
+              </div>
+              <p>
+                Storing the values as a string makes it immediately obvious to
+                anyone looking at the database what the units are. There is no
+                need have external lookup tables either as database tables,
+                database functions, or external documentation. It simply makes
+                the system faster and easier to use.
+              </p>
+              <p>
+                The principle is similar to how applications should be developed
+                so that users can get around with a minimum number of clicks.
+                Adding just a few hundred milliseconds to the load time of a web
+                page can cost thousands of dollars of lost sales. Even if the
+                only people looking at the database are your own employees (i.e.
+                a “captive audience”) the lookup time is still burdensome. Even
+                if users have the IDs memorized, there is still a non-zero
+                amount of time that it takes for the mental jumping jacks to
+                make this conversion. There is a real cost to this lookup.
+              </p>
+              <p>
+                Systems should be designed for human readability, not computer
+                readability.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">Validation</div>
+              <p>
+                String enum columns usually offer better validation and data
+                quality. If someone enters a “jf” instead of “kg” for the units
+                it is very obvious that a mistake has been made. Whereas fat
+                fingers on the number pad entering pressing 2 instead of 1 is
+                much harder to detect.
+              </p>
+              <p>
+                Having a 1 digit password is not a good idea. Making your
+                password at least 2 or 3 characters gives much better
+                reassurance that a monkey banging on the keyboard isn’t going to
+                happen upon a valid, yet totally random and incorrect value.
+              </p>
+              <p>
+                Regardless on whether you choose to have enum values stored as
+                integers or strings, it is a good idea to add a check constraint
+                on the column to limit the values. In SQL Server, the T-SQL code
+                to add a check constraint is as follows:
+              </p>
+                <code><pre>
+  Alter Table Orders
+  Add Constraint CHK_Orders_WeightUnits 
+    Check(WeightUnits In ('kg', 'lb'))
+    </pre></code>
+              <p>
+                There are also pros and cons to adding the check constraint to
+                the database. The downside is that if you want to enhance your
+                program to support a new enum value you must modify both the
+                program and the database constraint.
+              </p>
+              <p>
+                You need to time the upgrades to the application and database.
+                In general, update the programs to support the new values if the
+                are read from the database, then update the database constraint
+                to allow the new values, then update the applications (or
+                feature toggle) to allow the new values to be written to the
+                database.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Performance</div>
+              <p>
+                I do acknowledge that using integers over strings gives better
+                performance. Databases are smaller, less data is transferred
+                over the network, and in theory faster. Exactly how much faster?
+                I’m not sure, I haven’t run the benchmarks. Even with storing
+                enums and strings I aim to have all my queries run in a few
+                milliseconds. In most cases, I would categorize using integers
+                over strings to be a micro-optimization.
+              </p>
+              <p>
+                However, when creating the enum string values do try to use as
+                little space as possible. You don’t want to make your enum
+                values dozens of characters long. Always try to keep these
+                values less than 10 characters. Try to use abbreviations to
+                reduce the values further down to 2 or 3 characters. Always use
+                varchar instead of nvarchar.
+              </p>
+              <p>
+                For normal table columns I don’t think there is a significant
+                performance hit in using strings. However, one place I might
+                consider using an integer is if the column was used as part of
+                an index. Database indexes are meant to make databases go fast,
+                therefore every effort should be made to optimize these.
+              </p>
+              <p>
+                However, it is rare that enum (or Boolean) columns are used in
+                indexes. In general those types of columns don’t make for good
+                indexes. The goal of a database index is to take a table with a
+                million rows and narrow that row count down to just the few rows
+                you are searching for. Dates and free text (e.g. a person’s last
+                name) are good candidates for indexes because they drill down
+                from millions of rows to just a few - quickly. With an enum with
+                5 possible values, including the enum in the index is only going
+                to reduce the millions of rows by a fifth (still hundreds of
+                thousands).
+              </p>
+              <p>
+                If there is an enum value that does significantly reduce the row
+                count, then consider using a filtered index. Put the enum value
+                in the filter and not directly in the index. In that case the
+                string enum value isn’t stored in the index; it is just used to
+                decide which rows to put in the index.
+              </p>
+              <code><pre>
+    Create Index IX_Orders_StatusUnderReview 
+    On dbo.Orders(OrderID) 
+    Where (Status = 'Review')
+  </pre></code>
+                            <p>
+                With this query the <code>
+                  Select * From Orders Where (Status = 'Review')
+                </code> does use this index even though the Status column is
+                not an indexed column.
+              </p>
+            </section>
           </main>
         </div>
 
