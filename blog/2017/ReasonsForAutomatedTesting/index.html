@@ -65,13 +65,286 @@
 
           <!-- Post Body -->
           <main id="post">
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+            <section>
+              <p>
+                So I gave a talk at the
+                <a
+                  href="https://www.meetup.com/Edmonton-NET-User-Group/events/236547165/"
+                  >Edmonton .NET User Group</a
+                >
+                on an introduction to automated testing. And of course in this
+                introduction I gave a list of reasons why unit testing is a good
+                idea. Although there are already many blog posts other there on
+                this subject, I thought I’d record my reasons here.
+              </p>
+              <p>
+                Although all of these reasons may appeal to your hipster,
+                idealistic sense of craftsmanship and professionalism, each of
+                these reasons also has a sound business foundation. Automated
+                testing saves/makes you money.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">1. Product Quality</div>
+              <p>
+                Of course the most obvious reason for automated testing is to
+                improve product quality. Although automated testing will not
+                guarantee that you’ll never have another bug, it will lower that
+                bug rate. And having <u>working</u> software is the
+                <a href="https://martinfowler.com/bliki/BeckDesignRules.html"
+                  >#1 design goal</a
+                >. Telling customers about the automated testing that is in
+                place can be a strong marketing point.
+              </p>
+              <p>Nobody will buy software that doesn’t work.</p>
+            </section>
+            <section>
+              <div class="section-header">
+                2. Because you are doing it anyway
+              </div>
+              <p>
+                If you aren’t doing automated testing, then you are doing manual
+                testing. Manual testing (and all testing) is a thankless job
+                that doesn’t get the credit it deserves. A lot of people assume
+                it just happens for free.
+              </p>
+              <p>
+                Manual testing does take a lot of time and effort. To run a test
+                takes a lot of time just to set up. For example, confirming how
+                the system behaves with a customer with bad credit. You have to
+                create or find a customer record and change its credit status.
+                Once the setup is done comes the actual testing. You have to run
+                the program, login as the customer, and attempt to make a
+                purchase. This all takes time, several minutes.
+              </p>
+              <p>
+                Setting up an automated test also takes quite a bit of time.
+                This is especially true for the first test. However the good
+                news is you only have to do this once. Once the test is written
+                you can run it as often as you want, several times an hour
+                typically. Also running the test is much faster; no having to
+                start the program, login, and all the other typing and button
+                clicks. And the code you write to setup your first test will be
+                reused for all the other tests.
+              </p>
+              <p>
+                Although the first test is the most difficult to write, before
+                the first production build of your program the time spent
+                building an automated test suite will be less that then time it
+                takes to manually test the same program once. And once the
+                automation is in place, it can be run whenever virtually
+                instantaneously.
+              </p>
+              <p>
+                Automated testing takes less time than manual testing. This is
+                certainly true in the full lifecycle of the program, but is even
+                true before the first production release.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">3. Enables Refactoring</div>
+              <p>
+                Refactoring is the practice of going back over existing code and
+                improving the readability of it. It removes
+                <a href="https://martinfowler.com/bliki/TechnicalDebt.html"
+                  >technical debt</a
+                >.
+              </p>
+              <p>
+                A common practice on my team is doing code reviews, especially
+                with new hires. The result of code review is often a list things
+                that should have been done differently. On receiving these
+                suggestions the programmer asks, should I implement those
+                changes. The answer is, it depends.
+              </p>
+              <p>
+                If the testing has been done manually then the answer is often
+                “no”. The code review is at the end of the project and we are up
+                against a deadline. Although the changes may be fairly simple,
+                the effort to manually retest the program does not out weight
+                benefits of the cleaner code. It is usually just too risky to
+                change the program.
+              </p>
+              <p>
+                This is true not only for the first release, but future
+                maintenance cycles. When other developers go into the same code
+                base and need to make a minor enhancement. The risk that
+                changing the program will introduce a bug is too high.
+              </p>
+              <p>
+                Furthermore, having a single program contain two design styles
+                is a sin unto itself. New features will likely be implemented
+                following the example of the design already in place. The bad
+                design will perpetuate. This is similar to the
+                <a href="https://en.wikipedia.org/wiki/Broken_windows_theory"
+                  >Broken Windows Theory</a
+                >. The code begins to rot. Eventually it reaches the point where
+                the only course of action is to throw the existing code away and
+                begin a full rewrite.
+              </p>
+              <p>
+                However, if the program supports an automated test suite the
+                answer to if the code should be improved is usually “yes”. The
+                very first time I used unit testing we did the normal code
+                review process and the experience was completely different than
+                previously. Even though the code review was done only hours
+                before the deadline, most of the suggestions were implement
+                before the release. This was because changes could be made
+                without the penalty of a long testing cycle and risk of
+                introducing a bug.
+              </p>
+              <p>
+                The quality of code for a program without unit tests will only
+                degrade over time. A program with unit tests will improve in
+                quality over time. This improves the longevity of the program
+                and avoids “the big rewrite”.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">4. Better Design</div>
+              <p>
+                This point is a little controversial, but in general unit
+                testing will improve the design of a program. Code that is
+                testable will be designed to be smaller. It will yield code that
+                better follows the Single Responsibility Principal. It will be
+                less coupled to other parts of the system and have better reuse
+                potential.
+              </p>
+              <p>
+                Here is an excellent video by Michael Feathers on why and how
+                unit testing encourages good design:
+                <a
+                  title="https://vimeo.com/15007792"
+                  href="https://vimeo.com/15007792"
+                  >https://vimeo.com/15007792</a
+                >. It states it much better than I can.
+              </p>
+              <p>
+                The counter argument is that sometimes this can cause systems to
+                become over designed. This point was made by David Heinemeier
+                Hansson in
+                <a
+                  href="http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html"
+                  >a blog post</a
+                >. This caused much debate on the internet, some of which was
+                captured here between David and Kent Beck in this
+                <a href="https://www.youtube.com/watch?v=z9quxZsLcfo"
+                  >5 part video series</a
+                >.
+              </p>
+              <p>
+                At the end of the day, the programmer is in control of the
+                design of the system. Doing Test Driven Development is a tool
+                that helps with design, but it does not take away decisions from
+                the programmer. Automated testing forces programmers to think
+                more diligently about design and makes them better designers.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">5. Quicker Feedback Loop</div>
+              <p>
+                Staying in “the zone” is critical to being productive while
+                developing software. There are dozens of pieces of information
+                and background context that need to be kept in mind while
+                programming. When you switch from one task to another there is a
+                <a href="https://blog.codinghorror.com/the-multi-tasking-myth/"
+                  >productivity drop of 20%</a
+                >.
+              </p>
+              <p>
+                With manual testing often the developer implements a feature,
+                compiles it a week later, it sits in the tester’s inbox for a
+                week, tested, then the test results get analyzed by the
+                developer a week later. It is common there is a 2 or 3 week gap
+                between implementation and the time you need to fix it. When the
+                test results are received it can take hours to reproduce the
+                issue and find the offending line of code.
+              </p>
+              <p>
+                With unit testing the workflow is write a line or two of code,
+                then run the tests. When a test fails it is simple to remember
+                the line of code that caused the bug. That’s because you just
+                wrote that line of code a minute ago.
+              </p>
+              <p>
+                Unit testing takes the debugging process from an hour or more to
+                a minute or less. Unit testing adds productivity due to the
+                short feedback loop.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">6. Team Ownership</div>
+              <p>
+                The great thing about automated testing is that once the test is
+                created it is saved and shared with the entire team. Every other
+                team member pull in that test when they do their testing.
+              </p>
+              <p>
+                If a developer implements another user case scenario that is in
+                conflict with existing features the automated tests will reveal
+                this immediately. All developers on the team must support all
+                the features of the system, not just the small part of the
+                system they are working on.
+              </p>
+              <p>
+                Automated testing ensures that older tests are always run (i.e.
+                regression testing). This prevents breaking changes from
+                affecting existing customers. It improves communication on the
+                team because all these cases are known.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">7. System Documentation</div>
+              <p>
+                With all development, but especially with APIs, providing
+                working examples of how the code should be called and what the
+                expected results are is important. Automated tests can provide
+                these examples.
+              </p>
+              <p>
+                Also the automated tests will never become stale like a English
+                document may become. The tests are guaranteed to stay current
+                with the production code because they are run with every build.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">8. Fun</div>
+              <p>
+                Manual testing is a boring, tedious job. Running the same test
+                scripts over and over again is mind numbing. What is boring and
+                tedious should be automated. This is what computers are good at.
+              </p>
+              <p>
+                Most developers find the challenge of automating testing to be
+                enjoyable. Asking employees to do a job that is boring will
+                likely cause them to quit.
+              </p>
+              <p>
+                And also, it is no fun having customers yell at you because the
+                software doesn’t work. Bugs lead to blame. Blame leads to fear.
+                Fear leads to anger. Anger leads to hate. Hate leads to
+                suffering. ~Yoda
+              </p>
+              <p>Automated testing decreases employee turnover.</p>
+            </section>
+            <section>
+              <div class="section-header">9. Required Skill</div>
+              <p>
+                When getting started with automated testing (or any new
+                technology or process) there will be resistance. You will hear
+                the fallacies that it will take too long, its too hard, or it
+                will hurt the design. Whatever the reasons you have for not
+                doing automated testing, don’t let that you don’t know how be
+                one of them.
+              </p>
+              <p>
+                The harshest critic of automated testing will still conceded
+                that in some circumstances it is still proper thing to do.
+                Therefore when the time comes that testing should be automated
+                ensure that you and your team are proficient in doing so. It is
+                a skill that can only be learned from practice.
+              </p>
+            </section>
           </main>
         </div>
 
