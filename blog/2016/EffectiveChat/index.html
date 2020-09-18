@@ -65,13 +65,306 @@
 
           <!-- Post Body -->
           <main id="post">
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+            <p>
+              So I thought I’d write down some tips for using a chat application
+              effectively on a development team. Chat applications can
+              revolutionize a how a development team works and even its culture.
+              I’ll go through some of the goals of implementing a chat
+              application, some best practices, and pitfalls.
+            </p>
+            <section>
+              <div class="section-header">Goals</div>
+              <p>
+                Obviously the goal of a chat application is to improve
+                communication amongst the team. It is meant to remove “silos”.
+                <a href="https://en.wikipedia.org/wiki/Information_silo"
+                  >Silos</a
+                >
+                refers to an organizational structure where members of the same
+                team do not communicate directly with each other. The image of a
+                silo is a very tall structure with a very small opening (for
+                communication) at the top or bottom. Developers aren’t given
+                good opportunities to communicate with each other except through
+                their manager or what they deliver.
+              </p>
+              <p>
+                Silos are bad for development environments because often
+                different members of the team will duplicate work. They aren’t
+                aware that others have already solved the same problem. Or worse
+                yet, the work of different team members can be divergent,
+                pulling the products and development strategies is different,
+                conflicting directions.
+              </p>
+              <p>
+                The answer to this in the Agile and Scrum movements is “The
+                Daily Stand-up”. This is a brief meeting at that start of the
+                day where everyone gets together to let the team know what they
+                are working on. The typical structure of the meeting is to
+                answer “3 questions”: What did I do yesterday, what will I do
+                today, and what impediments are getting in my way. Just by
+                answering these questions publically to the team can be very
+                effective in breaking down silos.
+              </p>
+              <p>
+                One of the problems with the Daily Stand-Up is that it does take
+                some coordination. Everyone has to get together at the same time
+                and in the same physical space. The meeting can’t start until
+                everyone arrives. This can be problematic if different people
+                are on different schedules. Remote developers and different time
+                zones, client phone calls, and traffic delays can all infer with
+                this. A chat application can be a very low friction way to allow
+                this meeting to happen with the flexibility for people’s
+                schedules and locations.
+              </p>
+              <p>
+                It also allows for updates to be posted multiple times a day. If
+                someone runs into an impediment they don’t have to wait until
+                the next morning to seek the team’s help.
+              </p>
+              <p>
+                The chat application is well sized as a communication medium for
+                this problem. Phone calls or face-to-face meetings can be
+                <a
+                  href="http://heeris.id.au/2013/this-is-why-you-shouldnt-interrupt-a-programmer/"
+                  >highly disruptive</a
+                >. Developers are forced to drop what they are doing
+                immediately. It can take from 10 to 25 minutes or more to
+                recover from the interruption. Email on the other hand can
+                become too long winded. It lacks the brevity that chat
+                encourages. When email is used as chat the large number of chat
+                emails can make drowned out the important emails. Chat seems to
+                be a happy median between these extremes. It is brief and it can
+                be easily deferred and non-interruptive when desired.
+              </p>
+              <p>
+                Chat can also improve the interpersonal relationships on a team.
+                Instead of the only <sub></sub><sub></sub>team communication
+                being at a biweekly manager-supervised sprint planning meeting,
+                communication occurs daily. Most developers know how disruptive
+                face-to-face communication can be, therefore they avoid it. Chat
+                is less formal, non-intrusive vehicle for developers to
+                interact.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">
+                Getting Started – The Daily Stand-up
+              </div>
+              <p>
+                So to get started using a chat application on a developer team,
+                I’d suggest starting with the Daily Stand-up 3 Questions: What I
+                did yesterday, today, and impediments. That is the standard
+                format for the physical stand-up meeting.
+              </p>
+              <p>
+                I don’t think that chatting about yesterday is needed, because
+                all the chat history is there. But letting people know what you
+                are about to work on and anything getting in your way is
+                critical.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">No Surprises</div>
+              <p>
+                Chat can be used to post whenever a release is made of software.
+                Most chat applications allow for these postings to be done
+                automatically from the build process. This makes sure that
+                everyone is aware of changes that have been made to the product.
+              </p>
+              <p>
+                Although learning what has been done is nice, it is best if the
+                chat contains information about what is about to be done before
+                it is done. Sometimes release announcements can be greeted with
+                “you released what?!!”. Work items should be bookended in the
+                chat application so that people are clear when work starts and
+                ends. This way there are no surprises.
+              </p>
+              <p>
+                The main advantage of the chat application is informing the team
+                what is being worked on at the earliest possible moment. This
+                allows for feedback to be received as soon as possible and nip
+                any problem in the bud. There are a number of advantages to
+                announcing before work is done as opposed to after.
+              </p>
+              <p>
+                It corrects any communication errors around priorities. If you
+                are working on the wrong thing, this will quickly be caught.
+                This can also prevent
+                <a
+                  href="http://sethgodin.typepad.com/seths_blog/2005/03/dont_shave_that.html"
+                  >yak shaving</a
+                >.
+              </p>
+              <p>
+                Chatting allows to catch duplicate work before it is done. I
+                someone posts that they are working on a class to process
+                command line arguments, other on the team can intervene and
+                point to the location where that code is already written.
+              </p>
+              <p>
+                This process also works good for design. The chat application
+                can serve as a good brainstorming tool. It can allow for
+                feedback on designs in their infancy. Many think that designs
+                are very mutable as long as they haven’t reached the
+                implementation stage (coding) yet. However spending days
+                designing and documenting a new feature can cement the mindset
+                on the proposed design. The design review can become a violent
+                defense of one person’s design rather than an open discussion.
+                If feedback was allowed before the initial documentation is done
+                the design much more fluid and open to change.
+              </p>
+              <p>
+                Chat works well after the design meeting as well. At that design
+                meeting there is usually an agreement of how the code should be
+                implemented. However when coding occurs you usually run into one
+                or two minor details that weren’t thought though well enough in
+                the design meeting. The design needs to be changed ever so
+                slightly. It is really a small change and doesn’t warrant
+                reconvening the entire design review committee. However over the
+                course of a week or two there may be several of these very small
+                design changes that begin to add up. The coders can post on the
+                chat the small corrections they are making to the design so that
+                no one is surprised.
+              </p>
+              <p>
+                When coding you are never writing the same code, solving the
+                same problems day after day. Everyday you take the product is a
+                slightly new direction or learn a new technique. You’re
+                constantly faced with a couple different options. Each decision
+                made should be broadcast so that the team has a common vision of
+                the path being taken.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Conversation Starters</div>
+              <p>
+                Not all chat posts are made because you are seeking immediate
+                feedback. Sometimes they are a reminder for a future
+                conversation. When I meet with friends or family and they ask,
+                “what I’ve been up to?”, I often struggle for an answer. It is
+                usually the standard “same old, same old, nothing much, work and
+                home”. However, if I share Facebook with them the posts often
+                spawn a conversation. Didn’t you go camping or to a concert a
+                few weeks ago? How was that? Using chat on a development team
+                can be similar. Weren’t you working on some encryption
+                algorithm? How did that turn out?
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Today I Learned</div>
+              <p>
+                “Today I Learned (TIL)” posts are also great for chat. If you
+                learned something new today then it is likely that there is at
+                least one other member of the team that doesn’t know that
+                either.
+              </p>
+              <p>
+                Chat is good for just educate other team members what your dark
+                corner of the system. You may be working on components that some
+                members on the team might not even know exist. Use the chat to
+                teach others about the system.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Estimation Aide</div>
+              <p>
+                To get better at something you need to practice. If you are
+                currently estimating work at biweekly sprint planning meetings
+                then that is 26 opportunities to practice estimating per year.
+                If you are posting daily or twice a day what you estimate you’ll
+                be able to complete in the next few hours then that is hundreds
+                of estimates per year.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Special Roles</div>
+              <p>
+                Chat can be great for monitoring support calls as well. It can
+                give any developer insight into the types of problems that
+                customer support is dealing with. Reoccurring issues can be
+                noted and preventative action taken.
+              </p>
+              <p>
+                Chat can also be helpful for on ramping new developers. The new
+                hire will get the sense that the entire team is behind them,
+                instead of just a single mentor. Chat exposes the training given
+                and ensures there is no misinformation or inconsistencies.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Anti Patterns</div>
+              <p>
+                If using Chat as a daily stand-up meeting there is the potential
+                for the same problem. That is “zombie scrum”. The answers to the
+                3 questions become a dull drone that is repeated day after day,
+                “I’m working on the same thing today as I did yesterday, no
+                impediments”. If you are listing your current work item as the
+                same thing day after day, you are not being descriptive enough
+                in your post.
+              </p>
+              <p>
+                “No impediments” listed day after day is also an anti-pattern.
+                If you haven’t posted any impediments in the last few weeks,
+                then you might want to examine your chat history for an
+                “elephant in the room”. I’m going to spend all day today
+                resetting my test environment, and I have no impediments. Well
+                maybe the fact that you’re spending all day to create a test
+                environment and that step is not automated is the impediment.
+              </p>
+              <p>
+                Be clear and informative on what you are working on. Don’t just
+                state the program or component you are working on. What
+                enhancement is being made? What value will that bring to the
+                customer?
+              </p>
+              <p>
+                Don’t simply quote bug numbers or source control check-in IDs.
+                Don’t say read my design document or check the minutes of the
+                meeting if you want details. Give some details on the work that
+                is being done. Describe what decisions are being made about how
+                something is being implemented. Give some quick highlights of
+                any external references.
+              </p>
+              <p>
+                Be respectful. Don’t use the chat for public hazing. If you
+                think your comments might be considered overly critical, discuss
+                them privately first. Let the original poster correct or clarify
+                their statements instead of being corrected by others.
+              </p>
+              <p>
+                Sometimes chat or other meetings can get in the way of getting
+                work done. It is OK to turn off the chat application, email, and
+                take the phone off the hook to get a task done. Most chat
+                applications do have a “do not disturb” feature.
+              </p>
+              <p>
+                However, do remember to turn it back on when you are ready to
+                reengage with the team. Review the posts that happened while you
+                were dark. Obviously, a way the chat system can fail is if
+                nobody uses it. Another way it can fail is if people just
+                “lurk”. They will read what people are posting, but not offer up
+                any comments of their own. They may be reluctant to post out of
+                fear of saying something stupid. It might be an
+                <a
+                  href="https://en.wikipedia.org/wiki/Impostor_syndrome"
+                  target="_blank"
+                  >impostor syndrome</a
+                >, where they think that anything they have to post everyone
+                else probably already knows. In order for Chat to be successful,
+                you must be active.
+              </p>
+            </section>
+            <p></p>
+            <section class="mt-4">
+              <div class="section-header">Summary</div>
+              <ol>
+                <li>Post what you are working on</li>
+                <li>Post decisions being made</li>
+                <li>Post anything learned</li>
+                <li>Don’t repeat yourself</li>
+              </ol>
+              <p>Happy Chatting.</p>
+            </section>
           </main>
         </div>
 
