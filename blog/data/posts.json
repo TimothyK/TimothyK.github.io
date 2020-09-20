@@ -116,14 +116,14 @@
   },
   {
     "title": "DRY and SRP",
-    "category": "Craftsmanship",
+    "category": "Quality",
     "date": "2014-06-11",
     "path": "2014/DryAndSrp",
     "excerpt": "I don’t think it is fair to compare “Expressing Intent” against “DRY”. This is a comparison of apples to oranges. “Expressing Intent” is a principal of code quality. “Repeating Yourself” is a code smell. A code smell is merely an indicator that there might be something wrong with the code. What principle is the code smell of Duplication pointing to and how good of an indicator is it?"
   },
   {
     "title": "Release Notes Are Hard",
-    "category": "Craftsmanship",
+    "category": "Quality",
     "date": "2014-06-20",
     "path": "2014/ReleaseNotesAreHard",
     "excerpt": "Being able to write good release notes, code, or any other form of writing is a skill that takes hard work to learn and develop. Writing good release notes is hard. In this post I’ll cover some of the reasons why it is so hard and some tips to do better."
@@ -191,7 +191,7 @@
     "title": "Working Simply",
     "part": 1,
     "parentKey": "Simple",
-    "category": "Craftsmanship",
+    "category": "Quality",
     "date": "2015-02-20",
     "path": "2015/Simply/Working",
     "excerpt": "I believe that Beck’s Four Rules can be simplified to 2 axioms: 1. Write working software 2. Write simple software"
@@ -200,7 +200,7 @@
     "title": "Simplicity Principles and Anti-Patterns",
     "part": 2,
     "parentKey": "Simple",
-    "category": "Craftsmanship",
+    "category": "Quality",
     "date": "2015-02-20",
     "path": "2015/Simply/Patterns",
     "excerpt": "Review of the Simplicity principles and anti-patterns: KISS, Clever Code, Golden Hammer, Yak Shaving, YAGNI, Premature Optimization, Worse Is Better, Big Design Up Front, and Bike Shedding."
@@ -237,7 +237,7 @@
     "title": "Code Reviews",
     "part": 1,
     "parentKey": "CodeReview",
-    "category": "Craftsmanship",
+    "category": "Quality",
     "date": "2018-09-05",
     "path": "2018/CodeReview/WhyWhen",
     "excerpt": "This is a 2 part blog post on code reviews. This first post is on why and when code reviews should be done and some of the soft skills needed."
@@ -246,7 +246,7 @@
     "title": "How To Code Review",
     "part": 2,
     "parentKey": "CodeReview",
-    "category": "Craftsmanship",
+    "category": "Quality",
     "date": "2018-09-05",
     "path": "2018/CodeReview/HowTo",
     "excerpt": "This is the second of a two part blog post on code reviews. This second post is a technical checklist on some things to look for during a code review."
