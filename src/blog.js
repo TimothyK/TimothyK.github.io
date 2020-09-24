@@ -6,8 +6,6 @@ async function getPosts() {
 getPosts().then((posts) => buildMostRecent(posts.slice(-3)));
 
 function buildMostRecent(posts) {
-  console.log(posts);
-
   var container = document.getElementById('most-recent-posts');
   var mostRecent = posts[posts.length - 1];
 
@@ -44,7 +42,7 @@ function buildCard(post, isMostRecent) {
         ${post.title}
       </a>
     </h3>
-    <div class="d-flex flex-row">
+    <div class="d-flex flex-wrap">
       <span class="text-muted">${post.date}</span>
       <span class="ml-auto">
         ${codeBadge}

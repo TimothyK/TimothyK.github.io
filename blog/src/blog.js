@@ -367,13 +367,13 @@ function buildPostListItem(builder, post) {
   }
 
   link.innerHTML = `${post.title} 
-  <p class="d-flex justify-content-between align-items-center mb-0">
+  <p class="d-flex flex-wrap mb-0">
   <span>
     <small class="${post !== activePost ? 'text-muted' : ''}">${
     post.date
   }</small>
   </span>
-  <span>
+  <span class="ml-auto">
     ${codeBadge}
     ${downloadBadge}
     ${mostRecentBadge}
