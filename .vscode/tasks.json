@@ -1,14 +1,23 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "npm",
-			"script": "build",
-			"path": "blog/",
-			"group": "build",
-			"problemMatcher": [],
-			"label": "npm: build - blog",
-			"detail": "webpack --mode production --progress"
-		}
-	]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "build",
+      "path": "blog/",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: build - blog",
+      "detail": "webpack --mode production --progress"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "path": "./",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: build - main",
+      "detail": "webpack --mode production --progress"
+    }
+  ]
 }
