@@ -57,6 +57,7 @@ function buildNavbar() {
         class="rounded-circle"
         height="90"
     /></a>
+    <span id="projectile"">💩</span>
     <div class="navbar-brand mr-auto">
     <a href="${root()}"
       ><h3 class="d-inline align-middle">
