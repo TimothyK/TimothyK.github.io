@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-178740957-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-178740957-1');
+    </script>
+    <script
+      src="https://kit.fontawesome.com/0993ff692b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>TITLE - Code Monkey Projectiles</title>
+    <link rel="icon" href="../../img/monkey.jpg" />
+    <link rel="apple-touch-icon" href="../../img/favicon.png" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="../.."
+            ><img
+              src="../../img/monkey.jpg"
+              alt="logo"
+              class="rounded-circle"
+              height="90"
+          /></a>
+          <a href="../.."
+            ><h3 class="d-inline align-middle pl-2">
+              Code Monkey Projectiles
+            </h3></a
+          >
+        </div>
+        <div>
+          <small>A blog by <a href="../../..">Timothy Klenke</a></small>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-lg">
+          <!-- Title Header -->
+          <section id="Title-Header" class="mb-3">
+            <div class="row">
+              <div class="col-md" id="Title">
+                <h1>Small Functions</h1>
+              </div>
+
+              <div class="col-md-3 text-right">
+                <span id="Category" class="badge badge-secondary badge-pill"
+                  >Quality</span
+                >
+                <br />
+                <span id="Date" class="text-muted">2020-10-11</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Post Body -->
+          <main id="post">
+            <p>
+              In this post I’m going to go through some of the reasonings why
+              small functions are usually better than large ones. Favouring
+              “Small” is a reoccurring theme in software development. It is an
+              axiom of problem solving that the way you solve large problems is
+              to break them down into smaller ones. When it comes to creating
+              user stories, the “S” in the
+              <a href="https://en.wikipedia.org/wiki/INVEST_(mnemonic)"
+                >INVEST</a
+              >
+              mnemonic stands for Small. It is the “micro” in micro-services.
+              Continuous Integration and Continuous Delivery are not possible
+              without keeping changes small. It is the 4th in the
+              <a href="https://martinfowler.com/bliki/BeckDesignRules.html"
+                >four rules of simple design</a
+              >.
+            </p>
+            <p>
+              Despite being so prevalent, “Small” isn’t really a core principle
+              of code quality. It is more a code smell, that indicates there may
+              be a problem. By looking for cases of large functions, these often
+              identify code that lacks symmetry, lacks expressiveness, has
+              misleading comments, erodes trust, has too much coupling, lacks
+              cohesion, or has too much duplication.
+            </p>
+            <p>Let’s jump into some code. First the small version:</p>
+            <code>
+              <pre>
+  [Test]
+  public void PersonSubscribesToNewspaper_AddsPersonToNewspaperSubscribers()
+  {
+    //Arrange
+    var newspaper = CreateNewspaper();
+    var reader = CreatePerson();
+  
+    //Act
+    reader.Subscribe(newspaper);
+  
+    //Assert
+    newspaper.Subscribers.ShouldContain(reader);
+  }
+</pre
+              >
+            </code>
+
+            <p>Next the large version:</p>
+            <code>
+              <pre>
+  [Test]
+  public void PersonSubscribesToNewspaper_AddsPersonToNewspaperSubscribers()
+  {
+    //Arrange
+    Newspaper newspaper;
+    Person reader;
+    using (var db = _unitOfWork.GetDatabaseMock())
+    {
+      newspaper = new Newspaper();
+      newspaper.Id = Guid.NewGuid();
+      newspaper.Name = "The Daily Chronicle";
+      db.Newspapers.Add(newspaper);
+  
+      reader = new Person();
+      reader.Id = Guid.NewGuid();
+      reader.FirstName = "Alice";
+      reader.LastName = "Smith";
+      db.People.Add(reader);
+  
+      db.Save();
+      db.Commit();
+    }
+  
+    //Act
+    reader.Subscribe(newspaper);
+  
+    //Assert
+    newspaper.Subscribers.ShouldContain(reader);
+  }
+</pre
+              >
+            </code>
+
+            <p>
+              So you may guess that I’m going to take the position that the
+              first, smaller method is better than the second. Here’s why:
+            </p>
+            <section>
+              <div class="section-header">Symmetry</div>
+              <p>
+                When writing code there is always level of technical detail in
+                that writing. Code can be written at a high level, for example
+                “walk from point A to point B”. Or it can be written at a low
+                level, “place left foot in front of right foot, lean forward
+                until the body’s center of gravity is over the right foot, …”.
+              </p>
+              <p>
+                The property of symmetry is that all the code in a function has
+                the same level of technical detail (aka abstraction). The
+                high-level functions read at a higher level of abstraction. Each
+                time you step into a function you are stepping down a level of
+                abstraction.
+              </p>
+              <p>
+                There are two reasons why symmetry is important, and ultimately
+                makes the team more productive.
+              </p>
+              <div class="subsection-header">Multitasking</div>
+              <p>
+                Mixing up high level and low-level code forces the brain to work
+                on two different wave lengths at the same time.
+              </p>
+              <p>
+                As a writer, you want the reader to focus in on a single concept
+                at a time. The reader can read it once, easily understand what
+                the program is doing, commit it to memory, then move onto the
+                next concept.
+              </p>
+              <p>
+                Forcing the reader to switch between two levels of abstraction
+                creates a context switch in the brain. The reader needs to jump
+                between these levels. It is forcing the brain to multitask
+                instead of focusing on a single task. When reading the large
+                function, the reader will probably make this switch multiple
+                times. The reader needs to sift through the low-level details
+                and constantly recommit to memory their updated understanding of
+                what the program is doing at a high level. The writer failed to
+                provide a high-level map to the reader at the start, so the
+                burden is on the reader to constantly redraw this map at each
+                stage as their understanding of the code grows.
+              </p>
+              <p>
+                Let me stop there and address some of the counterarguments. But
+                “I’m great at multi-tasking”. No, you are not. Multitasking is a
+                fallacy. You will be more productive and produce higher quality
+                of work by single tasking. Go ahead and search for “Fallacy of
+                Multitasking”. Here is
+                <a
+                  href="https://www.forbes.com/sites/forbestechcouncil/2020/01/31/the-fallacy-of-multitasking/#f0c7e4a6ba44"
+                  >one link</a
+                >
+                to get you started.
+              </p>
+              <p>
+                “I’m clever enough to read the code, why aren’t you”? See my
+                <a href="../../2015/Simply/Patterns/">previous post</a> on KISS
+                and clever code.
+              </p>
+              <div class="subsection-header">Fewer Bugs</div>
+              <p>
+                The second (and most important) reason why symmetry is great is
+                because…
+              </p>
+              <p class="lead px-5">
+                Good symmetry in a code base leaves <u>nowhere</u> for bugs to
+                hide.
+              </p>
+              <p>
+                Doesn’t that sound great! It is true. Many times, working with
+                my own code or in code reviews, I have found bugs simply
+                refactoring the code to increase symmetry.
+              </p>
+              <p>
+                By applying good symmetry, functions tend focus on a single
+                thing. This allows functions to “do one thing and do it well”.
+                It is hard to see the imperfections in the trees if you are
+                focusing on the forest.
+              </p>
+              <p>
+                And vice versa, sometimes while focusing on getting some
+                technical minutiae correct, the writer can lose focus on getting
+                the high-level details correct. It can be easy to focus too much
+                on “building the thing right” instead of “building the right
+                thing”. Separation makes sure that both of those concepts get
+                the attention they deserve.
+              </p>
+            </section>
+
+            <section>
+              <div class="section-header">Expressiveness</div>
+              <p>
+                Let’s go back to the example code above. In the small function
+                there are only 4 lines of code. The Arrange block has 2 lines of
+                code. This code creates a Newspaper and it creates a Person.
+              </p>
+              <p>
+                The details of how to create those objects is not important to
+                what the writer is trying to convey. The method is an automated
+                test method. Its purpose is to describe (or assert) the effect
+                the production code (called from the Act block) should have.
+              </p>
+              <p>
+                The Arrange block of the code is important. It sets the scene
+                for the test method, much like a movie or book will set the
+                scene before the action starts. Although this context is
+                important, the author should not spend a great deal of time on
+                this. Like all writing, this section should be succinct. It
+                should only describe the context that is relevant to the action
+                that is about to happen. The author should not describe every
+                irrelevant blade of grass in the scene.
+              </p>
+              <p>
+                There may be quite of a bit of work that needs to be done to
+                create those two test objects. That is evident in the large
+                version of the function. The test uses a database mock as a
+                factory to create these objects. The Newspaper and the Person
+                have some required fields, like Name and ID, that must be set,
+                even though their values are not relevant to the high-level
+                test. Those low-level details are not important to the
+                high-level functionality of the test. Reading the small
+                function, what we are testing is that a Newspaper should have
+                access to the list of its subscribers.
+              </p>
+              <p>
+                Expressing code in high level functions, is not that different
+                than expressing code in high level languages. We code in
+                languages like C# and Java instead of assembly for the same
+                reasons we write high- and low-level functions in the same
+                program. We favour high level languages because the better
+                express what we are trying to do and make us more productive in
+                the process.
+              </p>
+              <p>
+                When writing low-level functions, there comes great
+                responsibility. The one and only thing that the low-level
+                function contributes to the code of the high-level function is
+                the name of the low-level function.
+              </p>
+              <div class="subsection-header">Comments</div>
+              <p>
+                These function names are like comments that express what the
+                code is doing. However, they are much better than comments.
+                Comments tend to get stale. Often people will update the
+                functionality of a piece of code with forgetting to update the
+                comment. This is far less likely if function names are used to
+                document the code. Favour creating a well named function over
+                commenting a block of code.
+              </p>
+              <div class="subsection-header">Surprise and Trust</div>
+              <p>
+                It is critically important these functions are named well. When
+                drilling down into lower level functions there should
+                <a
+                  href="https://en.wikipedia.org/wiki/Principle_of_least_astonishment"
+                  >never be any surprises</a
+                >. If you are accustomed to reading large functions changing to
+                a paradigm of small functions can be jarring. Trust is earned.
+              </p>
+              <p>
+                One of the biggest complains about small functions is that the
+                reader wants to get at those low-level details quickly, because
+                that is what they are used to reading and it is familiar. IDEs
+                have good tools for this, like in Visual Studio’s Go To
+                Definition (F12), Navigate Back (Ctrl+-), and Peek Definition
+                (Alt+F12). If the program is written well, drilling down into
+                the low-level functions should not have any surprises. It should
+                be boring, as boring as reading assembly code. When the reader
+                drills down they should say to themselves, yes that is exactly
+                what I expected that function to do. Eventually they will learn
+                to trust the low-level functions and the desire to peek into
+                them will ebb away. This will keep the code maintainer working
+                at a higher level for longer periods. This makes them more
+                productive, the same as high level programming languages are
+                more productive than assembly.
+              </p>
+              <p>
+                When people try to make the paradigm shift to smaller functions
+                and there are a lot of surprises this can quickly derail the
+                entire process. The surprises erode trust. There can be a quick
+                reversal. “I told you small functions were a bad idea, let’s go
+                back to large functions”. All the benefits I outline in this
+                post are lost. Instead of reverting back to large functions,
+                consider the root reasons why there is a lack of trust. How can
+                that be improved?
+              </p>
+              <p>
+                Often this just comes from finding a better name for the
+                function, a name that better expresses what it does. This isn’t
+                easy,
+                <a href="https://martinfowler.com/bliki/TwoHardThings.html"
+                  >naming is hard</a
+                >.
+              </p>
+              <p>
+                Another possibility is the breakdown of functions isn’t quite
+                right. There may be side effects in the functions that aren’t
+                expressed. Yes, you can start by renaming the function so that
+                the side effect isn’t surprising (e.g.
+                DoWorkAndDoSideEffect();). However, often this leads down a path
+                of teasing apart side effects from core functionality, which
+                leads to a much better software design.
+              </p>
+              <p>
+                I believe there are parallels between a team of coders that
+                learn to trust each other’s small functions, and an organization
+                where all colleagues can delegate work to each other, trust it
+                is completed properly, without a need to micro-manage each
+                other.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Coupling & Cohesion</div>
+              <p>
+                When separating out code, this must be done intelligently. Small
+                functions don’t yield better code just because they are small.
+                Programs with smaller functions, when separated properly, do
+                have a better design.
+              </p>
+              <p>
+                First an example. Let’s say you have a gasoline powered car. You
+                want to redesign it so that the car is less dependent on the
+                gasoline.
+              </p>
+              <p>
+                One way to redesign the car it to attach a trailer to the car
+                then move the gas tank from under the car to the trailer.
+                Finally run a hose from the gas tank in the trailer to the
+                engine in the front of the car.
+              </p>
+              <p>
+                In this design you haven’t made the car any less depend on the
+                gasoline. Yes, the car weighs less with the gas tank removed (it
+                is smaller), but it is not better designed. All that has been
+                done is made it more likely to explode.
+              </p>
+              <p>
+                To truly make the car less dependent on the gasoline, the car
+                must be designed so that the engine that still depends on the
+                gasoline is also easily separated from the car. The gasoline
+                tank and the gasoline engine are, and always will be, tightly
+                coupled. The car shouldn’t be orchestrating how to get gasoline
+                from the tank to the engine. The car should just be asking an
+                engine for power and let the engine worry about were it gets
+                that power from. If the car doesn’t like how the engine produces
+                its power the car can replace it with another engine.
+              </p>
+              <div class="subsection-header">Coupling</div>
+              <p>
+                A great advantage of separating high- and low-level functions is
+                that the high-level functions get to delegate to the low-levels
+                to do some work. The high levels don’t care how that work is
+                done.
+              </p>
+              <p>
+                The high-level functions should truly be delegating, not
+                orchestrating or micromanaging. The high-level function doesn’t
+                tell the low levels to put one foot in front of the other in a
+                walking motion, the high level delegates the responsibility of
+                moving from point A to point B.
+              </p>
+              <p>
+                When this is done properly, the separation of concerns should be
+                truly separate. That will yield a highly decoupled design.
+                Because the high levels don’t know or care how the low levels
+                get their work done, the low levels are free to change their
+                implementation or technology stack when they want.
+              </p>
+              <div class="subsection-header">
+                <a
+                  href="https://en.wikipedia.org/wiki/Cohesion_(computer_science)"
+                  >Cohesion</a
+                >
+              </div>
+              <p>
+                As you are separating, pay close attention to the parameters
+                that need to be passed around between the functions. Separating
+                out a 100-line function into two isn’t actually the proper thing
+                to do if you have to pass 50 parameters between them.
+              </p>
+              <p>
+                A simple way to pass fewer parameters is to use class level
+                fields or properties. As you do this, you will probably notice
+                that the low-level functions all tend to use the same fields.
+                Move the fields vertically closer to the functions that use
+                them. What often happens is the high-level functions and their
+                fields are at the top of the file and the low-level fields and
+                functions are at the bottom. Once the code is grouped like this
+                it may be possible to move the low-level functions into a
+                separate class.
+              </p>
+              <p>
+                As you maximize cohesion you are identifying and separating out
+                bits of code that are tightly coupled. Increasing cohesion,
+                reduces coupling.
+              </p>
+            </section>
+            <section>
+              <div class="section-header">Remove Duplication</div>
+              <p>
+                Breaking large functions into smaller ones is a great way to
+                identify and eliminate duplication. A lot of developers don’t
+                even realize how much duplication there is in their code until
+                they start trying to tease it apart. Just like how small
+                functions doesn’t leave any place for bugs to hide, there is no
+                place for duplication to hide either.
+              </p>
+              <p>
+                I’m not going to go into an exhaustive analysis on how small
+                functions remove duplication. When you remove duplication, the
+                code becomes more expressive as a side effect; when you make the
+                code more expressive, duplication will be removed as a side
+                effect. One leads to another in a tight feedback loop. J.B.
+                Rainsberger explains this very well
+                <a
+                  href="https://blog.thecodewhisperer.com/permalink/putting-an-age-old-battle-to-rest"
+                  >here</a
+                >.
+              </p>
+              <p>
+                While moving duplicate code into functions, the code becomes
+                reusable and this lowers the maintenance costs of the code base.
+                However, I do want to point out is that code reuse is not the
+                only reason to create small functions. Some will argue that if a
+                function is only called once that there is no point is
+                separating it and should be in-lined. In-lining these functions
+                avoids unnecessary jumping around when trying to read the code.
+              </p>
+              <p>
+                I respectfully disagree with this. Single-use functions are
+                extremely useful in a code base. The function name adds to the
+                expressiveness and symmetry of the code base and eliminates the
+                need for comments. It adds structure to the program, which leads
+                to a better design. These considerations also lead to a lower
+                maintenance cost on a code base, even if there is no code reuse.
+              </p>
+            </section>
+            <section>
+              <p>
+                In conclusion, large functions are a code smell that if fixed
+                nudges the code a better design. Small functions enhance the
+                symmetry, expressiveness, cohesion, and reuse of a code base.
+                All of this results in a lower maintenance cost.
+              </p>
+            </section>
+          </main>
+        </div>
+
+        <!-- Table Of Contents -->
+        <div class="d-none d-lg-block col-lg-3">
+          <section id="toc" style="font-size: 0.9rem">
+            <div class="my-5">
+              <div id="toc-category"></div>
+            </div>
+            <div class="my-5">
+              <div id="toc-year"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white p-3">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <a href="../.."> Code Monkey Projectiles </a>
+            <br />
+            <small>by <a href="../../..">Timothy Klenke</a></small>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <div>
+      <script
+        src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"
+      ></script>
+
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"
+      ></script>
+
+      <script src="../../build/blog.bundle.js"></script>
+    </div>
+  </body>
+</html>

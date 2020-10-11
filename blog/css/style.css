@@ -36,6 +36,12 @@ code {
   margin-bottom: 0px;
 }
 
+.subsection-header {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
 .skim-focus {
   font-weight: 600;
 }

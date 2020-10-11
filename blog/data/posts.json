@@ -297,5 +297,12 @@
     "path": "2019/LayeredApp/Seventeen",
     "codeUrl": "https://github.com/TimothyK/Retail",
     "excerpt": "In this post, I will dive down deeper into the layers and see exactly how these could fit together. Each high-level layer is implemented by smaller focused layers, making 17 in all, at least in this example."
+  },
+  {
+    "title": "Small Functions",
+    "category": "Quality",
+    "date": "2020-10-11",
+    "path": "2020/SmallFunctions",
+    "excerpt": "In this post I’m going to go through some of the reasonings why small functions are usually better than large ones.  Small functions enhance the symmetry, expressiveness, cohesion, and reuse of a code base."
   }
 ]
