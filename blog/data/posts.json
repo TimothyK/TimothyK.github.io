@@ -304,5 +304,23 @@
     "date": "2020-10-11",
     "path": "2020/SmallFunctions",
     "excerpt": "In this post I’m going to go through some of the reasonings why small functions are usually better than large ones.  Small functions enhance the symmetry, expressiveness, cohesion, and reuse of a code base."
+  },
+  {
+    "title": "Refactor Away The IF",
+    "part": 1,
+    "parentKey": "AntiIf",
+    "category": "Design Patterns",
+    "date": "2020-11-07",
+    "path": "2020/AntiIf/Refactor",
+    "excerpt": "If you have ever worked with me for any period of time you have definitely heard me say \"every time you use and IF statement a kitten dies\".  Overuse of IF statements is one of the faster ways to make code harder to read, test, and support."
+  },
+  {
+    "title": "Anti IF Patterns",
+    "part": 2,
+    "parentKey": "AntiIf",
+    "category": "Design Patterns",
+    "date": "2020-11-07",
+    "path": "2020/AntiIf/Patterns",
+    "excerpt": "In this post I will cover a few more patterns that are useful to reduce the number of IF and Switch statements."
   }
 ]
