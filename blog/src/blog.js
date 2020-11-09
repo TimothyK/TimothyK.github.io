@@ -27,6 +27,7 @@ function buildTableOfContents(posts) {
   navbarPartial();
   titlePartial(posts);
   footerPartial();
+  commentEnginePartial();
 
   postsTablePartial(categoryBuilder, posts);
   postsTablePartial(yearBuilder, posts);
@@ -132,10 +133,35 @@ function buildFooter() {
   </span>
   `;
 
-  // row.appendChild(share);
   row.insertBefore(share, row.firstChild);
 
   return footer;
+}
+
+function commentEnginePartial() {
+  if (activePost === null) return;
+
+  var mainContainer = document.getElementById('Title-Header').parentElement.parentElement.parentElement;
+  mainContainer.appendChild(buildCommentBlock());
+
+  var disqus_config = function () {
+    this.page.url = 'https://timothyk.github.io/blog/' + activePost.path;
+    this.page.identifier = activePost.path; 
+  };
+
+  var d = document, s = d.createElement('script');
+  s.src = 'https://timothyk.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', + new Date());
+  (d.head || d.body).appendChild(s);
+}
+
+function buildCommentBlock() {
+  const row = document.createElement('div');
+  row.classList.add('row');
+
+  row.innerHTML = '<div class="col-lg-10 offset-lg-1"><div id="disqus_thread"></div></div>';
+
+  return row;
 }
 
 function titlePartial(posts) {
