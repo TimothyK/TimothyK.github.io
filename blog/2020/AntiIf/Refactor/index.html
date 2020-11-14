@@ -325,7 +325,7 @@ private Employee CreateEmployee()
     IF statements are technical details that should be buried in low-level functions.  This conforms to the “Tell, Don’t Ask” rule. The high-level function tell the FindEmployee function to find an employee.  The high-level function doesn’t worry about the low-level details regarding whether or not that low-level function can handle nulls or if querying a database for a null primary key is a good optimization.  Implementing knowledge at high-levels about what is safe or optimal in low-levels needlessly couples the high and low-level code together.  The low-level functions worry about what they can do.
   </p>
   <p>
-    The fourth requirement to ensure that ID is initialized when a new Employee object is created is an easy change.  It is painfully obvious for the maintainer of the code to know where the change needs to be made.  And that is the ultimate goal, making the code dead simple to maintain.  It is the heart of the <a href="../../../2015/Simply/Patterns/">KISS principle</a>.  If version 1d we have created a spot for this change and saw how that strongly discouraged any duplication in the code in versions 3b/c.
+    The fourth requirement to ensure that ID is initialized when a new Employee object is created is an easy change.  It is painfully obvious for the maintainer of the code to know where the change needs to be made.  And that is the ultimate goal, making the code dead simple to maintain.  It is the heart of the <a href="../../../2015/Simply/Patterns/">KISS principle</a>.  In version 1d we have created a spot for this change and saw how that strongly discouraged any duplication in the code in versions 3b/c.
   </p>
   <p>
     Here is the final version with the change to the CreateEmployee method:
