@@ -322,5 +322,12 @@
     "date": "2020-11-07",
     "path": "2020/AntiIf/Patterns",
     "excerpt": "In this post I will cover a few more patterns that are useful to reduce the number of IF and Switch statements."
+  },
+  {
+    "title": "Overloaded Functions",
+    "category": "Quality",
+    "date": "2021-01-12",
+    "path": "2021/OverloadFunctions",
+    "excerpt": "An often under used feature of C# is overloaded functions."
   }
 ]

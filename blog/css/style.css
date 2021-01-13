@@ -28,6 +28,16 @@ code {
   font-size: 105%;
   color: black;
 }
+.code-comment {
+  color: green;
+  font-weight: bold;
+}
+code.inline {
+  font-family: Consolas, 'courier new';
+  font-size: 90%;
+  color: black;
+  border: wheat 1px dashed;
+}
 
 .section-header {
   font-size: 20px;

@@ -38,3 +38,4 @@ https://timothyk.github.io/blog/2019/LayeredApp/Seventeen/
 https://timothyk.github.io/blog/2020/SmallFunctions/
 https://timothyk.github.io/blog/2020/AntiIf/Refactor/
 https://timothyk.github.io/blog/2020/AntiIf/Patterns/
+https://timothyk.github.io/blog/2021/OverloadFunctions/
