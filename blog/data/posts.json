@@ -329,5 +329,12 @@
     "date": "2021-01-12",
     "path": "2021/OverloadFunctions",
     "excerpt": "An often under used feature of C# is overloaded functions."
+  },
+  {
+    "title": "More on Code Reviews",
+    "category": "Quality",
+    "date": "2021-03-31",
+    "path": "2021/CodeReview",
+    "excerpt": "In this post I put down some more notes on things to keep in mind during a code review."
   }
 ]
