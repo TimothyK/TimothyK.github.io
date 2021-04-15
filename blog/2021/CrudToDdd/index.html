@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178740957-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-178740957-1');
+  </script>
+  <script src="https://kit.fontawesome.com/0993ff692b.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <title>From CRUD to DDD - Code Monkey Projectiles</title>
+  <link rel="icon" href="../../img/monkey.jpg" />
+  <link rel="apple-touch-icon" href="../../img/favicon.png" />
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a href="../.."><img src="../../img/monkey.jpg" alt="logo" class="rounded-circle" height="90" /></a>
+        <a href="../..">
+          <h3 class="d-inline align-middle pl-2">
+            Code Monkey Projectiles
+          </h3>
+        </a>
+      </div>
+      <div>
+        <small>A blog by <a href="../../..">Timothy Klenke</a></small>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-lg">
+        <!-- Title Header -->
+        <section id="Title-Header" class="mb-3">
+          <div class="row">
+            <div class="col-md" id="Title">
+              <h1>From CRUD to DDD</h1>
+            </div>
+
+            <div class="col-md-3 text-right">
+              <span id="Category" class="badge badge-secondary badge-pill">Design Patterns</span>
+              <br />
+              <span id="Date" class="text-muted">YYYY-MM-DD</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Post Body -->
+        <main id="post">
+          <section>
+            <p>One of the most common axioms of software design is that there should be separation of the user
+              interface, business logic, and database. There are principles like Dependency Injection, design patterns
+              like MVC, and a variety of frameworks that claim to encourage or enforce this separation. All these focus
+              on the technical details of how to separate these concerns, but they rarely discuss why this is important.
+            </p>
+            <p>There is a fundamental mind shift that occurs when properly extracting business logic that people are
+              otherwise unaware of or misunderstand. This mind shift is as profound as the difference between assembly
+              and object-orientated code. The impact is not just for designers and programmers, but for business
+              analysts and customers too.</p>
+            <p>Also note, that I’m not against CRUD designs. They have their place, and in fact most software projects
+              out there use this successfully. Also, I’m not implying that CRUD is easier than DDD, or vice versa. These
+              are two valid approaches to systems development. There isn’t one best approach for all situations.</p>
+            <p>Each can be used successfully, independently. Even within one system part of it may be a CRUD application
+              and other parts may follow a DDD approach. Sometimes there is a need to transition from CRUD to DDD, or
+              vice versa. My point is that software teams need to be aware that these two approaches exist, have respect
+              for each of them, and be able to transition between the two when necessary.</p>
+          </section>
+          <section>
+            <div class="section-header">CRUD</div>
+            <p>Before I talk about DDD or transitioning to it, let me first describe a CRUD-style design.</p>
+            <p>CRUD stands for Create, Read, Update, and Delete. These are the four operations users routinely perform
+              on a database table. This is also known as a data-centric design.</p>
+            <p>To start designing a CRUD system, the business analyst must identify the entities is the customer’s
+              domain. There will be a page in the application for each entity and a database table to back it. There
+              will be list (probably searchable) to Read the rows in the database, there will be a Create or Add button
+              allow them to create a new row. There will be an Edit page to view all the properties of the row. And
+              finally, there will be a Delete or Deactivate button. The Edit page is the most complicated to design. The
+              business analyst must work with the customer to define all the properties of that entity.</p>
+            <p>Here are some things to notice when designing a CRUD system:</p>
+            <ul>
+              <li>It is typically the customer that is defining the database design and user interface. They decide what
+                the tables are in the database and the columns (properties).</li>
+              <li>There is a very tight coupling of User Interface and the Database. It doesn’t really matter if the
+                customer describes their desired system in terms of the user interface or the database structure,
+                because there is a simple one-to-one mapping between the two.</li>
+              <li>There is little in the system for business logic. There maybe a few validation rules here and there,
+                but in general the developers working on the project are not aware of how the data is used to help the
+                customer’s business. The users are experts in the domain, and they will know what to enter in all the
+                fields or interpret the values entered by others.</li>
+            </ul>
+          </section>
+          <section>
+            <div class="section-header">Domain Driven Design</div>
+            <p>Domain Driven Design takes a different approach than CRUD. With DDD the focus is on the business goals
+              and rules, not on the data. DDD focuses on actions and events that are taken to meet those business goals.
+            </p>
+            <p>To illustrate this, let’s take a hypothetical example of a shipping company. Here is a 
+              <span class="skim-focus">business</span> workflow used to fill new orders.</p>
+            <ul>
+              <li>First, we will need a <span class="skim-focus">list of new orders</span> that haven’t been filled.</li>
+              <li>The user will <span class="skim-focus">select one</span> from this list.</li>
+              <li>Then we <span class="skim-focus">print a shipping label</span> the user can stick to a new empty box. 
+                We also send <span class="skim-focus">the order details</span>
+                to the user’s tablet (or print them a copy) so that they know what to put in the box.</li>
+              <li>Finally, we <span class="skim-focus">verify</span> the box if full by weighing it and comparing the weight with a know weights of the
+                products that should have been loaded. The order is considered Shipped once this verification is done.
+              </li>
+            </ul>
+            <p>The <span class="skim-focus">user interface</span> that would be developed to support this design flow from the business process. There
+              are 3 screens/pages in this part of the system, each tailored to the task at hand.</p>
+            <ul>
+              <li>The new orders list with a select button.</li>
+              <li>The order details either on a tablet or printed.</li>
+              <li>The verification screen that captures a weight.</li>
+            </ul>
+            <p>Each screen is small. There is limited scope to each. This allows for a lot of flexibility in the design
+              and the technologies used. The order details may be on a tablet or a printed page. The verification might
+              be done on a PC desktop application or an IoT solutions with a bar code reader and scale interface. Each
+              task in the system has its own user interface, which is easy to change and decoupled from other tasks.</p>
+            <p>The <span class="skim-focus">data</span> needed to support these tasks is separated as well.</p>
+            <ul>
+              <li>There must be a database (or service) with new orders. An order must be able to be selected and
+                removed from this list.</li>
+              <li>The user’s tablet doesn’t need much of a database. It only needs to show one record at a time. It can
+                throw the data away once the task is complete.</li>
+              <li>The verification captures a weight, but it doesn’t necessarily need to store it. Once the verification
+                is complete an event can be broadcast to the system that the order has been shipped.</li>
+            </ul>
+            <p>The event that an order has been shipped might be subscribed to by various processes. One process might
+              record in a database that the order has been shipped, which may or may not be the same database where new
+              orders are stored. Another process might inform the customer that their package is on the way. Another
+              process might verify that the shipment has been filled in a timely manner and verify that the order
+              doesn’t need to be resubmitted to the new orders list.</p>
+            <p>There are lots of possibilities on what the system could do when a package is verified as shipped. But
+              those actions have no impact on the verification process or the person doing that task.</p>
+          </section>
+          <section>
+            <div class="section-header">Comparison</div>
+            <p>Let’s think about how this same business from the DDD example would have been approached as a CRUD
+              application. In the CRUD application there would be an Orders list, which could be filtered to New Orders.
+              This would open to an Order edit page. The edit page shows the details. There would be a Status drop down
+              list to indicate if the order is New, Being Filled, or Shipped. Users would tell the system of the two
+              required state transitions by selecting the new state and clicking the Save button. There would be a
+              weight field that would be required to be filled if the Status is Shipped. The save would fail if the
+              incorrect weight were entered.</p>
+            <p>The CRUD system is much easier to describe what technical requirements are. It can be done in a single
+              paragraph. We don’t need to describe the user interface and the database because one exactly matches the
+              other. There is a single business rule, which is easy to implement.</p>
+            <p>Furthermore, the CRUD design may be able to be used by not just the people filling the orders, but also
+              by people entering new orders and those looking for shipped orders. However, this can be a double-edged
+              sword. Although the code is reused, the layout of the screen may not be suited to all users. There also
+              may be scalability problems. This can also cause maintenance problems; a user needing a new field for
+              order creation will impact the same screen used by people filling orders.</p>
+            <p>The DDD application may seem more complicated to describe. There are a lot more pieces. There are
+              separate options for user interface and databases, and these can change for each task. Although this might
+              seem more complicated on the surface, it yields a more flexible system. The components are smaller, easier
+              to change, more scalable, and easier to tailor for each user.</p>
+            <p>DDD also can be more difficult to describe because the business process and goals need to be very well
+              defined. This information needs to be available to developers, project managers, and users. Although
+              difficult, this does allow for the software development team to see the business goals. This can make
+              business opportunities that could be solved through software more visible and possible.</p>
+            <p>It can be more difficult to learn DDD because of the lack of examples. In a CRUD application the patterns
+              used to the design the system are 90% done before you even talk to the customer. With a DDD approach there
+              is no “one solution fits all”. It relies more heavily on developers attacking one problem at a time, using
+              a variety of tools at their disposal, and applying sound software design principles to move the project
+              forward.</p>
+            <p>DDD is not for everyone. Some customers feel burdened having to explain their business to developers.
+              Some developers aren’t interested in the customer’s business and would prefer to focus on the technical
+              details.</p>
+          </section>
+          <section>
+            <div class="section-header">Transition Pitfalls</div>
+            <p>Most developer begin their careers doing CRUD applications. These types of applications are extremely
+              popular. Once a developer has mastered this skill, they are often pressured to separate the UI, Database,
+              and Business logic. There may be problems maintaining a large CRUD system, that some feel is easily solved
+              by developers separating out these layers.</p>
+            <p>A sole developer trying to separate a CRUD monolith into different layers without an understanding DDD
+              can be a rather fruitless endeavour. The analysis of what the business needs usually results in a
+              “business” layer with the functions: Create, Read, Update, and Delete. It typically results in an overly
+              complicated onion/lasagna code base, with fundamentally the same design, and that is not easier to
+              maintain.</p>
+            <p>In this crude attempt, the user interface and database designs don’t change, only an attempt is made to
+              create a business layer in between them. However, the UI and database fit together so well before that
+              introducing a layer in between them feels burdensome. Customers still control the UI and database design.
+              When they need a change they will request a change to both these layers, which inevitably requires a
+              change to the new business layer too. The business layer doesn’t add much value. It just feels like
+              latency in the development process that slows the team down.</p>
+          </section>
+          <section>
+            <div class="section-header">Successful Transitions</div>
+            <p>To successfully transition from CRUD to DDD systems requires team buy-in. Everyone on the team needs to
+              understand how the approach taken with DDD is fundamentally different that CRUD. The biggest difference in
+              these approaches is not the technologies used, nor the structure of the code, but it is how problems get
+              solved.</p>
+            <p>A successful DDD team needs buy-in from the customers too. The software team, including project managers
+              and business analysts, needs to work with the customer on their business goals. The goals of the business
+              will be something like cost-effective shipping of packages. The goal of the business is never merely to
+              feed a database.</p>
+          </section>
+        </main>
+      </div>
+
+      <!-- Table Of Contents -->
+      <div class="d-none d-lg-block col-lg-3">
+        <section id="toc" style="font-size: 0.9rem">
+          <div class="my-5">
+            <div id="toc-category"></div>
+          </div>
+          <div class="my-5">
+            <div id="toc-year"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white p-3">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <a href="../.."> Code Monkey Projectiles </a>
+          <br />
+          <small>by <a href="../../..">Timothy Klenke</a></small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"></script>
+
+    <script src="../../build/blog.bundle.js"></script>
+  </div>
+</body>
+
+</html>

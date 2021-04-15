@@ -336,5 +336,12 @@
     "date": "2021-03-31",
     "path": "2021/CodeReview",
     "excerpt": "In this post I put down some more notes on things to keep in mind during a code review."
+  },
+  {
+    "title": "From CRUD to DDD",
+    "category": "Design Patterns",
+    "date": "2021-04-14",
+    "path": "2021/CrudToDdd",
+    "excerpt": "Software teams need to be aware that these two approaches exist, have respect for each of them, and be able to transition between the two when necessary."
   }
 ]
