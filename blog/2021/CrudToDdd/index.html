@@ -111,26 +111,28 @@
             <p>To illustrate this, let’s take a hypothetical example of a shipping company. Here is a 
               <span class="skim-focus">business</span> workflow used to fill new orders.</p>
             <ul>
-              <li>First, we will need a <span class="skim-focus">list of new orders</span> that haven’t been filled.</li>
-              <li>The user will <span class="skim-focus">select one</span> from this list.</li>
+              <li>First, we will need select from a <span class="skim-focus">list of new orders</span> that haven’t been filled.</li>
               <li>Then we <span class="skim-focus">print a shipping label</span> the user can stick to a new empty box. 
-                We also send <span class="skim-focus">the order details</span>
-                to the user’s tablet (or print them a copy) so that they know what to put in the box.</li>
+                We also need to provide them with <span class="skim-focus">the order details</span>
+                so that they know what to put in the box.</li>
               <li>Finally, we <span class="skim-focus">verify</span> the box if full by weighing it and comparing the weight with a know weights of the
                 products that should have been loaded. The order is considered Shipped once this verification is done.
               </li>
             </ul>
-            <p>The <span class="skim-focus">user interface</span> that would be developed to support this design flow from the business process. There
-              are 3 screens/pages in this part of the system, each tailored to the task at hand.</p>
+            <p>The <span class="skim-focus">user interface</span> that would be developed to support this design flow from the business process. 
+              There are 3 screens/pages in this part of the system, each tailored to the task at hand.</p>
             <ul>
               <li>The new orders list with a select button.</li>
               <li>The order details either on a tablet or printed.</li>
               <li>The verification screen that captures a weight.</li>
             </ul>
-            <p>Each screen is small. There is limited scope to each. This allows for a lot of flexibility in the design
-              and the technologies used. The order details may be on a tablet or a printed page. The verification might
-              be done on a PC desktop application or an IoT solutions with a bar code reader and scale interface. Each
-              task in the system has its own user interface, which is easy to change and decoupled from other tasks.</p>
+            <p>Each screen is small. There is limited scope to each. 
+              This allows for a lot of flexibility in the design and the technologies used.  
+              The orders list can be on a PC.  
+              Perhaps a UI for this task isn't needed at all and the order can be automatically selected.
+              The order details may be on a tablet or a printed page. 
+              The verification might be done on a PC desktop application or an IoT solutions with a bar code reader and scale interface. 
+              Each task in the system has its own user interface, which is easy to change and decoupled from other tasks.</p>
             <p>The <span class="skim-focus">data</span> needed to support these tasks is separated as well.</p>
             <ul>
               <li>There must be a database (or service) with new orders. An order must be able to be selected and
@@ -173,11 +175,12 @@
               defined. This information needs to be available to developers, project managers, and users. Although
               difficult, this does allow for the software development team to see the business goals. This can make
               business opportunities that could be solved through software more visible and possible.</p>
-            <p>It can be more difficult to learn DDD because of the lack of examples. In a CRUD application the patterns
-              used to the design the system are 90% done before you even talk to the customer. With a DDD approach there
-              is no “one solution fits all”. It relies more heavily on developers attacking one problem at a time, using
-              a variety of tools at their disposal, and applying sound software design principles to move the project
-              forward.</p>
+            <p>It can be more difficult to learn DDD because of the lack of examples. 
+              An experienced CRUD application developer has a <a href="https://wiki.c2.com/?GoldenHammer">golden hammer</a> 
+              that clobbers off most of the work on a new project, before you even talk to the customer. 
+              With a DDD approach there is no “one solution fits all”. 
+              It relies more heavily on developers attacking one problem at a time, using a variety of tools at their disposal, 
+              and applying sound software design principles to move the project forward.</p>
             <p>DDD is not for everyone. Some customers feel burdened having to explain their business to developers.
               Some developers aren’t interested in the customer’s business and would prefer to focus on the technical
               details.</p>
