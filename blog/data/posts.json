@@ -3,7 +3,7 @@
     "title": "The User Story Is The Thing",
     "part": 1,
     "parentKey": "UserStory",
-    "category": "User Stories",
+    "category": "Agile",
     "date": "2013-12-28",
     "path": "2013/UserStory/IsTheThing",
     "excerpt": "If any developer feels the need to improve the user story, solution, or requirement they are presented with that developer needs to be empowered, nay encouraged, to ask whatever questions are necessary to improve that user story."
@@ -12,7 +12,7 @@
     "title": "Reason Based User Stories",
     "part": 2,
     "parentKey": "UserStory",
-    "category": "User Stories",
+    "category": "Agile",
     "date": "2013-12-28",
     "path": "2013/UserStory/ReasonBased",
     "excerpt": "In my previous post I described my feeling on why it is so critically important to develop a good user story.  However I didn’t go into much detail on how that is done.  I’m going to cover that in this post."
