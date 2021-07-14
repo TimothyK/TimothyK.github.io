@@ -352,4 +352,11 @@
     "codeUrl": "https://github.com/TimothyK/PerfectUnitTests",
     "excerpt": "Here are four rules I try to follow when writing automated tests"
   }
+  {
+    "title": "Never Greater",
+    "category": "Quality",
+    "date": "2021-07-13",
+    "path": "2021/NeverGreater",
+    "excerpt": "Here is a quick tip to improve code readability. Never use the greater than or greater than or equal to operators."
+  }
 ]
