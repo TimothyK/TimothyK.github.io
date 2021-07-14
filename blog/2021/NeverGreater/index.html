@@ -66,15 +66,19 @@
           <p>Inverting terms so that they use a less than operator instead improves readability because the position of
             the variables are the same as their position as on a number line (or time line).</p>
           <p>Look at these examples:</p>
-          <code><pre>                  
-if ((x > lowerBound) && (x <= upperBound)) {}  <span class="code-comment">// e.g. 1a</span>
-if ((x <= lowerBound) || (x > upperBound)) {}  <span class="code-comment">// e.g. 2a</span>
-</pre></code>
+          <code>
+  <pre>                  
+  if ((x > lowerBound) && (x <= upperBound)) {}  <span class="code-comment">// e.g. 1a</span>
+  if ((x <= lowerBound) || (x > upperBound)) {}  <span class="code-comment">// e.g. 2a</span>
+  </pre>
+</code>
           <p>Now rewrite the same only using less than signs.</p>
-          <code><pre>                  
-if ((lowerBound < x) && (x <= upperBound)) {}  <span class="code-comment">// e.g. 1b</span>
-if ((x <= lowerBound) || (upperBound < x)) {}  <span class="code-comment">// e.g. 2b</span>
-</pre></code>
+          <code>
+  <pre>                  
+  if ((lowerBound < x) && (x <= upperBound)) {}  <span class="code-comment">// e.g. 1b</span>
+  if ((x <= lowerBound) || (upperBound < x)) {}  <span class="code-comment">// e.g. 2b</span>
+  </pre>
+</code>
           <p>Logically examples 1a and 1b are the same, as are 2a and 2b. But in example 1b, it is clear <code
               class="inline">x</code> needs to be
             between the lower and upper bounds. It literal reads that way; that <code class="inline">x</code> is between
@@ -91,9 +95,11 @@ if ((x <= lowerBound) || (upperBound < x)) {}  <span class="code-comment">// e.g
           <p>Some people write code like the first two examples (1a, 2a) because they are taught that the variable under
             test should always be on the left and the known value being tested against should always be on the left. To
             violate this rule is known as Yoda Conditions.</p>
-          <code><pre>                  
-if (count == 5) {}  <span class="code-comment">// vs</span>
-</pre></code>
+          <code>
+  <pre>                  
+  if (count == 5) {}  <span class="code-comment">// vs</span>
+  </pre>
+</code>
           <img src="yoda-conditions.jpg" alt="if (5 == count) {} //yoda">
           <p>Yeah, that’s ugly. But is only applies to equality <code class="inline">==</code> and inequality <code
               class="inline">!=</code> operators. The rule about
