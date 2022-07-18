@@ -358,5 +358,19 @@
     "date": "2021-07-13",
     "path": "2021/NeverGreater",
     "excerpt": "Here is a quick tip to improve code readability. Never use the greater than or greater than or equal to operators."
+  },
+  {
+    "title": "Product Owner Phases",
+    "category": "Agile",
+    "date": "2022-07-17",
+    "path": "2022/ProductOwnerPhases",
+    "excerpt": "I want to talk about what the product owner role is and how it evolves."
+  },
+  {
+    "title": "WHIRGAM",
+    "category": "Agile",
+    "date": "2022-07-17",
+    "path": "2022/WHIRGAM",
+    "excerpt": "Why, Headache, Impact, Repeat, Grow, Assignable, Maintainable. Yet another mnemonic acronym for Product Owners, their teams, and community."
   }
 ]
