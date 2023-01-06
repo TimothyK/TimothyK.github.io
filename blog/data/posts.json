@@ -58,7 +58,7 @@
     "category": "NuGet",
     "date": "2014-03-27",
     "path": "2014/NuGet/WhatIs",
-    "excerpt": "a prerequisite post on what NuGet is, how to use it, and what it does."
+    "excerpt": "A prerequisite post on what NuGet is, how to use it, and what it does."
   },
   {
     "title": "Creating NuGet Packages",
@@ -103,7 +103,7 @@
     "category": "Unit Testing",
     "date": "2014-05-30",
     "path": "2014/TestingWorkflows/TestAfter",
-    "excerpt": "In this post I’m going to outline a few common methods that can be used to increase the coverage of of your test suite. Each approach you are skilled at applying is another tool in your tool belt. The more vectors of attack you have on a problem – the better. In this post I’ll enumerate some test-after workflows: Bug Reporting, Exploratory Testing, Examples, Smoke Tests, Coverage Analysis, and Test Refactoring."
+    "excerpt": "In this post I'm going to outline a few common methods that can be used to increase the coverage of of your test suite. Each approach you are skilled at applying is another tool in your tool belt. The more vectors of attack you have on a problem – the better. In this post I’ll enumerate some test-after workflows: Bug Reporting, Exploratory Testing, Examples, Smoke Tests, Coverage Analysis, and Test Refactoring."
   },
   {
     "title": "Testing Workflows - Test First",
