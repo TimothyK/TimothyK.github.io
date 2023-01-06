@@ -26,10 +26,10 @@
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "babel-loader": "^8.0.5",
     "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
-    "webpack": "^4.44.2",
+    "babel-loader": "^8.0.5",
+    "webpack": "^5.75.0",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^4.11.1"
   }

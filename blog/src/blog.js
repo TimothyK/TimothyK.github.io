@@ -53,7 +53,7 @@ function buildNavbar() {
   navbar.innerHTML = `
     <a class="mr-2" href="${root()}"
       ><img
-        src="${root()}/img/monkey.jpg"
+        src="${root()}img/monkey.jpg"
         alt="logo"
         class="rounded-circle"
         height="90"
@@ -68,6 +68,10 @@ function buildNavbar() {
   </div>
   <div>
     <small>A blog by <a href="${root()}..">Timothy Klenke</a></small>
+    <br />
+    <a href="${root()}/data/rss.xml">
+      <i class="fa fa-rss"></i> Subscribe (RSS)
+    </a>
   </div>`;
 
   return navbar;
