@@ -67,11 +67,13 @@ function buildNavbar() {
     >
   </div>
   <div>
-    <small>A blog by <a href="${root()}..">Timothy Klenke</a></small>
+    <small>
+    A blog by <a href="${root()}..">Timothy Klenke</a>
     <br />
-    <a href="${root()}/data/rss.xml">
+    <a href="${root()}data/rss.xml">
       <i class="fa fa-rss"></i> Subscribe (RSS)
     </a>
+    </small>
   </div>`;
 
   return navbar;
