@@ -6,437 +6,446 @@
 		<language>en-us</language>
 		<pubDate>6 Jan 2023 00:00:00 UT</pubDate>
 		<lastBuildDate>6 Jan 2023 00:00:00 UT</lastBuildDate>
-    <ttl>1440</ttl>
+		<ttl>1440</ttl>
 		<docs>https://www.rssboard.org/rss-specification</docs>
 		<managingEditor>timothy@klenkeverse.com (Timothy Klenke)</managingEditor>
 		<webMaster>timothy@klenkeverse.com (Timothy Klenke)</webMaster>
-    <image>
-      <url>https://codemonkeyprojectiles.com/blog/img/monkey.jpg</url>
-      <title>Code Monkey Projectiles</title>
-      <link>https://codemonkeyprojectiles.com/blog</link>
-    </image>
+		<image>
+			<url>https://codemonkeyprojectiles.com/blog/img/monkey.jpg</url>
+			<title>Code Monkey Projectiles</title>
+			<link>https://codemonkeyprojectiles.com/blog</link>
+		</image>
 		<item>
 			<title>The User Story Is The Thing</title>
 			<link>https://codemonkeyprojectiles.com/blog/2013/UserStory/IsTheThing</link>
 			<description>If any developer feels the need to improve the user story, solution, or requirement they are presented with that developer needs to be empowered, nay encouraged, to ask whatever questions are necessary to improve that user story.</description>
 			<pubDate>28 Dec 2013 00:00:00 UT</pubDate>
-      <category>Agile</category>      
+			<category>Agile</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2013/UserStory/IsTheThing</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Reason Based User Stories</title>
 			<link>https://codemonkeyprojectiles.com/blog/2013/UserStory/ReasonBased</link>
 			<description>In my previous post I described my feeling on why it is so critically important to develop a good user story.  However I didn’t go into much detail on how that is done.  I’m going to cover that in this post.</description>
 			<pubDate>28 Dec 2013 00:00:00 UT</pubDate>
-      <category>Agile</category>
+			<category>Agile</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2013/UserStory/ReasonBased</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Software Developer Process Links</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/SoftwareDevProcessLinks</link>
 			<description>A while ago I did a talk that was a very general overview of many of the popular software development processes being used in the industry. Following the talk I released a large list of additional resources. Go forth learn. Here is that list.</description>
 			<pubDate>1 Jan 2014 00:00:00 UT</pubDate>
-      <category>Agile</category>
+			<category>Agile</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/SoftwareDevProcessLinks</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Introduction To Rowversion</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/IntroToRowversion</link>
 			<description>SQL Server has a built-in data type that automatically marks changes to rows. This data type can be used for 2 main purposes: optimistic record locking and data queue processing.</description>
 			<pubDate>14 Jan 2014 00:00:00 UT</pubDate>
-      <category>SQL Server</category>
+			<category>SQL Server</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/IntroToRowversion</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Use System Queries to Browse Columns, Indexes, and FKs</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/SysQuery/Browse</link>
 			<description>The Object Explorer (F8) in SQL Server Management Studio is quite limiting when you need to search for a table or column. System queries to the rescue!</description>
 			<pubDate>27 Feb 2014 00:00:00 UT</pubDate>
-      <category>SQL Server</category>
+			<category>SQL Server</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/SysQuery/Browse</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Add Column Descriptions in SQL Server</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/SysQuery/ColumnDescription</link>
 			<description>In my previous post, I described how to use a query quickly search for columns in a database. The only thing missing from this table is a description for each of the columns.</description>
 			<pubDate>27 Feb 2014 00:00:00 UT</pubDate>
-      <category>SQL Server</category>
+			<category>SQL Server</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/SysQuery/ColumnDescription</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>What Is NuGet?</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/NuGet/WhatIs</link>
 			<description>A prerequisite post on what NuGet is, how to use it, and what it does.</description>
 			<pubDate>27 Mar 2014 00:00:00 UT</pubDate>
-      <category>NuGet</category>
+			<category>NuGet</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/NuGet/WhatIs</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Creating NuGet Packages</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/NuGet/CreatingPackages</link>
 			<description>Revealing what's in a NuGet Package, how to create one both manually and via an automated build process, and publishing it to either and internal or external NuGet feed.</description>
 			<pubDate>27 Mar 2014 00:00:00 UT</pubDate>
-      <category>NuGet</category>
+			<category>NuGet</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/NuGet/CreatingPackages</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Benefits of Pair Programming</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/PairProgramming/Benefits</link>
 			<description>This is the first in a three part post on pair programming. This post describes the benefits of pairing, including: improved quality, lower development costs, pair learning, and team building.</description>
 			<pubDate>27 Apr 2014 00:00:00 UT</pubDate>
-      <category>Pair Programming</category>
+			<category>Pair Programming</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/PairProgramming/Benefits</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Scheduling Pairing Sessions</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/PairProgramming/Scheduling</link>
 			<description>This second of three posts on pair program discusses how to get over the initial hurdles of starting to get pairing into your routine.</description>
 			<pubDate>27 Apr 2014 00:00:00 UT</pubDate>
-      <category>Pair Programming</category>
+			<category>Pair Programming</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/PairProgramming/Scheduling</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Inside a Pairing Session</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/PairProgramming/Inside</link>
 			<description>This last of three posts on pair programming covers how to conduct a successful pairing session.</description>
 			<pubDate>27 Apr 2014 00:00:00 UT</pubDate>
-      <category>Pair Programming</category>
+			<category>Pair Programming</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/PairProgramming/Inside</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Testing Workflows - Test After</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/TestingWorkflows/TestAfter</link>
 			<description>In this post I'm going to outline a few common methods that can be used to increase the coverage of of your test suite. Each approach you are skilled at applying is another tool in your tool belt. The more vectors of attack you have on a problem – the better. In this post I’ll enumerate some test-after workflows: Bug Reporting, Exploratory Testing, Examples, Smoke Tests, Coverage Analysis, and Test Refactoring.</description>
 			<pubDate>30 May 2014 00:00:00 UT</pubDate>
-      <category>Unit Testing</category>
+			<category>Unit Testing</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/TestingWorkflows/TestAfter</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Testing Workflows - Test First</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/TestingWorkflows/TestFirst</link>
 			<description>This is the second of two posts on some common strategies for approaching the job of writing tests. So here is a partial list of some test-first methodologies: Ping Pong, Test Blazer, TDD, ATDD, and BDD.</description>
 			<pubDate>30 May 2014 00:00:00 UT</pubDate>
-      <category>Unit Testing</category>
+			<category>Unit Testing</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/TestingWorkflows/TestFirst</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>DRY and SRP</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/DryAndSrp</link>
 			<description>I don't think it is fair to compare "Expressing Intent" against “DRY”. This is a comparison of apples to oranges. “Expressing Intent” is a principal of code quality. “Repeating Yourself” is a code smell. A code smell is merely an indicator that there might be something wrong with the code. What principle is the code smell of Duplication pointing to and how good of an indicator is it?</description>
 			<pubDate>11 Jun 2014 00:00:00 UT</pubDate>
-      <category>Quality</category>
+			<category>Quality</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/DryAndSrp</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Release Notes Are Hard</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/ReleaseNotesAreHard</link>
 			<description>Being able to write good release notes, code, or any other form of writing is a skill that takes hard work to learn and develop. Writing good release notes is hard. In this post I’ll cover some of the reasons why it is so hard and some tips to do better.</description>
 			<pubDate>20 Jun 2014 00:00:00 UT</pubDate>
-      <category>Quality</category>
+			<category>Quality</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/ReleaseNotesAreHard</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Strongly Typed Enum Pattern</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/StronglyTypedEnum</link>
 			<description>Enums are great. However, enums do have their problems. There is nothing to stop someone from assigning any other integer to an enum variable. Also, the enum is not very extendable. The Strongly Typed Enum design pattern can solve these problems.</description>
 			<pubDate>31 Jul 2014 00:00:00 UT</pubDate>
-      <category>Design Patterns</category>
+			<category>Design Patterns</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/StronglyTypedEnum</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Notification Patterns in Rx</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/RxNotify/Intro</link>
 			<description>Reactive Extensions (Rx) is a set of classes and functions that allow a developer to control data over time. It allows for event streams to be manipulated as easily as collections can be manipulated with LINQ. I like to think of Rx as LINQ but extended out to three dimensions: data, time, and threads.</description>
 			<pubDate>30 Aug 2014 00:00:00 UT</pubDate>
-      <category>Reactive Extensions</category>
+			<category>Reactive Extensions</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/RxNotify/Intro</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Creating a Stream</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/RxNotify/CreateStream</link>
 			<description>In this and the next few blog posts I’m going to be going over some examples of how to use Rx to help distribute notifications. I’ve posted all the source code on GitHub. Before we get to the actual examples of managing notifications, this post will cover the preamble of the basic framework of the example program and how to create a stream of data to work with.</description>
 			<pubDate>30 Aug 2014 00:00:00 UT</pubDate>
-      <category>Reactive Extensions</category>
+			<category>Reactive Extensions</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/RxNotify/CreateStream</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Lossless Notifications</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/RxNotify/Lossless</link>
 			<description>As with all our examples, when we have a high volume of errors occurring we don’t want to spam people. Despite our desire to avoid spam, we also don’t want to lose any data. We want to make sure that details about each exception are sent out. Therefore each email sent may include details about several exceptions.</description>
 			<pubDate>30 Aug 2014 00:00:00 UT</pubDate>
-      <category>Reactive Extensions</category>
+			<category>Reactive Extensions</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/RxNotify/Lossless</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Unexpected Errors</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/RxNotify/UnexpectedErrors</link>
 			<description>A feature that every serious program should have is the ability to notify when an unexpected error occurs. Every unexpected error should be reported and investigated. This is necessary in order to build quality software. In this post I’ll cover an Rx notification pattern that will report unexpected errors.</description>
 			<pubDate>30 Aug 2014 00:00:00 UT</pubDate>
-      <category>Reactive Extensions</category>
+			<category>Reactive Extensions</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/RxNotify/UnexpectedErrors</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Connection Errors</title>
 			<link>https://codemonkeyprojectiles.com/blog/2014/RxNotify/ConnectionErrors</link>
 			<description>The behaviour we want out of this pattern is when a connection error occurs we should queue up a notification to be delivered at some point in the near future. When it comes time to actually deliver the notification we check if the connection has been restored. If the connection has been restored we cancel the notification.</description>
 			<pubDate>30 Aug 2014 00:00:00 UT</pubDate>
-      <category>Reactive Extensions</category>
+			<category>Reactive Extensions</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2014/RxNotify/ConnectionErrors</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Working Simply</title>
 			<link>https://codemonkeyprojectiles.com/blog/2015/Simply/Working</link>
 			<description>I believe that Beck's Four Rules can be simplified to 2 axioms: 1. Write working software 2. Write simple software</description>
 			<pubDate>20 Feb 2015 00:00:00 UT</pubDate>
-      <category>Quality</category>
+			<category>Quality</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2015/Simply/Working</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Simplicity Principles and Anti-Patterns</title>
 			<link>https://codemonkeyprojectiles.com/blog/2015/Simply/Patterns</link>
 			<description>Review of the Simplicity principles and anti-patterns: KISS, Clever Code, Golden Hammer, Yak Shaving, YAGNI, Premature Optimization, Worse Is Better, Big Design Up Front, and Bike Shedding.</description>
 			<pubDate>20 Feb 2015 00:00:00 UT</pubDate>
-      <category>Quality</category>
+			<category>Quality</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2015/Simply/Patterns</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Ethics Organization</title>
 			<link>https://codemonkeyprojectiles.com/blog/2015/EthicsOrg</link>
 			<description>When specializing in servicing an industry you must become part of that industry. You must learn to talk like you clients. You must adopt their culture and behaviours.</description>
 			<pubDate>26 Oct 2015 00:00:00 UT</pubDate>
-      <category>Agile</category>
+			<category>Agile</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2015/EthicsOrg</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Effective Chat</title>
 			<link>https://codemonkeyprojectiles.com/blog/2016/EffectiveChat</link>
 			<description>So I thought I’d write down some tips for using a chat application effectively on a development team. Chat applications can revolutionize a how a development team works and even its culture. I’ll go through some of the goals of implementing a chat application, some best practices, and pitfalls.</description>
 			<pubDate>17 Oct 2016 00:00:00 UT</pubDate>
-      <category>Agile</category>
+			<category>Agile</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2016/EffectiveChat</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Reasons For Automated Testing</title>
 			<link>https://codemonkeyprojectiles.com/blog/2017/ReasonsForAutomatedTesting</link>
 			<description>So I gave a talk at the Edmonton .NET User Group on an introduction to automated testing. And of course in this introduction I gave a list of reasons why unit testing is a good idea. Although there are already many blog posts other there on this subject, I thought I’d record my reasons here.</description>
 			<pubDate>23 Feb 2017 00:00:00 UT</pubDate>
-      <category>Unit Testing</category>
+			<category>Unit Testing</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2017/ReasonsForAutomatedTesting</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Database Enums</title>
 			<link>https://codemonkeyprojectiles.com/blog/2017/DatabaseEnums</link>
 			<description>So is it better to store enumerated types in a database as a string/varchar or integer? Well it depends, but in general as a string is your best bet. In this post I explore the pros and cons of each.</description>
 			<pubDate>20 Sep 2017 00:00:00 UT</pubDate>
-      <category>SQL Server</category>
+			<category>SQL Server</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2017/DatabaseEnums</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Code Reviews</title>
 			<link>https://codemonkeyprojectiles.com/blog/2018/CodeReview/WhyWhen</link>
 			<description>This is a 2 part blog post on code reviews. This first post is on why and when code reviews should be done and some of the soft skills needed.</description>
 			<pubDate>5 Sep 2018 00:00:00 UT</pubDate>
-      <category>Quality</category>
+			<category>Quality</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2018/CodeReview/WhyWhen</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>How To Code Review</title>
 			<link>https://codemonkeyprojectiles.com/blog/2018/CodeReview/HowTo</link>
 			<description>This is the second of a two part blog post on code reviews. This second post is a technical checklist on some things to look for during a code review.</description>
 			<pubDate>5 Sep 2018 00:00:00 UT</pubDate>
-      <category>Quality</category>
+			<category>Quality</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2018/CodeReview/HowTo</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Empowerment</title>
 			<link>https://codemonkeyprojectiles.com/blog/2019/Empowerment</link>
 			<description>The objective of empowerment is to enable someone (or everyone) on a team to be able to make the same decisions that the team leader (or CEO) would make.</description>
 			<pubDate>7 Jan 2019 00:00:00 UT</pubDate>
-      <category>Ethics</category>
+			<category>Ethics</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2019/Empowerment</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Personal Overtime Policy</title>
 			<link>https://codemonkeyprojectiles.com/blog/2019/PersonalOvertimePolicy</link>
 			<description>How much overtime are you willing to work? How much compensation should there be? Does this depend on the type of work? These are all good questions.  It is important to think about the answers to these questions ahead of time, before you are pressured (either by yourself or externally) to work overtime.</description>
 			<pubDate>13 Feb 2019 00:00:00 UT</pubDate>
-      <category>AgiEthicsle</category>
+			<category>AgiEthicsle</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2019/PersonalOvertimePolicy</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Unprofessional Software Professionals</title>
 			<link>https://codemonkeyprojectiles.com/blog/2019/UnprofessionalSoftwareProfessionals</link>
 			<description>The reason why I am writing this blog post is to advise software professionals avoid calling their colleagues “unprofessional”. Asking JFK’s question of “what you can do” should be part of every retrospective. Have a list of things to do in the next sprint, and a backlog of things you want to do over the next few months.</description>
 			<pubDate>17 Feb 2019 00:00:00 UT</pubDate>
-      <category>Ethics</category>
+			<category>Ethics</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2019/UnprofessionalSoftwareProfessionals</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Values Statement</title>
 			<link>https://codemonkeyprojectiles.com/blog/2019/ValuesStatement</link>
 			<description>I, Timothy Klenke, will not act against these values. I would consider it unethical to act against these stated values. I hold myself to be accountable to them, and others may hold me to this as well.</description>
 			<pubDate>18 Feb 2019 00:00:00 UT</pubDate>
-      <category>Ethics</category>
+			<category>Ethics</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2019/ValuesStatement</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>The 3-Layered App</title>
 			<link>https://codemonkeyprojectiles.com/blog/2019/LayeredApp/Three</link>
 			<description>It is a gross over simplification of software architecture to attempt to describe modern software systems in only 3 layers. However, this post is a primer where I will just talk briefly about the 3 high level layers.</description>
 			<pubDate>30 Jul 2019 00:00:00 UT</pubDate>
-      <category>Design Patterns</category>
+			<category>Design Patterns</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2019/LayeredApp/Three</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>The 17-Layered App</title>
 			<link>https://codemonkeyprojectiles.com/blog/2019/LayeredApp/Seventeen</link>
 			<description>In this post, I will dive down deeper into the layers and see exactly how these could fit together. Each high-level layer is implemented by smaller focused layers, making 17 in all, at least in this example.</description>
 			<pubDate>30 Jul 2019 00:00:00 UT</pubDate>
-      <category>Design Patterns</category>
+			<category>Design Patterns</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2019/LayeredApp/Seventeen</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Small Functions</title>
 			<link>https://codemonkeyprojectiles.com/blog/2020/SmallFunctions</link>
 			<description>In this post I’m going to go through some of the reasonings why small functions are usually better than large ones.  Small functions enhance the symmetry, expressiveness, cohesion, and reuse of a code base.</description>
 			<pubDate>11 Oct 2020 00:00:00 UT</pubDate>
-      <category>Quality</category>
+			<category>Quality</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2020/SmallFunctions</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Refactor Away The IF</title>
 			<link>https://codemonkeyprojectiles.com/blog/2020/AntiIf/Refactor</link>
 			<description>If you have ever worked with me for any period of time you have definitely heard me say \"every time you use and IF statement a kitten dies\".  Overuse of IF statements is one of the faster ways to make code harder to read, test, and support.</description>
 			<pubDate>7 Nov 2020 00:00:00 UT</pubDate>
-      <category>Design Patterns</category>
+			<category>Design Patterns</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2020/AntiIf/Refactor</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Anti IF Patterns</title>
 			<link>https://codemonkeyprojectiles.com/blog/2020/AntiIf/Patterns</link>
 			<description>In this post I will cover a few more patterns that are useful to reduce the number of IF and Switch statements.</description>
 			<pubDate>7 Nov 2020 00:00:00 UT</pubDate>
-      <category>Design Patterns</category>
+			<category>Design Patterns</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2020/AntiIf/Patterns</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Overloaded Functions</title>
 			<link>https://codemonkeyprojectiles.com/blog/2021/OverloadFunctions</link>
 			<description>An often under used feature of C# is overloaded functions.</description>
 			<pubDate>12 Jan 2021 00:00:00 UT</pubDate>
-      <category>Quality</category>
+			<category>Quality</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2021/OverloadFunctions</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>More on Code Reviews</title>
 			<link>https://codemonkeyprojectiles.com/blog/2021/CodeReview</link>
 			<description>In this post I put down some more notes on things to keep in mind during a code review.</description>
 			<pubDate>31 Mar 2021 00:00:00 UT</pubDate>
-      <category>Agile</category>
+			<category>Agile</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2021/CodeReview</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>From CRUD to DDD</title>
 			<link>https://codemonkeyprojectiles.com/blog/2021/CrudToDdd</link>
 			<description>Software teams need to be aware that these two approaches exist, have respect for each of them, and be able to transition between the two when necessary.</description>
 			<pubDate>14 Apr 2021 00:00:00 UT</pubDate>
-      <category>Design Patterns</category>
+			<category>Design Patterns</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2021/CrudToDdd</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>The Perfect Unit Test</title>
 			<link>https://codemonkeyprojectiles.com/blog/2021/PerfectTest</link>
 			<description>Here are four rules I try to follow when writing automated tests</description>
 			<pubDate>15 Jun 2021 00:00:00 UT</pubDate>
-      <category>Unit Testing</category>
+			<category>Unit Testing</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2021/PerfectTest</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Never Greater</title>
 			<link>https://codemonkeyprojectiles.com/blog/2021/NeverGreater</link>
 			<description>Here is a quick tip to improve code readability. Never use the greater than or greater than or equal to operators.</description>
 			<pubDate>13 Jul 2021 00:00:00 UT</pubDate>
-      <category>Quality</category>
+			<category>Quality</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2021/NeverGreater</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Product Owner Phases</title>
 			<link>https://codemonkeyprojectiles.com/blog/2022/ProductOwnerPhases</link>
 			<description>I want to talk about what the product owner role is and how it evolves.</description>
 			<pubDate>17 Jul 2022 00:00:00 UT</pubDate>
-      <category>Agile</category>
+			<category>Agile</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2022/ProductOwnerPhases</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>WHIRGAM</title>
 			<link>https://codemonkeyprojectiles.com/blog/2022/WHIRGAM</link>
 			<description>Why, Headache, Impact, Repeat, Grow, Assignable, Maintainable. Yet another mnemonic acronym for Product Owners, their teams, and community.</description>
 			<pubDate>17 Jul 2022 00:00:00 UT</pubDate>
-      <category>Agile</category>
+			<category>Agile</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2022/WHIRGAM</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Commit Emojis</title>
 			<link>https://codemonkeyprojectiles.com/blog/2022/Emojis</link>
 			<description>The faster you can get your message across the better, and a picture is worth a thousand words.</description>
 			<pubDate>23 Jul 2022 00:00:00 UT</pubDate>
-      <category>Quality</category>
+			<category>Quality</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2022/Emojis</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
 			<title>Collaborating with Rubber Ducks</title>
 			<link>https://codemonkeyprojectiles.com/blog/2023/Collaborating</link>
 			<description>A retrospective on mentorship, self-management, empowerment, information silos, and collaboration</description>
 			<pubDate>6 Jan 2023 00:00:00 UT</pubDate>
-      <category>Agile</category>
+			<category>Agile</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2023/Collaborating</guid>
-      <author>timothy@klenkeverse.com (Timothy Klenke)</author>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
+		</item>
+		<item>
+			<title>InfoSec 101</title>
+			<link>https://codemonkeyprojectiles.com/blog/2023/InfoSec</link>
+			<description>Dance like nobody is watching, secure your systems like everyone is.</description>
+			<pubDate>22 May 2023 00:00:00 UT</pubDate>
+			<category>Agile</category>
+			<guid>https://codemonkeyprojectiles.com/blog/2023/InfoSec</guid>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 	</channel>
 </rss>
