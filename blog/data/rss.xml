@@ -438,5 +438,14 @@
 			<guid>https://codemonkeyprojectiles.com/blog/2023/Collaborating</guid>
 			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
+		<item>
+			<title>InfoSec 101</title>
+			<link>https://codemonkeyprojectiles.com/blog/2023/InfoSec</link>
+			<description>Dance like nobody is watching, secure your systems like everyone is.</description>
+			<pubDate>22 May 2023 00:00:00 UT</pubDate>
+			<category>Agile</category>
+			<guid>https://codemonkeyprojectiles.com/blog/2023/InfoSec</guid>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
+		</item>
 	</channel>
 </rss>
