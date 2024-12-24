@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEBVKWP3L5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MEBVKWP3L5');
+    </script>
+    <script src="https://kit.fontawesome.com/0993ff692b.js"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>Change Types - Code Monkey Projectiles</title>
+    <link rel="icon" href="../../img/monkey.jpg" />
+    <link rel="apple-touch-icon" href="../../img/favicon.png" />
+</head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="../.."
+            ><img
+              src="../../img/monkey.jpg"
+              alt="logo"
+              class="rounded-circle"
+              height="90"
+          /></a>
+          <a href="../.."
+            ><h3 class="d-inline align-middle pl-2">
+              Code Monkey Projectiles
+            </h3></a
+          >
+        </div>
+        <div>
+          <small>A blog by <a href="../../..">Timothy Klenke</a></small>
+          <br />
+          <a href="$../../../data/rss.xml">
+            <i class="fa fa-rss"></i> Subscribe (RSS)
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-lg">
+          <!-- Title Header -->
+          <section id="Title-Header" class="mb-3">
+            <div class="row">
+              <div class="col-md" id="Title">
+                <h1>TITLE</h1>
+              </div>
+
+              <div class="col-md-3 text-right">
+                <span id="Agile" class="badge badge-secondary badge-pill"
+                  >CATEGORY</span
+                >
+                <br />
+                <span id="Date" class="text-muted">2024-12-24</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Post Body -->
+          <main id="post">
+            <section>
+              <p>Well, is it almost year end and I realize I haven't done a post in 2024 yet.  I have been busy, but I'll post announcements on my blog in January 2025 regarding that.  Here is one issue that I've been meaning to write this year.  It is on managing change in a system, the types of changes that can be made, and the risk associated with each type.</p>
+              <p>There are 3 basic types of change that can be made to a system:</p>
+              <ol>
+                <li>Additive</li>
+                <li>Deprecating</li>
+                <li>Breaking</li>
+              </ol>
+              <p>These changes can be managed either with our without versioning.</p>
+              <p>These types of change apply to any system.  It could be public changes to a DLL or package (NuGet, PyPi, NPM), an API data contract (REST JSON format, XML DTD, WSDL, gRPC .proto), or a database schema.  These rules could even be applied to user interfaces or non-computerized processes.</p>
+            </section>
+
+            <section>
+              <div class="section-header">Additive Changes</div>
+              <p>Additive changes are where a new property or method is added to an existing class (e.g. a new column on a database table) or a new class (new database table).  </p>
+              <p>For example, let's say you had this JSON structure to represent a person:</p>
+              <code>
+                <pre>
+{
+  "FirstName": "Timothy",
+  "LastName": "Klenke"
+}</pre></code>
+              <p>To this we add a Gender property</p>
+              <code>
+                <pre>
+{
+  "FirstName": "Timothy",
+  "LastName": "Klenke",
+  "Gender": "Male"
+}</pre></code>
+              <p>This type of change is the lowest risk of the three.  Most consumers of the system should be implemented to ignore new data they aren't programmed to utilize.</p>
+              <p>To minimize risk when adding a new property, make sure that applications treat the property with a default value if it is missing, or allow them to be null.  For example, if adding a soft delete "IsActive" property to the object, make sure applications treat objects as active if the property is missing.  This allows you programs to offer backward compatibility with consumers sending the old format.</p>
+              
+            </section>
+
+            <section>
+              <div class="section-header">Deprecating Changes</div>
+              <p>The second type of change is a deprecation.  Here a property, method, class, column, or table is removed from the system.  It is the reverse of the additive change.  For an example, it would be removing the Gender proper from the Person object shown above.</p>
+              <p>Deprecating changes do have some risk, but it is relatively easy to manage.  It is a safe change to make if it is known that all consumers are not using nor depending on this property.  </p>
+              <p>If you control all the consumers of the system, then you can examine all the source code of those consumers to verify that the references have been removed.  Although that's not quite enough.  It isn't just that the current version of source code have references the deprecated property removed; all production installations of those programs must also be upgrade.</p>
+              <p>If you don't control all the consumers (e.g. it is a public API), then it is critical to engage with those customers to make sure they are removing those references.  An announcement should be made for upcoming deprecating change and when that will happen.  Customers have until then to make the change.</p>
+              <p>Adding analytics to your applications can also be a good way to manage change.  You can log and show on a report or dashboard the number of messages or clients that have adopted the new format.  You can send alerts to clients that have failed to migrate.</p>
+
+            </section>
+
+            <section>
+              <div class="section-header">Breaking Changes</div>
+              <p>There are a lot of ways to break a system.  I'll go through few examples.</p>
+              <p>A deprecating change with zero or insufficient notice would generally be considered a breaking change.  </p>
+              <p>Renaming a property would be a breaking change.  Consumers are referencing the old property name.  You can't swap it out with a new property name without warning.  If you break it down a rename operation, it is really adding a new property with the new name, then deprecating the old property name.</p>
+              <p>Making a property be required where it wasn't required in the past can be a breaking change.  This risk is managed very similarly to deprecating changes, where clients need to be monitored to ensure they are all upgraded.</p>
+              <p>Another example of a breaking change is changing the data type of a field.  For example, if an ID property was changed from a 16-bit integer to a 64-bit integer, or to a GUID.  Or if a String was changed from a string of ASCII characters to UTF-8 or UTF-16.  Adding support for new enumerated values should also be treated as a change to the data type.  Under certain circumstances these changes might be transparent, but once the values hit a boundary of using values outside the original data type range, this can break the system.</p>
+              <p>Behaviour changes to existing methods may or may not be considered a breaking change.  For example, changing the Notes field so that when it is saved it is trimmed of leading and trailing white space or automatically reformatted so that there are line breaks every 80 characters, or automatically spell checked.  By <a href="https://www.hyrumslaw.com/">Hyrum's Law</a> with enough users on a system, every change no matter how small may be considered a breaking change by someone.</p>
+              
+            </section>
+
+            <section>
+              <div class="section-header">Managing Change</div>
+              <p>The rule to follow when maintaining a system is to never make breaking changes.  Avoid requiring that servers and clients must all be upgraded at the same instant in time to successfully transition over a breaking change.  Even if the number of servers and clients is small (even just one production server and one production client), it is generally still a good idea to avoid breaking changes.  </p>
+              <p>Decompose breaking changes into additive and deprecating changes, which are manageable.  All breaking changes can be decomposed into a series of additive and deprecating changes.  This makes the changes smaller and allows less coupling between the systems.</p>
+              <p>There are two ways to manage change in the data contracts: with and without versioning.  Let's first look at how to make changes without versioning.  Let's decompose the breaking change of renaming a property.</p>
+              <p>To safely rename a property this change would have to be broken down into smaller changes.  First do an additive change to add the property with the new name.  The programs need to be made future compatible, so they support looking at the new property name.  They also need to be backward compatible and look at the old property name to see which ever one is populated.  Then a deprecating change is announced that the old property will be removed.  Consumers migrate their code to start using the new property name.  Once all the consumers have been updated and installed into production, then the backward compatibility for the old property name can be removed.  The old property name can finally be deprecated and the rename is then complete.  It can take months or years to rename a property safely, depending on how much time is given for client to make the migration.</p>
+              <p>The order of these changes depends on if your API is used for reading or writing.  It is usually better to <a href="https://en.wikipedia.org/wiki/Command_Query_Responsibility_Segregation">separate</a> reading APIs from writing APIs to allow for changes like this to be more easily managed.</p>
+              
+            </section>
+
+            <section>
+              <div class="section-header">Without Versioning</div>
+              <p>In this example without versioning, there would be several supported formats at various points in time.  The original format is:</p>
+              <code>
+                <pre>
+{
+  "FirstName": "Timothy",
+  "LastName": "Klenke"
+}</pre></code>
+            <p>Then to rename the "LastName" property to "Surname", the server would have to support the following format so that it would support both backward and forward compatibility:</p>
+            <code>
+              <pre>
+{
+  "FirstName": "Timothy",
+  "LastName": "Klenke",
+  "Surname": "Klenke"
+}</pre></code>
+            <p>Either the "Surname" or "LastName" properties would be optional.  For "write" interfaces, it would be unlikely that clients would send both properties.  They would send "LastName" or "Surname" depending on whether they have completed the migration.  The behaviour of the server would be it would support both.  For "read" interfaces the server would return both properties populated.  The clients would read whichever property they support.</p>
+              <p>The final format would be:</p>
+              <code>
+                <pre>
+{
+  "FirstName": "Timothy",
+  "Surname": "Klenke"
+}</pre></code>
+            <p>Here the "LastName" property is deprecated and support for it removed.</p>
+              
+            </section>
+
+            <section>
+              <div class="section-header">With Versioning</div>
+              <p>With versioning, the supported payloads can be explicitly marked as version 1 or 2.  There is no need for the hybrid format that simultaneously supports both the "LastName" and "Surname" properties.</p>
+              <p>Client applications would explicitly request that all their communication with the server use either version 1 or 2 formats.  There are several ways to tell the server which version should be supported.  The most common way is to have the version number built into the URL of any web API request.  The version number would appear in the path or query string of the URL.  Alternatively, different servers could be offered to support the different formats.  The version number would be implicitly implied by the host name.  </p>
+              <p>Yet another approach is to include the version number in the payload itself.  This can be done either as an additional property, or by adding a parent envelope object.</p>
+              <code>
+                <pre>
+{
+  "Version": 2,
+  "FirstName": "Timothy",
+  "Surname": "Klenke"
+}</pre></code>
+              <p>Or</p>
+              <code>
+                <pre>
+{
+  "Version": 2,
+  Person: {
+    "FirstName": "Timothy",
+    "Surname": "Klenke"
+  }
+}</pre></code>
+              <p>The examples above are for JSON payloads sent to a Web API.  However, the same principles can be applied to database changes as well.  Relational databases do tend to prefer the "without versioning" approach.  However with using views, stored procedures, schemas, and/or triggers it is possible to make changes to relational databases using <a href="https://www.oreilly.com/library/view/refactoring-databases-evolutionary/0321293533/">refactoring techniques</a>.</p>              
+            </section>
+
+            <section>
+              <div class="section-header">Conclusion</div>
+              <p>The key to successfully maintaining a system is being able to manage change effectively.  For every change that it made to the system, know what type of change is being made.  This will give clear guidance on how the change needs to be communicated and managed.</p>
+            </section>
+
+          </main>
+        </div>
+
+        <!-- Table Of Contents -->
+        <div class="d-none d-lg-block col-lg-3">
+          <section id="toc" style="font-size: 0.9rem">
+            <div class="my-5">
+              <div id="toc-category"></div>
+            </div>
+            <div class="my-5">
+              <div id="toc-year"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white p-3">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <a href="../.."> Code Monkey Projectiles </a>
+            <br />
+            <small>by <a href="../../..">Timothy Klenke</a></small>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <div>
+      <script
+        src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"
+      ></script>
+
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"
+      ></script>
+
+      <script src="../../build/blog.bundle.js"></script>
+    </div>
+  </body>
+</html>

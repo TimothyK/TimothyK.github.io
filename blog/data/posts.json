@@ -400,5 +400,12 @@
     "date": "2023-11-25",
     "path": "2023/TeamExpectations",
     "excerpt": "Tips for collaborating, career path, and skills"
+  },
+  {
+    "title": "Change Types",
+    "category": "Agile",
+    "date": "2024-12-24",
+    "path": "2024/ChangeTypes",
+    "excerpt": "Decomposing breaking changes into additive and deprecating changes"
   }
 ]
