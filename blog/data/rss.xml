@@ -448,12 +448,21 @@
 			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 		<item>
-			<title>TeamExpectations</title>
+			<title>Team Expectations</title>
 			<link>https://codemonkeyprojectiles.com/blog/2023/TeamExpectations</link>
 			<description>Tips for collaborating, career path, and skills</description>
 			<pubDate>25 Nov 2023 00:00:00 UT</pubDate>
 			<category>Agile</category>
 			<guid>https://codemonkeyprojectiles.com/blog/2023/TeamExpectations</guid>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
+		</item>
+		<item>
+			<title>Change Types</title>
+			<link>https://codemonkeyprojectiles.com/blog/2024/ChangeTypes</link>
+			<description>Decomposing breaking changes into additive and deprecating changes</description>
+			<pubDate>24 Dec 2024 00:00:00 UT</pubDate>
+			<category>Agile</category>
+			<guid>https://codemonkeyprojectiles.com/blog/2024/ChangeTypes</guid>
 			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
 	</channel>
