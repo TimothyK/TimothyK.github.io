@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEBVKWP3L5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MEBVKWP3L5');
+    </script>
+    <script src="https://kit.fontawesome.com/0993ff692b.js"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>Introducting Satori - Code Monkey Projectiles</title>
+    <link rel="icon" href="../../img/monkey.jpg" />
+    <link rel="apple-touch-icon" href="../../img/favicon.png" />
+</head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="../.."
+            ><img
+              src="../../img/monkey.jpg"
+              alt="logo"
+              class="rounded-circle"
+              height="90"
+          /></a>
+          <a href="../.."
+            ><h3 class="d-inline align-middle pl-2">
+              Code Monkey Projectiles
+            </h3></a
+          >
+        </div>
+        <div>
+          <small>A blog by <a href="../../..">Timothy Klenke</a></small>
+          <br />
+          <a href="$../../../data/rss.xml">
+            <i class="fa fa-rss"></i> Subscribe (RSS)
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-lg">
+          <!-- Title Header -->
+          <section id="Title-Header" class="mb-3">
+            <div class="row">
+              <div class="col-md" id="Title">
+                <h1>Introducting Satori - Time Tracking for Azure DevOps</h1>
+              </div>
+
+              <div class="col-md-3 text-right">
+                <span id="Category" class="badge badge-secondary badge-pill"
+                  >Satori</span>
+                <br />
+                <span id="Date" class="text-muted">2025-01-25</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Post Body -->
+          <main id="post">
+            <section>
+              <p>For the better part of 2024 my side project has been working on a new open-source web application: <a href="https://satori.nexus/">Satori</a>.  We use Azure DevOps in my day job, and it is a great product.  I do like how it breaks work items into tasks that are assigned to individuals.  Its aim is that these tasks can estimated, status tracked (to do, in progress or done), and hopefully that should give the team a good sense of when the larger work items and features will be completed.</p>
+              <p>Despite these goals, the data entry for tracking work completed or remaining is rather difficult to use.  Furthermore, it is not the only person or system that I need to report my time and status to, every day.</p>
+              <p>Satori's initial release is meant to address some of these time and status tracking issues.  Satori assists me every day in the Scrum process, with our daily stand-up meetings.  It reduces the duplication in my day job by taking the information reported in the Stand-Up and exporting it to Azure DevOps tasks and other time tracking systems.</p>
+            </section>
+            <section>
+              <div class="section-header">Azure DevOps Time Tracking - The Motivations</div>
+              <div class="section-header">Motivation #1 - The Burndown Chart</div>
+              <p>Azure DevOps comes with a thing called a <a href="https://en.wikipedia.org/wiki/Burndown_chart">burndown chart</a>.  It is displayed at the top right of each Sprint Board.  It is a rather horrible way to manage a development team, but it is the only management graphic that comes with Azure DevOps out-of-the-box.  Therefore, managers tend to look at it and demand the lines go in the correct direction.</p>
+              <p>The burndown chart is driven by the Original Estimate, Completed Work, and Remaining Work fields.  These 3 fields are available on every Task card on the Sprint Board.  To have a meaningful burndown chart the 2 latter fields (Completed and Remaining Work) must be updated daily (at least).  </p>
+              <p>A good burndown chart also depends on good backlog grooming and not allowing new work items to be added in the middle of the sprint.  But I digress, that is a separate issue from Time Tracking.</p>
+              <p>I'm not going to debate here whether burndown charts, estimating, and sprint planning, are good or bad management practices.  There are alternative theories out there, namely the #NoEstimates movement.  </p>
+              <p>I do like how Azure DevOps allows for the creation of Task cards below work items to track all the effort that is required to get a work item to <a href="https://www.scrum.org/resources/definition-done">"done-done"</a>.  The development work for our Work Items typically includes task cards for coding, code review, and QA testing.  Although, there are other theories for that as well (trunk-based development).</p>
+              <p>Despite knowing there are probably better ways, I certainly am willing to capture how much time I spent on a task.  If it is easy enough to do and doesn't interfere with my regular duties, I'd also be willing to update a Remaining Work field.</p>
+              <p><i>"You can't improve what you don't measure"</i> - Peter Drucker.</p>
+              <p>I'm not sure how much better I'll be managed, if estimates and completed work are tracked more accurately.  But it is worth a try.</p>
+            </section>
+            <section>
+              <div class="section-header">Motivation #2 - Duplicate Time Reporting</div>              
+              <p>The second motivation for the Satori project is to reduce duplication in my day job.  I'm having to report what I am working on 4 different times.</p>
+              <ol>
+                <li>A daily stand-up meeting reporting to the team</li>
+                <li>My normal time sheets for the financial department so they can do client billing.</li>
+                <li>Azure DevOps task tracking, for the burndown chart and whatever other analytics we can pull from AzDO (see next).</li>
+                <li>Project managers, support team, customers asking, "is it done yet?".</li>
+              </ol>
+              <p>That is a lot of duplicate reporting, and frankly a waste of my time.  Ideally, I should only have to do the Stand-Up meeting.  I should have a good Stand-Up report, which is based off accurate time tracking.  </p>
+              <p>Once I have that Stand-Up report, this should be able to export to my company's financial department and Azure DevOps.</p>
+              <p>The initial release of Satori does address these first three points.  It exports time to Azure DevOps tasks and encourages the status of those tasks to be updated.</p>
+              <p>The fourth point of internal customers asking for status updates hopefully will be lessened with the increased accuracy of Azure DevOps task statuses that Satori enables.  It probably will never remove this entirely.  However, the roadmap does have some enhancements for Satori to help with that too.</p>
+            </section>
+            <section>
+              <div class="section-header">The Problem</div>
+              <p>The problem with the Azure DevOps Task card's Completed Work field is that it is difficult to enter.  </p>
+              <p>Math is involved.  You must take the current Completed Work field and add the new hours that you worked.</p>
+              <p>If you have a large task assigned that takes 3 days to complete it is difficult to know how up to date that field is.  Did I update it today, or yesterday?  You can get that from history, but that's on a different tab.  If you get any interruption while trying to enter your time into the system, it is an easy mistake to update the completed work twice by accident, or not at all.</p>
+              <p>There is no assistance provided to me or my colleagues in tracking how many hours I work each day on each task.  We are still responsible for keeping track of that ourselves.  Various systems are used for that.  Those that do it well keep a stopwatch or record the time of day when they start and finish each task.  Others just guess, "Yesterday I probably worked about 3 hours on Task#1, 2 hours on Task#2, 2 hours on Task#3, and 1 hour for other meetings".</p>
+              <p>I also need to update the Remaining Work field.  Barring any adjustments to the original estimate the change to the Remaining Work is the same as the Completed Work, just in the opposite direction.  This is often duplicate effort.</p>
+              <p>Furthermore, my duties to update the Azure DevOps task cards do not negate the time tracking I'm also required to do in our pre-existing time billing system.  When we started using Azure DevOps and asked to record our time there, it did not replace or integrate with our existing time billing system.  </p>
+            </section>
+            <section>
+              <div class="section-header">Time Tracking with Kimai</div>
+              <p>Satori does not try to reinvent time tracking.  There are lots of products out there that already do an excellent job of that.  Prior to Satori, I have evaluated a few.</p>
+              <p>There are a few criteria that I had for choosing a Time Tracking system:</p>
+              <ul>
+                <li>It should have a timer so that the time work started on a task and when it ended could be tracked.  This is much more accurate than trying to guess how many hours were worked later.  It needs to track Time, not Hours.</li>
+                <li>It must be easy to edit Time Entries.  Although effective use of the timer is the ideal use-case, interruptions happen.  It must be possible to easily change the task that a Time Entry is associated with.</li>
+                <li>It should track all work time, not just billable Azure DevOps tasks.  Although it is possible to create tasks in Azure DevOps for overhead work like non-billable daily meetings, this can be cumbersome.</li>
+                <li>Needs a good API so that it can integrate with other systems, namely our existing billing system.</li>
+              </ul>
+              <p>There are some Time Tracking add-ins that can be installed into Azure DevOps that I have tried.  However, they don't meet all these requirements.  </p>
+              <p>A good open-source one that is freely available and meets all these criteria is <a href="https://www.kimai.org/">Kimai</a>.  It can be installed on-premises or be run in the cloud.</p>
+            </section>
+            <section>
+              <div class="section-header">The Daily Stand-Up</div>
+              <p>A key to good software is that it should be a companion to help end users do the job they are already trying to do.  It shouldn't be an extra reporting job that needs to be done at the end of each day that doesn't help them do their core job.</p>
+              <p>One task that is common to most members of a software development team is the Daily Stand-Up meeting.  This is also closely related to Time Tracking.  Satori helps software development teams run this meeting more efficiently.  </p>
+              <p>The structure of the daily stand-up meeting typically asks 3 or 4 questions:</p>
+              <ol>
+                <li>🏆 Accomplishments - What did I do yesterday?</li>
+                <li>🧱 Impediments - What were my impediments?  What slowed me down or is preventing me from getting it done (blockers I need help with)?</li>
+                <li>🧠 What did I learn?</li>
+                <ul>
+                  <li>I like adding this fourth question to the stand-up to encourage a learning environment and share what was learned.</li>
+                </ul>
+                <li>What am I going to do today?</li>
+              </ol>
+              <p>Satori pulls timesheet data from Kimai to produce a Daily Stand-Up report.  It is designed to help answer these questions and make the Stand-Up meeting run smoother.  I can review my time entries and update the comments to answer those three questions, as well as confirm my Azure DevOps task cards are up to date (without having to leave the Satori Stand-Up report).  Once the stand-up is reviewed, I can the click the Export button time fields in Azure DevOps and my company's external billing system are updated automatically.  No further effort is required to update those other systems.</p>
+              <p class="text-center">
+                <img class="img-fluid" src="Satori-StandUp.png" alt="Satori Screen Shot" width="640" height="480">
+                </p>
+  
+              <p>This report aggregates the time entries by Kimai customer, project and activity.  Kimai doesn't know anything about the scrum process, Azure DevOps, or our external billing system.  But Satori pulls all these pieces together.</p>
+              <p>Kimai does support multiple lines on the Description field of each Time Entry.  Satori uses a very simple mark down language within the Kimai Description to ensure the data is reported correctly.  For example, impediments are marked with a brick emoji (🧱).  Azure DevOps tasks are linked to a Time Entry just by referencing the Task Number with a "D#" prefix.  </p>
+              <p>Kimai Time Entry Descriptions can be edited from within Satori (with the Satori mark down) with a simple dialog.  This is accessed from the small pencil icon on the left of each entry (next to the tree collapse caret icon).  Editing is only available for time entries that have not been exported yet.  This icon will appear red if an edit is highly recommended (e.g. missing a comment or estimate).</p>
+              <p>One of the dangers of the scrum process is that the daily stand-up turns into what is known as "zombie scrum".  The information reported in the stand-up is identical to what was done yesterday.  This can happen when the comments indicate at a high level what the activity was, instead of denoting the accomplishments.  For example, what was worked on yesterday: "attended a meeting" verse "decided to add a gun buy-back module to the world peace module and updated the design documentation".</p>
+              <p>Satori's Stand-Up view doesn't currently answer the last question, what will I work on today.  That is on the roadmap - see Unified Sprint Boards.  In the future it will list the top priority work items that should be worked on today.  There will be buttons to start timing these tasks or restart a previous Time Entry.</p>
+              <p>Although Satori does have a general comment type, that is tracked separately from accomplishments, impediments, and learnings.  When Satori restarts timing an entry, it only copies the general comment and Azure DevOps work item reference, not the other three comment types.  This avoids "zombie scrum".</p>
+              <p>The review process also shows the Azure DevOps task linked to each Kimai Time Entry.  Again, this is done with a simple reference to the task number with a "D#" prefix.  The status of the Task is displayed if it is "To Do" or "Done" (by default tasks with time on them should be In Progress.  The time remaining on the task is shown as a badge.  Unexported time in Kimai is automatically subtracted from the Remaining Work field in Azure DevOps.  If the remaining work goes to zero or the task needs to be marked as Done, this can easily be done from the Edit dialog in Satori.</p>
+              <p>In addition to the Satori Edit dialog, the Kamai and Azure DevOps systems can be quickly access from Satori.  Kimai can be opened, filtered to the Time Entries, by clicking the Shortcut icon (next to the tree collapse caret icon).  The Azure DevOps Task and parent work item can be opened by click on their labels.</p>
+              <p>Finally, the Export button will export the Time Entries to Azure DevOps and/or a third-party billing system.  Satori will directly update the Completed Work and Remaining Work fields on the Azure DevOps task.  Adjustments to the Remaining Work and State of the Task can also easily be done from the Satori Edit dialog.</p>
+              <p>Satori can also export the time entries to an Azure Service Bus message queue, if configured.  This is how I've integrated our existing billing system.</p>
+            </section>
+            <section>
+              <div class="section-header">Conclusion</div>
+              <p>I have been dog fooding Satori for about a year.  It has simplified my time management.  Thanks to Kimai and the Satori exports, I only have a single place to record my time.  And the Kamai timer makes sure my time is recorded accurately.  My Azure DevOps tasks, as well as our existing billing system, get updated daily.</p>
+            </section>
+            <section>
+              <div class="section-header">Give it a try</div>
+              <p>Although I've only tested this against my own Kimai and Azure DevOps installations, this web application is free to all to use.  It is an early MVP release.  There will be more features coming soon (see <a href="../SatoriRoadmap/">the roadmap</a>).  But please give it a try.</p>
+              <p>There is nothing to install to try this out.  Simply go to <a href="https://satori.nexus/">https://satori.nexus/</a>.  The program tuns as a Web Assembly program in your browser.  There is no server that needs to be configured or will collect any of your data.  </p>
+              <p>On the home page follow the instructions to add Kimai, Azure DevOps, and optionally Azure Service Bus.  These are connected with personal access tokens issued from Kimai and Azure DevOps.  Please let me know what you think.</p>
+            </section>
+          </main>
+        </div>
+
+        <!-- Table Of Contents -->
+        <div class="d-none d-lg-block col-lg-3">
+          <section id="toc" style="font-size: 0.9rem">
+            <div class="my-5">
+              <div id="toc-category"></div>
+            </div>
+            <div class="my-5">
+              <div id="toc-year"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white p-3">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <a href="../.."> Code Monkey Projectiles </a>
+            <br />
+            <small>by <a href="../../..">Timothy Klenke</a></small>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <div>
+      <script
+        src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"
+      ></script>
+
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"
+      ></script>
+
+      <script src="../../build/blog.bundle.js"></script>
+    </div>
+  </body>
+</html>

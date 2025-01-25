@@ -407,5 +407,19 @@
     "date": "2024-12-24",
     "path": "2024/ChangeTypes",
     "excerpt": "Decomposing breaking changes into additive and deprecating changes"
+  },
+  {
+    "title": "Introducing Satori",
+    "category": "Satori",
+    "date": "2025-01-25",
+    "path": "2025/SatoriIntro",
+    "excerpt": "Introducing Satori - Time Tracking for Azure DevOps"
+  },
+  {
+    "title": "Satori Roadmap 2025",
+    "category": "Satori",
+    "date": "2025-01-26",
+    "path": "2025/SatoriRoadmap",
+    "excerpt": "My plans for my Satori open source project for 2025"
   }
 ]
