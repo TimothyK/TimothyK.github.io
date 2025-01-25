@@ -465,5 +465,23 @@
 			<guid>https://codemonkeyprojectiles.com/blog/2024/ChangeTypes</guid>
 			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
+		<item>
+			<title>Introducing Satori</title>
+			<link>https://codemonkeyprojectiles.com/blog/2025/SatoriIntro</link>
+			<description>Introducing Satori - Time Tracking for Azure DevOps</description>
+			<pubDate>25 Jan 2025 00:00:00 UT</pubDate>
+			<category>Satori</category>
+			<guid>https://codemonkeyprojectiles.com/blog/2025/SatoriIntro</guid>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
+		</item>
+		<item>
+			<title>Satori Roadmap 2025</title>
+			<link>https://codemonkeyprojectiles.com/blog/2025/SatoriRoadmap</link>
+			<description>My plans for my Satori open source project for 2025</description>
+			<pubDate>26 Jan 2025 00:00:00 UT</pubDate>
+			<category>Satori</category>
+			<guid>https://codemonkeyprojectiles.com/blog/2025/SatoriRoadmap</guid>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
+		</item>
 	</channel>
 </rss>
