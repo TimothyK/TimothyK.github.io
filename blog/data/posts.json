@@ -428,5 +428,12 @@
     "date": "2025-07-20",
     "path": "2025/Empowerment2",
     "excerpt": "Training and Reviews are good, but don't work all the time.  Embrace failure!"
+  },
+  {
+    "title": "Hard Clean",
+    "category": "Tips",
+    "date": "2025-07-25",
+    "path": "2025/HardClean",
+    "excerpt": "Create shortcuts to clean the build cache (obj folders) in Visual Studio solutions"
   }
 ]
