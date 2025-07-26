@@ -492,5 +492,14 @@
 			<guid>https://codemonkeyprojectiles.com/blog/2025/Empowerment</guid>
 			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
 		</item>
+		<item>
+			<title>Hard Clean</title>
+			<link>https://codemonkeyprojectiles.com/blog/2025/HardClean</link>
+			<description>Create shortcuts to clean the build cache (obj folders) in Visual Studio solutions</description>
+			<pubDate>25 Jul 2025 00:00:00 UT</pubDate>
+			<category>Tips</category>
+			<guid>https://codemonkeyprojectiles.com/blog/2025/HardClean</guid>
+			<author>timothy@klenkeverse.com (Timothy Klenke)</author>
+		</item>
 	</channel>
 </rss>

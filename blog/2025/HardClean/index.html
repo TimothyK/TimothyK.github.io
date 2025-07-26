@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEBVKWP3L5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MEBVKWP3L5');
+    </script>
+    <script src="https://kit.fontawesome.com/0993ff692b.js"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>Hard Clean - Code Monkey Projectiles</title>
+    <link rel="icon" href="../../img/monkey.jpg" />
+    <link rel="apple-touch-icon" href="../../img/favicon.png" />
+</head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="../.."
+            ><img
+              src="../../img/monkey.jpg"
+              alt="logo"
+              class="rounded-circle"
+              height="90"
+          /></a>
+          <a href="../.."
+            ><h3 class="d-inline align-middle pl-2">
+              Code Monkey Projectiles
+            </h3></a
+          >
+        </div>
+        <div>
+          <small>A blog by <a href="../../..">Timothy Klenke</a></small>
+          <br />
+          <a href="$../../../data/rss.xml">
+            <i class="fa fa-rss"></i> Subscribe (RSS)
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-lg">
+          <!-- Title Header -->
+          <section id="Title-Header" class="mb-3">
+            <div class="row">
+              <div class="col-md" id="Title">
+                <h1>Hard Clean</h1>
+              </div>
+
+              <div class="col-md-3 text-right">
+                <span id="Category" class="badge badge-secondary badge-pill"
+                  >Tips</span
+                >
+                <br />
+                <span id="Date" class="text-muted">YYYY-MM-DD</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Post Body -->
+          <main id="post">
+
+              <section>
+<p>In this post I'm starting a new category on my blog:  Tips. It is very important to take time to setup your development environment so you can perform tasks as quickly as possible.  Here is one hack I have that fixes an occasional problem I have with Visual Studio (VS).</p>
+<p>VS has a Build, Rebuild, and Clean Solution options (not to mention Hot Reload).  Build (Ctrl+Shift+B) is the quickest.  It only builds where the source code has changed.  Rebuild forces a full rebuild of the whole solution, regardless of what source code has changed.  Clean solution deletes all the files in the <code class="inline">bin</code> folder.  The Rebuild implicitly does a clean before it builds.</p>
+<p>All of these build your project or solution with varying degrees of reliance on a cache.  Visual Studio optimizes the build process by caching some parts of the build process in an <code class="inline">obj</code> folder, before coping the results to the <code class="inline">bin</code> folder.</p>
+<p>The problem is caching is hard.  Sometimes the <code class="inline">obj</code> folder can get out of sync.  This can happen if switching git branches, or if a lot of NuGet packages are changing.  I'm not going to prove this claim, but I have been burned enough times that I just can trust this rebuild process.  </p>
+<p>Even though it is a bit slower, I often do a Rebuild instead of Build.  I just trust it more.  Not 100%, but more.  </p>
+              </section>
+              <section>
+<div class="section-header">Tip #1: Rebuild shortcut</div>
+
+<p>Add a keyboard shortcut for Rebuild.  VS default key bindings have Build bound to Ctrl+Shift+B, but there isn't a default for Rebuild.  Go to the Tools menu » Options » Environment » Keyboard.  Select the "Build.RebuildSolution" command.  Add a key binding of Ctrl+Alt+Shift+B.</p>
+              </section>
+              <section>
+
+<div class="section-header">Tip #2: Hard Clean</div>
+<p>Clean Solution only deletes the files in the <code class="inline">bin</code> folder.  It doesn't delete the files in the <code class="inline">obj</code> folder.  When I get weird build errors, I do what I refer to as a "Hard Clean".  I delete the <code class="inline">bin</code> and <code class="inline">obj</code> folders from every project folder in my solution.</p>
+<p>I used to do this manually, in Windows Explorer.  It is a little time consuming, especially if you have a lot of projects.  But I have automated it.</p>
+<p>I do this with a PowerShell script.  And I invoke this from a BAT file.  I invoke the BAT file from one of two ways:  a custom menu in Visual Studio under Tools, and from Windows Explorer's Send To menu.</p>
+<p><span class="skim-focus">First</span>, copy these files.  You can copy them anywhere on your computer (e.g. <code class="inline">C:\Tools\</code>).</p>
+
+<script src="https://gist.github.com/TimothyK/0b9d5d96b4a17e9422b0b7d34eb12633.js"></script>
+
+<script src="https://gist.github.com/TimothyK/ff967c4d1150e89407b35329fc6b3161.js"></script>
+
+<p><span class="skim-focus">Second</span>, modify the HardClean.bat file so that it has the correct full path to the ps1 file.  Also, you can remove the pause if you want.  But I prefer to see the output before the window closes.</p>
+
+<p><span class="skim-focus">Third</span>, add this command to Visual Studio's Tool menu</p>
+<ol>
+<li>Open the "Tools » External Tools…" menu</li>
+<li>Click the Add button</li>
+<li>Set the properties:</li>
+  <ol>
+    <li>Title: <code class="inline">&Hard Clean</code></li>
+    <li>Command: the full path to the HardClean.bat file</li>
+    <li>Arguments: <code class="inline">$(SolutionDir)</code></li>
+    <li>Check Close on exit</li>
+  </ol>
+</ol>
+<p>Now you can do a hard clean on your solution just by choosing the Tools » Hard Clean menu in Visual Studio.</p>
+
+<p><span class="skim-focus">Fourth</span>, alternatively you can add this to Windows Explorer.</p>
+<ol>
+  <li>Open Windows Explorer</li>
+  <li>Type "<code class="inline">shell:SendTo</code>" in the location bar at the top.</li>
+  <li>Create a shortcut to the HardClean.bat file in this folder.  Name the short cut "Hard Clean"</li>
+</ol>
+
+<p>Now you can right click on any solution or project folder and choose "Hard Clean".</p>
+
+
+
+
+
+
+            </section>
+          </main>
+        </div>
+
+        <!-- Table Of Contents -->
+        <div class="d-none d-lg-block col-lg-3">
+          <section id="toc" style="font-size: 0.9rem">
+            <div class="my-5">
+              <div id="toc-category"></div>
+            </div>
+            <div class="my-5">
+              <div id="toc-year"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white p-3">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <a href="../.."> Code Monkey Projectiles </a>
+            <br />
+            <small>by <a href="../../..">Timothy Klenke</a></small>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <div>
+      <script
+        src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"
+      ></script>
+
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"
+      ></script>
+
+      <script src="../../build/blog.bundle.js"></script>
+    </div>
+  </body>
+</html>
