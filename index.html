@@ -66,14 +66,6 @@
               </div>
               <div class="col-2">
                 <a
-                  href="https://www.meetup.com/Edmonton-NET-User-Group/"
-                  class="nav-link"
-                >
-                  <i class="fab fa-meetup fa-3x header-icon"></i>
-                </a>
-              </div>
-              <div class="col-2">
-                <a
                   href="https://www.linkedin.com/in/timothy-klenke"
                   class="nav-link"
                 >
@@ -197,6 +189,68 @@
     <section id="code">
       <div class="container mt-3">
         <div class="card-columns">
+
+          <div class="card bg-dark border-light">
+            <div class="card-header">
+              <h3>
+                <a
+                  href="https://github.com/TimothyK/Satori"
+                >
+                  Satori
+                </a>
+              </h3>
+              <span class="badge badge-success badge-pill"> Applications </span>
+            </div>
+
+            <div class="card-body">
+              <p>
+                Satori (<a href="https://satori.nexus">https://satori.nexus</a>) is my largest open source project.  
+                This is an alternate front end that bridges sprint boards from Azure DevOps and time tracking from Kimai.
+              </p>
+              <p>
+                The stand-up page reformats the raw Kimai time enteries into a useful stand-up board summary, answering what were your accomplishments from yesterday and impediments.
+                Each time entry can be linked to Azure DevOps tasks.  Timers can be started and stopped, and expored to Azure DevOps and external programs via Azure Service Bus.
+              </p>
+              <p>
+                The sprint boards an alternate version to those available in Azure DevOps.
+                In Satori the pull request statuses are shown in addition to the work items.
+                Boards from multiple teams are combined into a single view with accurate global priority indicators.
+                Kimai timers can be started from the board.
+              </p>
+            </div>
+            <div class="card-footer text-right">
+              <a class="mt-5" href="blog/?category=Satori">
+                Read More...
+              </a>
+            </div>
+          </div>
+
+                    <div class="card bg-dark border-light">
+            <div class="card-header">
+              <h3>
+                <a
+                  href="https://github.com/TimothyK/GitSubmoduleUpdater"
+                >
+                  Git Submodule Updater
+                </a>
+              </h3>
+              <span class="badge badge-success badge-pill"> Tools </span>
+            </div>
+
+            <div class="card-body">
+              <p>
+                Git Submodule Updater is an Azure DevOps extension that implements a task that can be added to build pipelines.
+                It checks the current repository for git submodules.  
+                It reports any that are have an new version availalbe as a Pull Request Comment.
+                It also will start a new pull request to update the submodule that can be approved and integrated with a single click.
+              </p>
+            </div>
+            <div class="card-footer text-right">
+              Install from <a href="https://marketplace.visualstudio.com/items?itemName=CodeMonkeyProjectiles.git-submodule-updater">Visual Studio Marketplace</a>
+            </div>
+          </div>
+
+
           <div class="card bg-dark border-light">
             <div class="card-header">
               <h3>
