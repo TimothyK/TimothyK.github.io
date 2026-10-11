@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEBVKWP3L5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MEBVKWP3L5');
+    </script>
+    <script src="https://kit.fontawesome.com/0993ff692b.js"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>InfoSec 201 - Code Monkey Projectiles</title>
+    <link rel="icon" href="../../img/monkey.jpg" />
+    <link rel="apple-touch-icon" href="../../img/favicon.png" />
+</head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="../.."
+            ><img
+              src="../../img/monkey.jpg"
+              alt="logo"
+              class="rounded-circle"
+              height="90"
+          /></a>
+          <a href="../.."
+            ><h3 class="d-inline align-middle pl-2">
+              Code Monkey Projectiles
+            </h3></a
+          >
+        </div>
+        <div>
+          <small>A blog by <a href="../../..">Timothy Klenke</a></small>
+          <br />
+          <a href="$../../../data/rss.xml">
+            <i class="fa fa-rss"></i> Subscribe (RSS)
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-lg">
+          <!-- Title Header -->
+          <section id="Title-Header" class="mb-3">
+            <div class="row">
+              <div class="col-md" id="Title">
+                <h1>InfoSec 201</h1>
+              </div>
+
+              <div class="col-md-3 text-right">
+                <span id="Category" class="badge badge-secondary badge-pill"
+                  >Ethics</span
+                >
+                <br />
+                <span id="Date" class="text-muted">2026-10-10</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Post Body -->
+          <main id="post">
+            <section>
+              <p>
+                I'm going to write a blog post that is a bit more personal that usual. 
+                I could hire a psychologist or bartender to pour my soul out to, but I already have a blog, so this is cheaper.
+              </p>
+              <p>
+                Observing people ignore or circumvent good security practices has a large negative impact on my mental health. 
+                When I see this, I start to dwell on it. 
+                It affects my sleep and productivity. 
+                It affects my motivation and my willingness to engage with others.
+              </p>
+              <p>
+                I assume most people know the basic rules for good security practices. 
+                Just in case, I wrote a blog post a few years ago (<a href="/blog/2023/InfoSec/">InfoSec 101</a>) to outline the rules. 
+                Despite this I see people share their accounts or passwords with others, and it makes me cringe.
+              </p>
+              <p>
+                When an administrator or organization provides you with an account and password, that is a great privilege. 
+                It is a symbol of trust and partnership. 
+                They are granting you and you alone a certain set of privileges on systems that are important and valuable to them.
+              </p>
+              <p>
+                Failing to protect this is disrespectful to the people that granted it. 
+                This erodes trust.
+              </p>
+              <p>
+                Computer security is not about you verse the computer. 
+                Systems are owned, administered, and used by people. 
+                Gaining access to a system (even with permission) isn't about getting over the security hurdles the computer has put in place. 
+                Accessing those systems is engaging in a collaborative way with those other people. 
+                If you respect their rules, they will respect you.
+              </p>
+              <p>
+                Compromising this trust doesn't just affect you.
+                A bad actor reflects poorly on everyone. 
+                Administrators don't stop trusting you, they stop trusting everyone, including me.
+              </p>
+              <p>
+                If this goes on for too long this can lead to a toxic environment. 
+                Users trying to thwart administrators. 
+                Administrators imposing arcane rules on their users to force them to comply.
+              </p>
+              <p>
+                It is hard for me to watch. 
+                Witnessing a security violation is like witnessing a violent crime or watching someone use a salad fork to eat their main course. 
+                It is a breakdown of the basic rules of society and civilization. When I see someone sharing a password in Slack, I will usually immediately leave that channel.
+              </p>
+              <p>
+                This breakdown occurs because of a general lack of empathy between people. 
+                I do have empathy for those that feel they need to violate security protocols. 
+                I assume they know that they shouldn't share passwords, but they are under pressure to get something done.
+              </p>
+              <p>
+                Security systems do have good designs.
+                Users can be assigned to groups and those granted privileges/roles. 
+                Building on this basic building blocks security systems can implement policies of Least Privilege and Zero Trust. 
+                If users are sharing accounts or doing everything possible to workaround the security system, this will impede the administrator's ability to provide a collaborative system.
+              </p>
+              <p>
+                People may violate good security principles once or twice to get something done. 
+                But if this isn't corrected, these poor security decisions become standard operating procedure. 
+                Employees once knew what good security practices where, but it can be trained out of them. 
+                A culture of poor security can be created. Cultural changes can be the most difficult transformations an organization has to make.
+              </p>
+              <p>
+                I'm not an IT/security person; I am a developer. 
+                User authentication and authorization systems generally a solved problem for applications. 
+                A security module is just one of the many modules and features that are offered in the systems I develop.
+              </p>
+              <p>
+                Like the design of a security system, software development has its own set of principles that are core to having a well-designed system. 
+                For example, software systems should not have duplication and should be expressive.
+                When I see a developer violate the design of a security system, I am immediately worried that they may violate the design principles of systems we write together. 
+                Under the constant pressure of having to get something done, will they simply copy and paste the same code repeatedly (duplication). 
+                If they are asked to add a Social Security Number to the system, will they tell users just use the Fax Number field they weren't planning on using instead (expressiveness violation).
+              </p>
+              <p>
+                If a developer is willing to disrespect the design rules of a security system, I assume they are more likely to violate good software engineering principles as well. 
+                <b>Respect breeds trust.</b>
+              </p>
+            </section>
+          </main>
+        </div>
+
+        <!-- Table Of Contents -->
+        <div class="d-none d-lg-block col-lg-3">
+          <section id="toc" style="font-size: 0.9rem">
+            <div class="my-5">
+              <div id="toc-category"></div>
+            </div>
+            <div class="my-5">
+              <div id="toc-year"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white p-3">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <a href="../.."> Code Monkey Projectiles </a>
+            <br />
+            <small>by <a href="../../..">Timothy Klenke</a></small>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <div>
+      <script
+        src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous"
+      ></script>
+
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"
+      ></script>
+
+      <script src="../../build/blog.bundle.js"></script>
+    </div>
+  </body>
+</html>
