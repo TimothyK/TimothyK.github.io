@@ -29,8 +29,43 @@ function buildTableOfContents(posts) {
   footerPartial();
   commentEnginePartial();
 
-  postsTablePartial(categoryBuilder, posts);
-  postsTablePartial(yearBuilder, posts);
+  if (activePost === null) {
+    postsTablePartial(categoryBuilder, posts);
+    postsTablePartial(yearBuilder, posts);
+    return;
+  }
+
+  iframeTableOfContentsPartial();
+}
+
+function iframeTableOfContentsPartial() {
+  const toc = document.getElementById('toc');
+  if (toc === null) return;
+
+  const iframe = document.createElement('iframe');
+  iframe.title = 'Blog navigation';
+  iframe.loading = 'lazy';
+  iframe.setAttribute('allowtransparency', 'true');
+  const tocQuery = new URLSearchParams();
+  if (activePost !== null) {
+    tocQuery.set('category', activePost.category);
+    tocQuery.set('post', activePost.path);
+  }
+
+  iframe.setAttribute(
+    'src',
+    `${root()}toc.html${tocQuery.toString() ? '?' + tocQuery.toString() : ''}`
+  );
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.style.border = '0';
+  iframe.style.overflow = 'hidden';
+  iframe.style.background = 'transparent';
+  iframe.style.display = 'block';
+  iframe.style.minHeight = '400px';
+
+  toc.innerHTML = '';
+  toc.appendChild(iframe);
 }
 
 function findActivePost(posts) {
