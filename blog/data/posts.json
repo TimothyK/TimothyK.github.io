@@ -435,5 +435,12 @@
     "date": "2025-07-25",
     "path": "2025/HardClean",
     "excerpt": "Create shortcuts to clean the build cache (obj folders) in Visual Studio solutions"
+  },
+  {
+    "title": "InfoSec 201",
+    "category": "Ethics",
+    "date": "2026-10-10",
+    "path": "2026/InfoSec201",
+    "excerpt": "Respect breeds trust"
   }
 ]
