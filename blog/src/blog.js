@@ -105,11 +105,37 @@ function buildNavbar() {
     <small>
     A blog by <a href="${root()}..">Timothy Klenke</a>
     <br />
-    <a href="${root()}data/rss.xml">
+    <a href="${root()}data/rss.xml" class="rss-subscribe">
       <i class="fa fa-rss"></i> Subscribe (RSS)
     </a>
     </small>
   </div>`;
+
+  const subscribeLink = navbar.querySelector('.rss-subscribe');
+  const status = document.createElement('div');
+  status.classList.add('rss-copy-status');
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  status.setAttribute('aria-atomic', 'true');
+  navbar.appendChild(status);
+
+  let statusTimeout;
+  subscribeLink.addEventListener('click', async (event) => {
+    event.preventDefault();
+    clearTimeout(statusTimeout);
+    status.textContent = '';
+
+    try {
+      await navigator.clipboard.writeText(subscribeLink.href);
+      status.textContent = 'RSS link has been copied to the clipboard';
+    } catch (error) {
+      status.textContent = 'Could not copy the RSS link to the clipboard.';
+    }
+
+    statusTimeout = setTimeout(() => {
+      status.textContent = '';
+    }, 3000);
+  });
 
   return navbar;
 }
