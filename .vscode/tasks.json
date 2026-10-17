@@ -8,16 +8,19 @@
       "group": "build",
       "problemMatcher": [],
       "label": "npm: build - blog",
-      "detail": "webpack --mode production --progress"
+      "detail": "Generate blog metadata and bundle the blog JavaScript"
     },
     {
       "type": "npm",
       "script": "build",
       "path": "./",
-      "group": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
       "problemMatcher": [],
       "label": "npm: build - main",
-      "detail": "webpack --mode production --progress"
+      "detail": "Generate blog metadata and bundle both homepage and blog JavaScript"
     }
   ]
 }

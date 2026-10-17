@@ -1,6 +1,7 @@
 const path = require('path')
 
 module.exports = {
+  context: __dirname,
   entry: {
     app: ['@babel/polyfill', './src/blog.js']
   },
@@ -14,7 +15,7 @@ module.exports = {
         test: /\.js?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        query: {
+        options: {
           presets: ['@babel/preset-env']
         }
       }

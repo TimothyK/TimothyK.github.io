@@ -4,9 +4,13 @@
   "description": "Code Monkey Projectiles",
   "main": "blog.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test scripts/generate-blog.test.js",
+    "generate": "node scripts/generate-blog.js",
+    "generate:check": "node scripts/generate-blog.js --check",
     "start": "webpack-dev-server --output-public-path=/build/  --mode development --progress --open --hot",
-    "build": "webpack --mode production --progress"
+    "build": "npm run generate && npm run build:main && npm run build:blog",
+    "build:main": "webpack --mode production",
+    "build:blog": "webpack --config blog/webpack.config.js --mode production"
   },
   "author": "Timothy Klenke",
   "license": "MIT",
@@ -29,8 +33,9 @@
     "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "babel-loader": "^8.0.5",
+    "fast-xml-parser": "^5.11.2",
     "webpack": "^5.94.0",
-    "webpack-cli": "^3.0.8",
+    "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.11.1"
   }
 }
