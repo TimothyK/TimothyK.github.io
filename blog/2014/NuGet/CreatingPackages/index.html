@@ -22,30 +22,30 @@
       integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../../../css/style.css" />
+    <link rel="stylesheet" href="/blog/css/style.css" />
     <title>Creating NuGet Packages - Code Monkey Projectiles</title>
-    <link rel="icon" href="../../../img/monkey.jpg" />
-    <link rel="apple-touch-icon" href="../../../img/favicon.png" />
+    <link rel="icon" href="/blog/img/monkey.jpg" />
+    <link rel="apple-touch-icon" href="/blog/img/favicon.png" />
   </head>
   <body>
     <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
-          <a href="../../.."
+          <a href="/blog/"
             ><img
-              src="../../../img/monkey.jpg"
+              src="/blog/img/monkey.jpg"
               alt="logo"
               class="rounded-circle"
               height="90"
           /></a>
-          <a href="../../.."
+          <a href="/blog/"
             ><h3 class="d-inline align-middle pl-2">
               Code Monkey Projectiles
             </h3></a
           >
         </div>
         <div>
-          <small>A blog by <a href="../../../..">Timothy Klenke</a></small>
+          <small>A blog by <a href="/">Timothy Klenke</a></small>
         </div>
       </div>
     </nav>
@@ -74,7 +74,7 @@
           <main id="post">
             <p>
               In my
-              <a href="../WhatIs/">previous post</a>
+              <a href="/blog/2014/NuGet/WhatIs/">previous post</a>
               I stated that NuGet solves a number of problems when working with
               open source libraries. These problems were finding, downloading,
               controlling, referencing, upgrading and managing dependencies of
@@ -88,7 +88,7 @@
               <p>
                 Before we create a package lets take a look at what a package is
                 and what it contains. In my
-                <a href="../WhatIs/">previous post</a>
+                <a href="/blog/2014/NuGet/WhatIs/">previous post</a>
                 I mentioned that a NuGet package is a “.nupkg” file that the
                 downloader will put in the MySolution\packages\PackageID.version
                 folder.
@@ -106,7 +106,7 @@
                 number, title, tags, description, license, and dependency
                 information. When you are viewing the package in the “Manage
                 NuGet Packages” screen (see
-                <a href="../WhatIs/">previous post</a>) you’ll notice that all
+                <a href="/blog/2014/NuGet/WhatIs/">previous post</a>) you’ll notice that all
                 the detail information displayed on the right hand side is
                 hosted within this nuspec file.
               </p>
@@ -262,7 +262,7 @@
                 package are built. This is done using the same
                 <a href="https://www.nuget.org/downloads">NuGet.exe</a>
                 file described in my
-                <a href="../WhatIs/">previous post</a>.
+                <a href="/blog/2014/NuGet/WhatIs/">previous post</a>.
               </p>
               <p>
                 For your version 1.0.0 release you’d create the nuspec file
@@ -316,9 +316,9 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <a href="../../.."> Code Monkey Projectiles </a>
+            <a href="/blog/"> Code Monkey Projectiles </a>
             <br />
-            <small>by <a href="../../../..">Timothy Klenke</a></small>
+            <small>by <a href="/">Timothy Klenke</a></small>
           </div>
         </div>
       </div>
@@ -338,7 +338,7 @@
         crossorigin="anonymous"
       ></script>
 
-      <script src="../../../build/blog.bundle.js"></script>
+      <script src="/blog/build/blog.bundle.js"></script>
     </div>
   </body>
 </html>
