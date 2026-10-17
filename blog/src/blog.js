@@ -173,11 +173,11 @@ function buildFooter() {
   share.classList.add('col-md-6', 'mb-3');
   share.innerHTML = `<span class="align-middle">Share</span>
   <span class="align-middle p-3">
-    <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(
+    <a aria-label="Share on X" title="Share on X" href="https://x.com/intent/tweet?url=${encodeURIComponent(
       document.URL
     )}&text=${encodeURIComponent(
     activePost.title
-  )}"><i class="fab fa-twitter fa-2x"></i></a>
+  )}"><i class="fa-brands fa-x-twitter fa-2x" aria-hidden="true"></i></a>
   </span>
   <span class="align-middle p-3">
     <a href="http://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
