@@ -9,6 +9,16 @@
   color: #000;
 }
 
+.navbar-brand .blog-title {
+  text-decoration: none;
+}
+
+.blog-title:hover h3,
+.blog-title:focus-visible h3 {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 footer a:link,
 footer a:visited,
 footer a:hover {

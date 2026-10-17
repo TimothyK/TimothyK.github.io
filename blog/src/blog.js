@@ -95,7 +95,7 @@ function buildNavbar() {
     /></a>
     <span id="projectile"">💩</span>
     <div class="navbar-brand mr-auto">
-    <a href="${root()}"
+    <a href="${root()}" class="blog-title"
       ><h3 class="d-inline align-middle">
         Code Monkey Projectiles
       </h3></a
