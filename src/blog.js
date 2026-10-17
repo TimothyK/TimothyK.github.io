@@ -5,6 +5,38 @@ async function getPosts() {
 
 getPosts().then((posts) => buildMostRecent(posts.slice(-3)));
 
+initializeRssSubscription();
+
+function initializeRssSubscription() {
+  const subscribeLink = document.querySelector('.rss-subscribe');
+  if (subscribeLink === null) return;
+
+  const status = document.createElement('div');
+  status.classList.add('rss-copy-status');
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  status.setAttribute('aria-atomic', 'true');
+  document.body.appendChild(status);
+
+  let statusTimeout;
+  subscribeLink.addEventListener('click', async (event) => {
+    event.preventDefault();
+    clearTimeout(statusTimeout);
+    status.textContent = '';
+
+    try {
+      await navigator.clipboard.writeText(subscribeLink.href);
+      status.textContent = 'RSS link has been copied to the clipboard';
+    } catch (error) {
+      status.textContent = 'Could not copy the RSS link to the clipboard.';
+    }
+
+    statusTimeout = setTimeout(() => {
+      status.textContent = '';
+    }, 3000);
+  });
+}
+
 function buildMostRecent(posts) {
   var container = document.getElementById('most-recent-posts');
   var mostRecent = posts[posts.length - 1];
