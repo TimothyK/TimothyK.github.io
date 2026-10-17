@@ -48,6 +48,11 @@ footer a:hover {
   font-size: 0.8rem;
 }
 
+main img {
+  max-width: 100%;
+  height: auto;
+}
+
 .gist {
   max-width: 825px;
   overflow: auto;
@@ -121,7 +126,7 @@ td {
   100% {
     transform: rotate(1080deg);
     top: 90%;
-    left: 100%;
+    left: calc(100% - 2em);
     opacity: 0;
   }
 }
