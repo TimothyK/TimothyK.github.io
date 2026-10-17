@@ -22,30 +22,30 @@
       integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../../../css/style.css" />
+    <link rel="stylesheet" href="/blog/css/style.css" />
     <title>Refactor Away The IF - Code Monkey Projectiles</title>
-    <link rel="icon" href="../../../img/monkey.jpg" />
-    <link rel="apple-touch-icon" href="../../../img/favicon.png" />
+    <link rel="icon" href="/blog/img/monkey.jpg" />
+    <link rel="apple-touch-icon" href="/blog/img/favicon.png" />
   </head>
   <body>
     <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
-          <a href="../../.."
+          <a href="/blog/"
             ><img
-              src="../../../img/monkey.jpg"
+              src="/blog/img/monkey.jpg"
               alt="logo"
               class="rounded-circle"
               height="90"
           /></a>
-          <a href="../../.."
+          <a href="/blog/" class="blog-title"
             ><h3 class="d-inline align-middle pl-2">
               Code Monkey Projectiles
             </h3></a
           >
         </div>
         <div>
-          <small>A blog by <a href="../../../..">Timothy Klenke</a></small>
+          <small>A blog by <a href="/">Timothy Klenke</a></small>
         </div>
       </div>
     </nav>
@@ -77,7 +77,7 @@
     If you have ever worked with me for any period of time you have definitely heard me say “every time you use and IF statement a kitten dies”.  Although it is probably not possible to remove all if statements, it is possible to minimize them.  Overuse of IF statements is one of the faster ways to make code harder to read, test, and support.
   </p>
   <p class="text-center">
-    <img class="img-fluid" src="../DeadCat.jpg" alt="Dead Cat" width="700" height="305">
+    <img class="img-fluid" src="/blog/2020/AntiIf/DeadCat.jpg" alt="Dead Cat" width="700" height="305">
   </p>
   <p>
     So why are IF statements so bad?  
@@ -227,7 +227,7 @@ public Employee FindOrCreateEmployee(Guid? id) =>
     The ternary operator is going to make it more difficult to add logging directly to this function.  However, that is a good thing.  The ternary operator is doing its job.  It is trying to keep us on the path of keeping IF branches small (one line) and keeping the code expressive.
   </p>
   <p>
-    To keep the ternary operator and add logging, the we realize that there might be more requirements around creating a new Employee that simply calling “new Employee()”.  It is best to put that task in a function instead of embedding it in some curly braces below an IF.  That function can have a name to better express the role it is playing in the code.  Structure in the code emerges.  Yes, it’s a small function, but that is good (see my <a href="../../SmallFunctions/">previous post</a> on Small Functions). 
+    To keep the ternary operator and add logging, the we realize that there might be more requirements around creating a new Employee that simply calling “new Employee()”.  It is best to put that task in a function instead of embedding it in some curly braces below an IF.  That function can have a name to better express the role it is playing in the code.  Structure in the code emerges.  Yes, it’s a small function, but that is good (see my <a href="/blog/2020/SmallFunctions/">previous post</a> on Small Functions). 
   </p>
   <p>
     So, before we add the logging we can refactor thusly:
@@ -314,7 +314,7 @@ private Employee CreateEmployee()
     IF statements are technical details that should be buried in low-level functions.  This conforms to the “Tell, Don’t Ask” rule. The high-level function tell the FindEmployee function to find an employee.  The high-level function doesn’t worry about the low-level details regarding whether or not that low-level function can handle nulls or if querying a database for a null primary key is a good optimization.  Implementing knowledge at high-levels about what is safe or optimal in low-levels needlessly couples the high and low-level code together.  The low-level functions worry about what they can do.
   </p>
   <p>
-    The fourth requirement to ensure that ID is initialized when a new Employee object is created is an easy change.  It is painfully obvious for the maintainer of the code to know where the change needs to be made.  And that is the ultimate goal, making the code dead simple to maintain.  It is the heart of the <a href="../../../2015/Simply/Patterns/">KISS principle</a>.  In version 1d we have created a spot for this change and saw how that strongly discouraged any duplication in the code in versions 3b/c.
+    The fourth requirement to ensure that ID is initialized when a new Employee object is created is an easy change.  It is painfully obvious for the maintainer of the code to know where the change needs to be made.  And that is the ultimate goal, making the code dead simple to maintain.  It is the heart of the <a href="/blog/2015/Simply/Patterns/">KISS principle</a>.  In version 1d we have created a spot for this change and saw how that strongly discouraged any duplication in the code in versions 3b/c.
   </p>
   <p>
     Here is the final version with the change to the CreateEmployee method:
@@ -344,12 +344,12 @@ private Employee CreateEmployee()
   </p>
 </section>
 <p>
-  The Ternary operator is just one technique to reduce the number of IF statements in your code.  In my <a href="../Patterns/">next post</a> I’ll explore some more.
+  The Ternary operator is just one technique to reduce the number of IF statements in your code.  In my <a href="/blog/2020/AntiIf/Patterns/">next post</a> I’ll explore some more.
 </p>
 <p>
   <a href="https://francescocirillo.com/pages/anti-if-campaign">
     <img height="60" width="120"
-    src="../AntiIfBanner.gif"
+    src="/blog/2020/AntiIf/AntiIfBanner.gif"
     alt="I have joined Anti-IF Campaign"></a>
 </p>
 
@@ -375,9 +375,9 @@ private Employee CreateEmployee()
       <div class="container">
         <div class="row">
           <div class="col">
-            <a href="../../.."> Code Monkey Projectiles </a>
+            <a href="/blog/"> Code Monkey Projectiles </a>
             <br />
-            <small>by <a href="../../../..">Timothy Klenke</a></small>
+            <small>by <a href="/">Timothy Klenke</a></small>
           </div>
         </div>
       </div>
@@ -397,7 +397,7 @@ private Employee CreateEmployee()
         crossorigin="anonymous"
       ></script>
 
-      <script src="../../../build/blog.bundle.js"></script>
+      <script src="/blog/build/blog.bundle.js"></script>
     </div>
   </body>
 </html>
