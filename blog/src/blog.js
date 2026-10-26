@@ -305,7 +305,7 @@ function buildPartNavList(posts) {
     }
 
     const link = document.createElement('a');
-    link.href = root() + post.path;
+    link.href = root() + post.path + '/';
     link.classList.add('page-link');
     link.innerText = post.part;
     link.title = post.title;
@@ -432,7 +432,7 @@ function showGroup(builder, group, posts) {
 
 function buildPostListItem(builder, post) {
   const link = document.createElement('a');
-  link.href = root() + post.path;
+  link.href = root() + post.path + '/';
   link.title = post.excerpt;
   link.classList.add('list-group-item', 'list-group-item-action', 'p-2');
   if (post === activePost) {
